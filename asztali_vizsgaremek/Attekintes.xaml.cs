@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for Attekintes.xaml
     /// </summary>
     public partial class Attekintes : Page
     {

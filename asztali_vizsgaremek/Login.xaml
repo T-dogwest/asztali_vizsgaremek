@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:asztali_vizsgaremek"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
+        Title="Login" Height="450" Width="800"
+        Background="yellow">
    
     <Grid  >
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="250"/>
             <RowDefinition Height="30"/>
@@ -21,14 +23,15 @@
             <ColumnDefinition Width="300"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="1" Grid.Row="0" x:Name="errorsMessage" Visibility="Collapsed"/>
+        <Image Source="C:\Users\csont\Documents\vizsgaremek\asztali_vizsgaremek\asztali_vizsgaremek\Image\ez" Grid.Column="1" Width="150" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Label Grid.Column="1" Grid.Row="5" x:Name="errorsMessage" Visibility="Collapsed"/>
         <TextBox Grid.Row="1" Grid.Column="2" x:Name="tbFelhnev" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
         <TextBox Grid.Row="2" Grid.Column="1" x:Name="tbJelszo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
 
         <Label Grid.Row="1" Content="Felhasználónév: " HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <Label Grid.Row="2" Content="Jelszó: " HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-        <Button Grid.Row="3" x:Name="btnLogin" Grid.Column="1" Width="150" Content="Bejelentkezés" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+        <Button Grid.Row="3" x:Name="btnLogin" Grid.Column="1" Width="150" Content="Bejelentkezés" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Red" Foreground="white" Click="btnLogin_Click"  />
         <TextBlock  Grid.Row="4"  Grid.Column="2">
         <Hyperlink NavigateUri="https://www.google.com" x:Name="register" >Regisztráció</Hyperlink>
         </TextBlock>

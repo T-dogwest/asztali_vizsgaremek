@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,21 +16,13 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Italok.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class Italok : Page
     {
-        public Login()
+        public Italok()
         {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            Admin admin = new Admin();
-            admin.Show();
-            this.Close();
-
         }
     }
 }
