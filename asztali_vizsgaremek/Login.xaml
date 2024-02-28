@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:asztali_vizsgaremek"
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800">
-    <Grid>
+   
+    <Grid  >
         <Grid.RowDefinitions>
             <RowDefinition Height="250"/>
             <RowDefinition Height="30"/>
