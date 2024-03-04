@@ -31,7 +31,7 @@
                 <Button Content="Italok" Grid.Column="3" Margin="5"  MinWidth="80" Click="Button_Italok"  Foreground="White" Background="#8A2A23"/>
                 <Button Content="Felhasznalok" Grid.Column="4" Margin="5"  MinWidth="80" Click="Button_Felhasznalok"  Foreground="White" Background="#8A2A23"/>
                 <Button Content="Adminok" Grid.Column="5" Margin="5"  MinWidth="80" Click="Button_Click"  Foreground="White" Background="#8A2A23"/>
-                  <Button Content="Logout" Grid.Column="8" Margin="5"  MinWidth="80" Background="DarkRed" Foreground="White" />
+                  <Button Content="Kijelentkezés" Grid.Column="8" Margin="5"  MinWidth="80" Background="DarkRed" Foreground="White" />
             </Grid>
            
 

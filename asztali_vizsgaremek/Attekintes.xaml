@@ -9,21 +9,23 @@
       Title="Attekintes"
       Background="White"
        Height="600" Width="1000">
-     
+
 
     <Grid>
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
-            <RowDefinition />
+            <RowDefinition Height="550"/>
+            <RowDefinition/>
+
         </Grid.RowDefinitions>
-        
-        <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="10" Height="300" Width="500" HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"></DataGrid>
-        
-        <StackPanel Grid.Row="1" Height="35" Orientation="Horizontal" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
-            <Button  Content="Hozzáad" Width="150" />
-            <Button Content="Módosít" Width="150"/>
-            <Button Content="Töröl" Width="150" />
+
+        <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="5" Width="900"  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"></DataGrid>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="50">
+            <Button Margin="5"  Content="Módosít" Width="150"/>
+            <Button Margin="5" Content="Töröl" Width="150" />
         </StackPanel>
-        
+       
+
     </Grid>
 </Page>
