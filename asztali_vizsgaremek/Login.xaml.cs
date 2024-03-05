@@ -30,7 +30,7 @@ namespace asztali_vizsgaremek
 
         }
 
-       /* private void tbJelszo_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbJelszo_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
@@ -38,6 +38,6 @@ namespace asztali_vizsgaremek
         private void tbFelhnev_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }*/
+        }
     }
 }
