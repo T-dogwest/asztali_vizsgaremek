@@ -18,6 +18,7 @@ namespace asztali_vizsgaremek
     {
         public Login()
         {
+
             InitializeComponent();
         }
 
@@ -28,5 +29,15 @@ namespace asztali_vizsgaremek
             this.Close();
 
         }
+
+       /* private void tbJelszo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tbFelhnev_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }*/
     }
 }

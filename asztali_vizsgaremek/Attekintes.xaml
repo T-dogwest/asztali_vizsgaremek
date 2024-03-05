@@ -22,7 +22,7 @@
         <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="5" Width="900"  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"></DataGrid>
 
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
-            <Button Margin="5"  Content="Módosít" Width="150"/>
+            <Button Margin="5"  Content="Jóváhagyás" Width="150"/>
             <Button Margin="5" Content="Töröl" Width="150" />
         </StackPanel>
        
