@@ -29,25 +29,26 @@ namespace asztali_vizsgaremek
             Main.Content = new Attekintes();
         }
 
-        private void Button_Etelek(object sender, RoutedEventArgs e)
+        private void Button_Menu(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Etelek();
+            Main.Content = new Menu();
         }
 
-        private void Button_Italok(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Italok();
-        }
+       
 
         private void Button_Felhasznalok(object sender, RoutedEventArgs e)
         {
             Main.Content = new Felhasznalok();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Adminok(object sender, RoutedEventArgs e)
         {
             Main.Content = new Adminok();
         }
-        
+
+        private void Button_cegadatok(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Opening();
+        }
     }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek
 {
     /// <summary>
-    /// Interaction logic for Etelek.xaml
+    /// Interaction logic for Opening.xaml
     /// </summary>
-    public partial class Etelek : Page
+    public partial class Opening : Page
     {
-        public Etelek()
+        public Opening()
         {
             InitializeComponent();
         }

@@ -1,0 +1,76 @@
+﻿<Page x:Class="asztali_vizsgaremek.Opening"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:asztali_vizsgaremek"
+    mc:Ignorable="d" 
+ d:DesignHeight="600" d:DesignWidth="900"
+ Title="Adminok"
+ Height="600" Width="1000"
+ Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="10" Height="600" Width="500" HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
+
+            <Button Margin="5" Content="Töröl" Width="150" />
+        </StackPanel>
+
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="72*"/>
+                <RowDefinition Height="95*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Hétfő: " Grid.Row="0" Grid.Column="0"/>
+            <TextBox Grid.Row="0" Margin="5" Grid.Column="1" x:Name="tbMonday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+
+            <Label Content="Kedd: " Grid.Row="1" Grid.Column="0"/>
+            <TextBox Grid.Row="1" Margin="5" Grid.Column="1" x:Name="tbTuesday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+
+            <Label Content="Szerda: " Grid.Row="2" Grid.Column="0"/>
+            <TextBox Grid.Row="2" Margin="5" Grid.Column="1" x:Name="tbWednesday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+
+            <Label Content="Csütörtök: " Grid.Row="3" Grid.Column="0"/>
+            <TextBox Grid.Row="3" Margin="5" Grid.Column="1" x:Name="tbThursday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+
+            <Label Content="Péntek: " Grid.Row="4" Grid.Column="0"/>
+            <TextBox Grid.Row="4" Margin="5" Grid.Column="1" x:Name="tbFriday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+
+            <Label Content="Szombat: " Grid.Row="5" Grid.Column="0"/>
+            <TextBox Grid.Row="5" Margin="5" Grid.Column="1" x:Name="Sasturday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+
+            <Label Content="Vasárnap: " Grid.Row="6" Grid.Column="0"/>
+            <TextBox Grid.Row="6" Margin="5" Grid.Column="1" x:Name="tbSunday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+
+
+            <StackPanel Grid.Row="8" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="30" Margin="80,0,0,0" Width="150">
+                <Button  Content="Módosít" Width="150" Visibility="Collapsed"/>
+                <Button   Content="Hozzáad" Width="150" />
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

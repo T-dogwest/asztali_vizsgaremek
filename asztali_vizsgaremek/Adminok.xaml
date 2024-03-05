@@ -22,10 +22,10 @@
 
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="10" Height="300" Width="500" HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"></DataGrid>
+        <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="10" Height="600" Width="500" HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"></DataGrid>
 
-        <StackPanel Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="50">
-            <Button Margin="5" Content="Módosít" Width="150"/>
+        <StackPanel Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
+            
             <Button Margin="5" Content="Töröl" Width="150" />
         </StackPanel>
 
@@ -44,13 +44,24 @@
                 <RowDefinition Height="95*"/>
             </Grid.RowDefinitions>
             <Label Content="Felhasználónév: " Grid.Row="0" Grid.Column="0"/>
-            <TextBox Grid.Row="0" Grid.Column="1" x:Name="tbFelhnev" HorizontalAlignment="center" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+            <TextBox Grid.Row="0" Margin="5" Grid.Column="1" x:Name="tbFelhnev" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+            
             <Label  Content="Email: " Margin="0,83,0,0" Grid.RowSpan="2"/>
+            <TextBox Grid.Row="1" Margin="5" Grid.Column="1" x:Name="tbEmail" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+            
             <Label Content="jelszó: " Grid.Row="1" Margin="0,83,0,0" Grid.RowSpan="2"/>
-            <Label Content="Kerestnév: " Grid.Row="2" Margin="0,83,0,2" Grid.RowSpan="2"/>
-            <Label Content="Vezetéknév " Grid.Row="4" Margin="0,0,0,89" Grid.RowSpan="2"/>
-            <StackPanel Grid.Row="5" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="50" Margin="80,0,0,0" Width="150">
+            <TextBox Grid.Row="2" Margin="5" Grid.Column="1" x:Name="tbJelszo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+            
+            <Label Content="Keresztnév: " Grid.Row="2" Margin="0,83,0,2" Grid.RowSpan="2"/>
+            <TextBox Grid.Row="3" Margin="5" Grid.Column="1" x:Name="tbkeresztnev" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+            
+            <Label Content="Vezetéknév: " Grid.Row="4" Margin="0,0,0,89" Grid.RowSpan="2"/>
+            <TextBox Grid.Row="4" Margin="5" Grid.Column="1" x:Name="tbVezeteknev" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+            
+            <StackPanel Grid.Row="5" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="30" Margin="80,0,0,0" Width="150">
+                <Button  Content="Módosít" Width="150" Visibility="Collapsed"/>
                 <Button   Content="Hozzáad" Width="150" />
+               
             </StackPanel>
         </Grid>
     </Grid>

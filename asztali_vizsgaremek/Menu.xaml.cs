@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek
 {
     /// <summary>
-    /// Interaction logic for Italok.xaml
+    /// Interaction logic for Menu.xaml
     /// </summary>
-    public partial class Italok : Page
+    public partial class Menu : Page
     {
-        public Italok()
+        public Menu()
         {
             InitializeComponent();
         }
