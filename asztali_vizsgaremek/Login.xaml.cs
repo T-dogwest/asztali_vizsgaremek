@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
+using System.Net.Http;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,71 +26,61 @@ namespace asztali_vizsgaremek
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string username = tbFelhnev.Text;
-            string password = tbJelszo.Text;
+            string password = tbJelszo.Password;
 
-            if (AuthenticateUser(username, password))
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Sikeres bejelentkezés!");
-                Admin admin = new Admin();
-                admin.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Sikertelen bejelentkezés. Kérjük, ellenőrizze a felhasználónevet és a jelszót.");
+                MessageBox.Show("Please enter both username and password.");
+                return;
             }
 
+            HttpClient client = new HttpClient();
+            var content = new StringContent($"{{ \"username\": \"{username}\", \"password\": \"{password}\" }}", Encoding.UTF8, "application/json");
 
-        }
-        private bool AuthenticateUser(string username, string password)
-        {
-            string connectionString = "Server=localhost;Port=3306;Database=beercycle;Uid=root;Pwd=;";
-
-            string query = "SELECT role FROM user WHERE username = @username AND password = @password";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            try
             {
-                using (MySqlCommand command = new MySqlCommand(query, connection))
+                HttpResponseMessage response = await client.PostAsync("http://localhost:3000/auth/login", content);
+
+                if (response.IsSuccessStatusCode)
                 {
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@password", password);
+                    string token = await response.Content.ReadAsStringAsync();
 
-                    try
-                    {
-                        connection.Open();
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                string role = reader["role"].ToString();
-                                if (role == "Admin")
-                                {
-                                    return true;
-                                }
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Hiba történt az adatbázis kapcsolódás közben: " + ex.Message);
-                        return false;
-                    }
+                    // Assume token is stored or processed here, for simplicity we're ignoring it
+                    MessageBox.Show("A bejelentkezés sikeres");
+
+                    // Open AdminWindow
+                    Admin adminWindow = new Admin();
+                    adminWindow.Show();
+
+                    // Close LoginWindow
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Login failed. Please check your credentials.");
                 }
             }
-            return false;
-        }
-
-        private void tbJelszo_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void tbFelhnev_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+            finally
+            {
+                client.Dispose();
+            }
         }
     }
+    public class LoginResponse
+    {
+        public string Token { get; set; }
+        public string Role { get; set; }
+    }
 }
+
+
+ 
+    
+
