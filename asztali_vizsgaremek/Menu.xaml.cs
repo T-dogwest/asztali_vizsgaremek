@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static asztali_vizsgaremek.Menucs;
 
 namespace asztali_vizsgaremek
 {
@@ -27,12 +28,24 @@ namespace asztali_vizsgaremek
         {
 
             InitializeComponent();
+            InitializeComboBox();
             MenuTable.ItemsSource = services.GetAll();
+        }
+        private void InitializeComboBox()
+        {
+            // Az enum értékek lekérése
+            Array types = Enum.GetValues(typeof(MenuType));
+
+            // ComboBox feltöltése az enum értékekkel
+            foreach (MenuType type in types)
+            {
+                cbTipus.Items.Add(type);
+            }
         }
 
         private void Button_MenuHozzaad(object sender, RoutedEventArgs e)
         {
-            try
+           try
             {
                 Menucs menu = CreateMenuFromInputFields();
                 Menucs newMenu = services.Add(menu);
@@ -41,7 +54,7 @@ namespace asztali_vizsgaremek
                     MessageBox.Show("Sikeres felvétel");
                     tbNameDrink.Text = "";
                     tbPriceDrink.Text = "";
-                    tlTipus.SelectedItem = null;
+                    cbTipus.SelectedItem = null;
                     
                 }
                 else
@@ -56,49 +69,32 @@ namespace asztali_vizsgaremek
         }
         private Menucs CreateMenuFromInputFields()
         {
-            string NameDrink = tbNameDrink.Text.Trim();
+            string Name = tbNameDrink.Text.Trim();
             string Price = tbPriceDrink.Text.Trim();
-            string Tipus = listBoxTipus.SelectedItem?.ToString(); // ListBox-ból kiválasztott elem lekérése
+            int Type =cbTipus.SelectedIndex;
 
-
-            if (string.IsNullOrEmpty(Fullname))
+            if (string.IsNullOrEmpty(Name))
             {
                 throw new Exception("Név kitöltése kötelező!");
             }
 
-            if (string.IsNullOrEmpty(Email) || new System.Net.Mail.MailAddress(Email).Address != Email)
+            if (string.IsNullOrEmpty(Price))
             {
-                throw new Exception("Nem hagyhatod üresen és érvényes emailt kell megadnod!");
+                throw new Exception("Ár kitöltése kötelező!");
             }
 
-            if (!Regex.IsMatch(Phone, @"^\(\d{3}\) \d{3}-\d{4}$"))
+            // Ár ellenőrzése
+            if (!int.TryParse(Price, out int priceValue))
             {
-                throw new Exception("Érvénytelen telefonszám ");
-            }
-            if (string.IsNullOrEmpty(Phone))
-            {
-                throw new Exception("Nem hagyhatod üresen");
-            }
-            if (string.IsNullOrEmpty(Holidayss))
-            {
-                throw new Exception("Nem hagyhatod üresen");
-            }
-            if (!int.TryParse(Holidayss, out int Holidays))
-            {
-                throw new Exception("A napok számát add meg");
-            }
-            if (Holidays > 20 || Holidays < 0)
-            {
-                throw new Exception("Maximum 20 szabadság lehet");
+                throw new Exception("Az árnak numerikus értéknek kell lennie!");
             }
 
-
-            Employees employees = new Employees();
-            employees.Fullname = Fullname;
-            employees.Email = Email;
-            employees.Phone = Phone;
-            employees.Holidays = Holidays;
-            return employees;
+            // Menü objektum inicializálása és beállítása
+            Menucs menue = new Menucs();
+            menue.Name = Name;
+            menue.Price = priceValue;
+            menue.ItemType = (Menucs.MenuType)Type;
+            return menue;
         }
     }
 }

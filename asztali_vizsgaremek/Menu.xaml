@@ -49,14 +49,15 @@ Background="White">
             <TextBox Grid.Row="1" Margin="5" Grid.Column="1" x:Name="tbPriceDrink" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
             <Label Content="Típus: " Grid.Row="2" Grid.Column="0"/>
-            <ListBox x:Name="tlTipus" Grid.Column="1" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=2}"/>
+            <ComboBox Grid.Column="1" Grid.Row="2" x:Name="cbTipus" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" />
 
             <StackPanel Grid.Row="5" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="30" Margin="80,0,0,0" Width="150">
                 <Button  Content="Módosít" Width="150" Visibility="Collapsed"/>
                 <Button   Content="Hozzáad" Width="150" Click="Button_MenuHozzaad" />
 
             </StackPanel>
-            
+         
+
         </Grid>
     </Grid>
 </Page>

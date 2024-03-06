@@ -17,8 +17,8 @@ namespace asztali_vizsgaremek
         public int Price { get; set; }
 
         [JsonProperty("type")]
-        public Type ItemType { get; set; }
+        public MenuType ItemType { get; set; }
 
-        public enum Type { Drink, Snack }
+        public enum MenuType { Drink, Snack }
     }
 }
