@@ -46,17 +46,24 @@ namespace asztali_vizsgaremek
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string token = await response.Content.ReadAsStringAsync();
+                    var responseContent = await response.Content.ReadAsAsync<LoginResponse>(); // Assume LoginResponse model contains token and role properties
 
-                    // Assume token is stored or processed here, for simplicity we're ignoring it
-                    MessageBox.Show("A bejelentkezés sikeres");
+                    // Check if the user has admin role
+                    if (responseContent.Role == "Admin")
+                    {
+                        MessageBox.Show("Login successful.");
 
-                    // Open AdminWindow
-                    Admin adminWindow = new Admin();
-                    adminWindow.Show();
+                        // Open AdminWindow
+                        Admin adminWindow = new Admin();
+                        adminWindow.Show();
 
-                    // Close LoginWindow
-                    Close();
+                        // Close LoginWindow
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You do not have permission to access this page.");
+                    }
                 }
                 else
                 {
