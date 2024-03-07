@@ -33,7 +33,7 @@ namespace asztali_vizsgaremek
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Please enter both username and password.");
+                MessageBox.Show("Add meg a jelszavad és a felhasználó nevedet is");
                 return;
             }
 
@@ -46,33 +46,33 @@ namespace asztali_vizsgaremek
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseContent = await response.Content.ReadAsAsync<LoginResponse>(); // Assume LoginResponse model contains token and role properties
+                    var responseContent = await response.Content.ReadAsAsync<LoginResponse>(); 
 
-                    // Check if the user has admin role
+                   
                     if (responseContent.Role == "Admin")
                     {
-                        MessageBox.Show("Login successful.");
+                        MessageBox.Show("Sikeres bejelentkeztés.");
 
-                        // Open AdminWindow
+                        
                         Admin adminWindow = new Admin();
                         adminWindow.Show();
 
-                        // Close LoginWindow
+                        
                         Close();
                     }
                     else
                     {
-                        MessageBox.Show("You do not have permission to access this page.");
+                        MessageBox.Show("Nincs jogosultságod belépni");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Login failed. Please check your credentials.");
+                    MessageBox.Show("LNem sikerült bejelentkezni,ellenőrizd a felhasználó neved és a jelszavad");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
             finally
             {
