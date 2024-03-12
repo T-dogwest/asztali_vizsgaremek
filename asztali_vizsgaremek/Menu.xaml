@@ -21,7 +21,7 @@ Background="White">
 
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="0"  x:Name="MenuTable" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True" Margin="10" Height="600" Width="500" HorizontalAlignment="Center" />
+        <DataGrid Grid.Row="0" SelectionChanged="MenuTable_SelectionChanged" x:Name="MenuTable" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True" Margin="10" Height="600" Width="500" HorizontalAlignment="Center" />
 
         <StackPanel Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
 
@@ -43,10 +43,10 @@ Background="White">
                 <RowDefinition Height="95*"/>
             </Grid.RowDefinitions>
             <Label Content="Name: " Grid.Row="0" Grid.Column="0"/>
-            <TextBox Grid.Row="0" Margin="5" Grid.Column="1" x:Name="tbNameDrink" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+            <TextBox Grid.Row="0" Margin="5" Grid.Column="1" x:Name="tbMenuName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
             <Label Content="Ár: " Grid.Row="1" Grid.Column="0"/>
-            <TextBox Grid.Row="1" Margin="5" Grid.Column="1" x:Name="tbPriceDrink" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+            <TextBox Grid.Row="1" Margin="5" Grid.Column="1" x:Name="tbMenuPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
             <Label Content="Típus: " Grid.Row="2" Grid.Column="0"/>
             <ComboBox Grid.Column="1" Grid.Row="2" x:Name="cbTipus" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" />
@@ -56,7 +56,7 @@ Background="White">
                 <Button  x:Name="add" Content="Hozzáad" Width="150" Visibility="Visible" Click="Button_MenuHozzaad" />
 
             </StackPanel>
-            <Button Grid.Column="0" Grid.Row="5" Content="Vissza" Height="30" Width="50"/>
+            <Button Grid.Column="0" Grid.Row="5" Content="Vissza" Height="30" Width="50" Click="Button_Vissza"/>
 
 
         </Grid>

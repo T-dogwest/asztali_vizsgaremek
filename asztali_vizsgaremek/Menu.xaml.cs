@@ -30,6 +30,8 @@ namespace asztali_vizsgaremek
             InitializeComponent();
             InitializeComboBox();
             MenuTable.ItemsSource = services.GetAll();
+            
+           
         }
 
         private void InitializeComboBox()
@@ -48,10 +50,10 @@ namespace asztali_vizsgaremek
                 if (newMenu.Id != 0)
                 {
                     MessageBox.Show("Sikeres felvétel");
-                    tbNameDrink.Text = "";
-                    tbPriceDrink.Text = "";
+                    tbMenuName.Text = "";
+                    tbMenuPrice.Text = "";
                     cbTipus.SelectedItem = null;
-                    MenuTable.ItemsSource = services.GetAll(); 
+                    RefreshMenuTable();
                 }
                 else
                 {
@@ -64,41 +66,7 @@ namespace asztali_vizsgaremek
             }
         }
 
-        private MenuDTO CreateMenuFromInputFields()
-        {
-            string Name = tbNameDrink.Text.Trim();
-            string Price = tbPriceDrink.Text.Trim();
-            MenuType? Type = cbTipus.SelectedItem as MenuType?;
-
-            if (string.IsNullOrEmpty(Name))
-            {
-                throw new Exception("Név kitöltése kötelező!");
-            }
-
-            if (string.IsNullOrEmpty(Price))
-            {
-                throw new Exception("Ár kitöltése kötelező!");
-            }
-
-           
-            if (!int.TryParse(Price, out int priceValue))
-            {
-                throw new Exception("Az árnak numerikus értéknek kell lennie!");
-            }
-
-            
-            if (Type == null)
-            {
-                throw new Exception("Típus kiválasztása kötelező!");
-            }
-
-
-            MenuDTO menu = new MenuDTO();
-            menu.Name = Name;
-            menu.Price = priceValue;
-            menu.ItemType = Type.Value;
-            return menu;
-        }
+        
 
         private void Button_Delete(object sender, RoutedEventArgs e)
         {
@@ -106,14 +74,15 @@ namespace asztali_vizsgaremek
             {
                 try
                 {
-                    // Kiválasztott elem törlése
+                
                     MenuItem selectedMenu = (MenuItem)MenuTable.SelectedItem;
-                    bool deleteSuccess = services.Delete(selectedMenu); // Módosítás itt
+                    bool deleteSuccess = services.Delete(selectedMenu); 
 
                     if (deleteSuccess)
                     {
-                        MenuTable.ItemsSource = services.GetAll();
+                        RefreshMenuTable();
                         MessageBox.Show("Elem sikeresen törölve.");
+                        ClearInputFields();
                     }
                     else
                     {
@@ -130,39 +99,106 @@ namespace asztali_vizsgaremek
                 MessageBox.Show("Kérem válasszon ki egy elemet a törléshez.");
             }
         }
+     
+        private void Button_Vissza(object sender, RoutedEventArgs e)
+        {
+            
+            add.Visibility = Visibility.Visible;
+            
+            modify.Visibility = Visibility.Collapsed;
 
+            ClearInputFields();
+        }
+       
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
+            MenuItem selected = MenuTable.SelectedItem as MenuItem;
+            if (selected == null)
+            {
+                MessageBox.Show("Módosításhoz előbb válasszon ki elemet!");
+                return;
+            }
             try
             {
-                // Módosítás végrehajtása
-                MenuItem selectedMenu = (MenuItem)MenuTable.SelectedItem;
                 MenuDTO menu = CreateMenuFromInputFields();
-
-                bool success = services.Update(selectedMenu.Id, menu);
-
-                if (success)
+                MenuItem update = services.Update(selected.Id, menu);
+                if (update != null)
                 {
                     MessageBox.Show("Sikeres módosítás");
-                    tbNameDrink.Text = "";
-                    tbPriceDrink.Text = "";
-
-                    // Módosítás gomb elrejtése és a hozzáadás gomb megjelenítése
-                    modify.Visibility = Visibility.Visible;
-                    add.Visibility = Visibility.Collapsed;
-
-                    MenuTable.ItemsSource = services.GetAll();
-                }
-                else
-                {
-                    MessageBox.Show("Hiba történt a módosítás során");
+                    RefreshMenuTable();
+                    ClearInputFields();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Hiba történt a módosítás során: " + ex.Message);
+            }
+
+        }
+        private MenuDTO CreateMenuFromInputFields()
+        {
+            string Name = tbMenuName.Text.Trim();
+            string Price = tbMenuPrice.Text.Trim();
+            MenuType? Type = cbTipus.SelectedItem as MenuType?;
+
+            if (string.IsNullOrEmpty(Name))
+            {
+                throw new Exception("Név kitöltése kötelező!");
+            }
+
+            if (string.IsNullOrEmpty(Price))
+            {
+                throw new Exception("Ár kitöltése kötelező!");
+            }
+
+
+            if (!int.TryParse(Price, out int priceValue))
+            {
+                throw new Exception("Az árnak numerikus értéknek kell lennie!");
+            }
+
+
+            if (Type == null)
+            {
+                throw new Exception("Típus kiválasztása kötelező!");
+            }
+
+
+            MenuDTO menu = new MenuDTO();
+            menu.Name = Name;
+            menu.Price = priceValue;
+            menu.ItemType = Type.Value;
+            return menu;
+        }
+        private void RefreshMenuTable()
+        {
+            MenuTable.ItemsSource = services.GetAll();
+        }
+
+        private void ClearInputFields()
+        {
+            tbMenuName.Text = "";
+            tbMenuPrice.Text = "";
+        }
+        private void MenuTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (MenuTable.SelectedItem != null)
+            {
+                add.Visibility = Visibility.Collapsed;
+                modify.Visibility = Visibility.Visible;
+                // Itt ellenőrizheted, hogy melyik elem van kiválasztva a DataGrid-ben
+                MenuItem selectedMenuItem = (MenuItem)MenuTable.SelectedItem;
+                tbMenuName.Text = selectedMenuItem.Name;
+                tbMenuPrice.Text = selectedMenuItem.Price.ToString();
+                cbTipus.SelectedItem = selectedMenuItem.ItemType;
+                CreateMenuFromInputFields();
             }
         }
+
+       
+
+
     }
-    }
+   
+
 }
