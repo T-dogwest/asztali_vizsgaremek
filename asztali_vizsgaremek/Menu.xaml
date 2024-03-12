@@ -56,7 +56,7 @@ Background="White">
                 <Button  x:Name="add" Content="Hozzáad" Width="150" Visibility="Visible" Click="Button_MenuHozzaad" />
 
             </StackPanel>
-            <Button Grid.Column="0" Grid.Row="5" Content="Vissza" Height="30" Width="50" Click="Button_Vissza"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="*A módosításhoz válassz ki egy elemet."/>
 
 
         </Grid>

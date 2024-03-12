@@ -100,15 +100,7 @@ namespace asztali_vizsgaremek
             }
         }
      
-        private void Button_Vissza(object sender, RoutedEventArgs e)
-        {
-            
-            add.Visibility = Visibility.Visible;
-            
-            modify.Visibility = Visibility.Collapsed;
-
-            ClearInputFields();
-        }
+       
        
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
@@ -127,6 +119,10 @@ namespace asztali_vizsgaremek
                     MessageBox.Show("Sikeres módosítás");
                     RefreshMenuTable();
                     ClearInputFields();
+                    add.Visibility = Visibility.Visible;
+
+                    modify.Visibility = Visibility.Collapsed;
+
                 }
             }
             catch (Exception ex)
@@ -179,6 +175,7 @@ namespace asztali_vizsgaremek
         {
             tbMenuName.Text = "";
             tbMenuPrice.Text = "";
+            cbTipus.Text =null;
         }
         private void MenuTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
