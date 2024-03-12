@@ -84,7 +84,17 @@ namespace asztali_vizsgaremek
     {
         public string Token { get; set; }
         public string Role { get; set; }
+
+        public LoginResponse(string token, string role)
+        {
+            Token = token;
+            Role = role;
+
+            // Token beállítása a TokenManager használatával
+            TokenM.SetToken(token);
+        }
     }
+
 }
 
 

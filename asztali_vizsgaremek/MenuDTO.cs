@@ -1,24 +1,23 @@
-﻿using Newtonsoft.Json;
+﻿using Newtonsoft.Json.Converters;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static asztali_vizsgaremek.MenuItem;
 
 namespace asztali_vizsgaremek
 {
-    public class Menucs 
+    internal class MenuDTO
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("price")]
         public int Price { get; set; }
 
         [JsonProperty("type")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public MenuType ItemType { get; set; }
-
-        public enum MenuType { Drink, Snack }
     }
 }

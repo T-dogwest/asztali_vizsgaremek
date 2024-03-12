@@ -10,42 +10,48 @@ using System.Windows.Controls;
 
 namespace asztali_vizsgaremek
 {
-    internal class MenuServices
-    {
-        private HttpClient client = new HttpClient();
-        private string url = "http://localhost:3000/menu";
-
-        public List<Menucs> GetAll()
+   
+        internal class MenuServices
         {
-            string json = client.GetStringAsync(url).Result;
-            Debug.WriteLine(json);
-            return JsonConvert.DeserializeObject<List<Menucs>>(json);
+            private HttpClient client = new HttpClient();
+            private string url = "http://localhost:3000/menu";
+
+            public MenuServices()
+            {
+                
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + TokenM.GetToken());
+            }
+
+            public List<MenuItem> GetAll()
+            {
+                string json = client.GetStringAsync(url).Result;
+                Debug.WriteLine(json);
+                return JsonConvert.DeserializeObject<List<MenuItem>>(json);
+            }
+
+            public MenuItem Add(MenuDTO menu)
+            {
+                string body = JsonConvert.SerializeObject(menu);
+                StringContent content = new StringContent(body, Encoding.UTF8, "application/json");
+                HttpResponseMessage responseMessage = client.PostAsync(url, content).Result;
+                string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<MenuItem>(responseContent);
+            }
+
+            public bool Delete(MenuItem menu)
+            {
+                int id = menu.Id;
+                HttpResponseMessage response = client.DeleteAsync($"{url}/{id}").Result;
+                return response.IsSuccessStatusCode;
+            }
+
+            public MenuItem Update(int id, MenuItem menu)
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(menu), Encoding.UTF8, "application/json");
+                HttpResponseMessage responseMessage = client.PatchAsync($"{url}/{id}", content).Result;
+
+                string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<MenuItem>(responseContent);
+            }
         }
-
-        public Menucs Add(Menucs menu)
-        {
-            StringContent content = new StringContent(JsonConvert.SerializeObject(menu), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseMessage = client.PostAsync(url, content).Result;
-            string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
-            return JsonConvert.DeserializeObject<Menucs>(responseContent);
-        }
-
-        public bool Delete(Menucs menu)
-        {
-            int id = menu.Id;
-            HttpResponseMessage response = client.DeleteAsync($"{url}/{id}").Result;
-            return response.IsSuccessStatusCode;
-        }
-
-        public Menucs Update(int id, Menucs person)
-        {
-            StringContent content = new StringContent(JsonConvert.SerializeObject(person), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseMessage = client.PatchAsync($"{url}/{id}", content).Result;
-
-            string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
-            return JsonConvert.DeserializeObject<Menucs>(responseContent);
-        }
-
-
     }
-}

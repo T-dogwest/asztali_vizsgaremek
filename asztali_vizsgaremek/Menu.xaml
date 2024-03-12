@@ -25,7 +25,7 @@ Background="White">
 
         <StackPanel Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
 
-            <Button Margin="5" Content="Töröl" Width="150" />
+            <Button Margin="5" Content="Töröl" Width="150" Click="Button_Delete" />
         </StackPanel>
 
 
@@ -52,11 +52,12 @@ Background="White">
             <ComboBox Grid.Column="1" Grid.Row="2" x:Name="cbTipus" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" />
 
             <StackPanel Grid.Row="5" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="30" Margin="80,0,0,0" Width="150">
-                <Button  Content="Módosít" Width="150" Visibility="Collapsed"/>
-                <Button   Content="Hozzáad" Width="150" Click="Button_MenuHozzaad" />
+                <Button x:Name="modify" Content="Módosít" Width="150" Visibility="Collapsed" Click="Button_Modify"/>
+                <Button  x:Name="add" Content="Hozzáad" Width="150" Visibility="Visible" Click="Button_MenuHozzaad" />
 
             </StackPanel>
-         
+            <Button Grid.Column="0" Grid.Row="5" Content="Vissza" Height="30" Width="50"/>
+
 
         </Grid>
     </Grid>

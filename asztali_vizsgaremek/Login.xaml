@@ -25,7 +25,7 @@
             <ColumnDefinition Width="200"  />
         </Grid.ColumnDefinitions>
         <Image Source="C:\Users\csont\Documents\vizsgaremek\asztali_vizsgaremek\asztali_vizsgaremek\Image\BeerCycleText.png" Width="202" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.ColumnSpan="3" />
-        <Label Grid.Column="1" Grid.Row="5" x:Name="errorsMessage" Visibility="Collapsed"/>
+        
         <TextBox Grid.Row="1" Grid.Column="1" x:Name="tbFelhnev" HorizontalAlignment="center" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"  />
         <PasswordBox Grid.Row="2" Grid.Column="1" x:Name="tbJelszo" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" />
 
