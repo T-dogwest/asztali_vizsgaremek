@@ -20,12 +20,18 @@
             <RowDefinition/>
 
         </Grid.RowDefinitions>
-
-        <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="10" Height="600" Width="500" HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"></DataGrid>
+        <DataGrid Grid.Row="0"  x:Name="UserTable" Margin="10" Height="600" IsReadOnly="True" Width="500" HorizontalAlignment="Center" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Keresztnév" Binding="{Binding First_name}" />
+                <DataGridTextColumn Header="Vezetéknév" Binding="{Binding Last_name}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
+                <DataGridTextColumn Header="Role" Binding="{Binding roleType}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
         <StackPanel Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
 
-            <Button Margin="5" Content="Töröl" Width="150" />
+            <Button Margin="5" Content="Töröl" Width="150" Click="Button_Delete" />
         </StackPanel>
 
 
@@ -58,10 +64,11 @@
             <TextBox Grid.Row="4" Margin="5" Grid.Column="1" x:Name="tbVezeteknev" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
             <StackPanel Grid.Row="5" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="30" Margin="80,0,0,0" Width="150">
-                <Button  Content="Módosít" Width="150" Visibility="Collapsed"/>
-                <Button   Content="Hozzáad" Width="150" />
+                <Button x:Name="modify" Content="Módosít" Width="150" Visibility="Collapsed" Click="modify_Click" />
+                <Button   Content="Hozzáad" Width="150" Click="Button_Add" Visibility="Visible"/>
 
             </StackPanel>
+            <Button Grid.Column="0" Grid.Row="5" Content="Vissza" Height="30" Width="50" Click="Button_Back"/>
         </Grid>
     </Grid>
 </Page>

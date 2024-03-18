@@ -18,6 +18,7 @@ Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="500"/>
             <RowDefinition/>
+            <RowDefinition/>
 
         </Grid.RowDefinitions>
 
@@ -25,8 +26,10 @@ Background="White">
 
         <StackPanel Grid.Row="1" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
 
-            <Button Margin="5" Content="Töröl" Width="150" Click="Button_Delete" />
+            <Button Margin="5" Content="Töröl" Width="150" Click="Button_Torles" />
+            
         </StackPanel>
+        <Label Grid.Row="5" Grid.Column="1" Content="*A módosításhoz válassz ki egy elemet" />
 
 
         <Grid Grid.Column="1">
@@ -42,21 +45,22 @@ Background="White">
                 <RowDefinition Height="72*"/>
                 <RowDefinition Height="95*"/>
             </Grid.RowDefinitions>
-            <Label Content="Name: " Grid.Row="0" Grid.Column="0"/>
+            <Label Content="Név: " Grid.Row="0" Grid.Column="0"/>
             <TextBox Grid.Row="0" Margin="5" Grid.Column="1" x:Name="tbMenuName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
-            <Label Content="Ár: " Grid.Row="1" Grid.Column="0"/>
+            <Label Content="Ár(Ft): " Grid.Row="1" Grid.Column="0"/>
             <TextBox Grid.Row="1" Margin="5" Grid.Column="1" x:Name="tbMenuPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
             <Label Content="Típus: " Grid.Row="2" Grid.Column="0"/>
             <ComboBox Grid.Column="1" Grid.Row="2" x:Name="cbTipus" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" />
 
             <StackPanel Grid.Row="5" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="30" Margin="80,0,0,0" Width="150">
-                <Button x:Name="modify" Content="Módosít" Width="150" Visibility="Collapsed" Click="Button_Modify"/>
+                <Button x:Name="modify" Content="Módosít" Width="150" Visibility="Collapsed" Click="Button_Modositas"/>
                 <Button  x:Name="add" Content="Hozzáad" Width="150" Visibility="Visible" Click="Button_MenuHozzaad" />
 
             </StackPanel>
-            <Label Grid.Row="5" Grid.Column="1" Content="*A módosításhoz válassz ki egy elemet."/>
+            <Button Grid.Column="0" Grid.Row="5" Content="Vissza" Height="30" Width="50" Click="Button_Vissza"/>
+            
 
 
         </Grid>

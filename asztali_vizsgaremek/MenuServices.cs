@@ -33,7 +33,6 @@ namespace asztali_vizsgaremek
             {
                 string body = JsonConvert.SerializeObject(menu);
                 StringContent content = new StringContent(body, Encoding.UTF8, "application/json");
-                HttpResponseMessage responseMessage = client.PostAsync(url, content).Result;
                 string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
                 return JsonConvert.DeserializeObject<MenuItem>(responseContent);
             }

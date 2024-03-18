@@ -20,9 +20,45 @@ namespace asztali_vizsgaremek
     /// </summary>
     public partial class Felhasznalok : Page
     {
+        FelhasznaloService services = new FelhasznaloService();
         public Felhasznalok()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void Button_Add(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Delete(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void modify_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Back(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private async void LoadData()
+        {
+            List<FelhasznmalokItem> felhasznalok = services.GetAll();
+            List<FelhasznmalokItem> filteredFelhasznalok = felhasznalok.Select(item =>
+                new FelhasznmalokItem
+                {
+                    First_name = item.First_name,
+                    Last_name = item.Last_name,
+                    Email = item.Email,
+                    roleType = item.roleType,
+                }).ToList();
+
+            UserTable.ItemsSource = filteredFelhasznalok;
         }
     }
 }

@@ -68,7 +68,7 @@ namespace asztali_vizsgaremek
 
         
 
-        private void Button_Delete(object sender, RoutedEventArgs e)
+        private void Button_Torles(object sender, RoutedEventArgs e)
         {
             if (MenuTable.SelectedItem != null)
             {
@@ -100,9 +100,17 @@ namespace asztali_vizsgaremek
             }
         }
      
+        private void Button_Vissza(object sender, RoutedEventArgs e)
+        {
+            
+            add.Visibility = Visibility.Visible;
+            
+            modify.Visibility = Visibility.Collapsed;
+
+            ClearInputFields();
+        }
        
-       
-        private void Button_Modify(object sender, RoutedEventArgs e)
+        private void Button_Modositas(object sender, RoutedEventArgs e)
         {
             MenuItem selected = MenuTable.SelectedItem as MenuItem;
             if (selected == null)

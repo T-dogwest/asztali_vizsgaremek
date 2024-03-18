@@ -50,5 +50,10 @@ namespace asztali_vizsgaremek
         {
             Main.Content = new Opening();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Velemenyek();
+        }
     }
 }
