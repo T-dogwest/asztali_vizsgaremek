@@ -50,9 +50,7 @@ namespace asztali_vizsgaremek
                 if (newMenu.Id != 0)
                 {
                     MessageBox.Show("Sikeres felvétel");
-                    tbMenuName.Text = "";
-                    tbMenuPrice.Text = "";
-                    cbTipus.SelectedItem = null;
+                   ClearInputFields();
                     RefreshMenuTable();
                 }
                 else

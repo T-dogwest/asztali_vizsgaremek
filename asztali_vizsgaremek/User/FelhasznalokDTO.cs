@@ -25,7 +25,7 @@ namespace asztali_vizsgaremek
 
         [JsonProperty("roleType")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public RoleType roleType { get; set; }
+        public FelhasznalokItem.RoleType RoleType { get; set; }
     }
 
 

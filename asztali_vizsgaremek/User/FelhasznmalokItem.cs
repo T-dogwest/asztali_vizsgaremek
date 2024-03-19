@@ -28,7 +28,7 @@ namespace asztali_vizsgaremek
 
         [JsonProperty("roleType")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public RoleType roleType { get; set; }
+        public RoleType RoleType { get; set; }
     }
 
 

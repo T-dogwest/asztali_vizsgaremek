@@ -41,10 +41,7 @@ namespace asztali_vizsgaremek
             Main.Content = new Felhasznalok();
         }
 
-        private void Button_Adminok(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Adminok();
-        }
+       
 
         private void Button_cegadatok(object sender, RoutedEventArgs e)
         {
