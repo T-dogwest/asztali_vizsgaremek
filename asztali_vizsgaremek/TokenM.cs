@@ -29,5 +29,9 @@ namespace asztali_vizsgaremek
            
             return "Bearer " + authToken;
         }
+        public static void DeleteToken()
+        {
+            authToken = null; 
+        }
     }
 }

@@ -13,22 +13,26 @@ namespace asztali_vizsgaremek
     {
         [JsonProperty("id")]
         public int Id { get; set; }
-        [JsonProperty(" username")]
+        [JsonProperty("username")]
         public string Username { get; set; }
+
         [JsonProperty("email")]
         public string Email { get; set; }
+
         [JsonProperty("password")]
         public string Password { get; set; }
+
         [JsonProperty("first_name")]
         public string First_name { get; set; }
+
         [JsonProperty("last_name")]
         public string Last_name { get; set; }
 
 
 
-        [JsonProperty("roleType")]
+        [JsonProperty("role")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public RoleType RoleType { get; set; }
+        public RoleType Role { get; set; }
     }
 
 

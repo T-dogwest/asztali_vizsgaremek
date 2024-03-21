@@ -48,9 +48,32 @@ namespace asztali_vizsgaremek
             Main.Content = new Opening();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Velemenyek(object sender, RoutedEventArgs e)
         {
             Main.Content = new Velemenyek();
+        }
+
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Biztos ki szeretne jelentkezni?", "Kijelentkezés", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    // Töröljük a tárolt tokent
+                    TokenM.DeleteToken();
+                    // Itt lehet még további logout műveleteket végezni, például a felhasználót visszairányítani a bejelentkező oldalra vagy bezárni az alkalmazást.
+                    MessageBox.Show("Sikeres kijelentkezés");
+                    Login loginw = new Login();
+                    loginw.Show();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hiba történt a kijelentkezés során: " + ex.Message);
+                }
+            }
         }
     }
 }

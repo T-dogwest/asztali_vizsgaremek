@@ -11,13 +11,17 @@ namespace asztali_vizsgaremek
 {
     class FelhasznaloService
     {
+       
         private HttpClient client = new HttpClient();
         private string url = "http://localhost:3000/user";
-        private string url1 = "http://localhost:3000/user/register";
+        private string url1 = "http://localhost:3000/user/createadmin";
+        private string token;
+
 
         public FelhasznaloService()
         {
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + TokenM.GetToken());
+            token = TokenM.GetToken();
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
         }
 
         public List<FelhasznmalokItem> GetAll()
@@ -38,6 +42,8 @@ namespace asztali_vizsgaremek
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
+                    Console.WriteLine("Sikeres válasz tartalma:");
+                    Console.WriteLine(responseContent); // Kiírjuk a válasz tartalmát
                     return JsonConvert.DeserializeObject<FelhasznmalokItem>(responseContent);
                 }
                 else if (responseMessage.StatusCode == HttpStatusCode.Conflict)
@@ -46,7 +52,8 @@ namespace asztali_vizsgaremek
                 }
                 else
                 {
-                    throw new Exception("Az elem hozzáadása sikertelen volt. Kód: " + responseMessage.StatusCode);
+                    string errorMessage = responseMessage.Content.ReadAsStringAsync().Result;
+                    throw new Exception("Az elem hozzáadása sikertelen volt. Kód: " + responseMessage.StatusCode + ". Hibaüzenet: " + errorMessage);
                 }
             }
             catch (Exception ex)
@@ -62,21 +69,8 @@ namespace asztali_vizsgaremek
             return response.IsSuccessStatusCode;
         }
 
-        public FelhasznmalokItem Update(int id, FelhasznalokDTO user)
-        {
-            StringContent content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseMessage = client.PatchAsync($"{url}/{id}", content).Result;
-
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<FelhasznmalokItem>(responseContent);
-            }
-            else
-            {
-                // Ha valamilyen hiba történt, dobhatunk egy kivételt vagy visszaadhatunk null-t, attól függően, hogy hogyan akarjuk kezelni a hibát
-                throw new Exception("A módosítás sikertelen volt.");
-            }
-        }
+       
     }
 }
+    
+

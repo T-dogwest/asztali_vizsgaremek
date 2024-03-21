@@ -25,7 +25,7 @@
                 <DataGridTextColumn Header="Keresztnév" Binding="{Binding First_name}" />
                 <DataGridTextColumn Header="Vezetéknév" Binding="{Binding Last_name}" />
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
-                <DataGridTextColumn Header="Role" Binding="{Binding roleType}" />
+                <DataGridTextColumn Header="Role" Binding="{Binding Role}" />
             </DataGrid.Columns>
         </DataGrid>
 
@@ -55,7 +55,7 @@
             <TextBox Grid.Row="1" Margin="5" Grid.Column="1" x:Name="tbEmail" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
             <Label Content="jelszó: " Grid.Row="1" Margin="0,83,0,0" Grid.RowSpan="2"/>
-            <TextBox Grid.Row="2" Margin="5" Grid.Column="1" x:Name="tbJelszo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+            <PasswordBox Grid.Row="2" Margin="5" Grid.Column="1" x:Name="tbJelszo" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="150"/>
 
             <Label Content="Keresztnév: " Grid.Row="2" Margin="0,83,0,2" Grid.RowSpan="2"/>
             <TextBox Grid.Row="3" Margin="5" Grid.Column="1" x:Name="tbkeresztnev" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
@@ -64,11 +64,11 @@
             <TextBox Grid.Row="4" Margin="5" Grid.Column="1" x:Name="tbVezeteknev" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
             <StackPanel Grid.Row="5" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="30" Margin="80,0,0,0" Width="150">
-                <Button x:Name="modify" Content="Módosít" Width="150" Visibility="Collapsed" Click="modify_Click" />
+               
                 <Button  x:Name="add" Content="Hozzáad" Width="150" Click="Button_Add" Visibility="Visible"/>
 
             </StackPanel>
-            <Button Grid.Column="0" Grid.Row="5" Content="Vissza" Height="30" Width="50" Click="Button_Back"/>
+           
         </Grid>
     </Grid>
 </Page>

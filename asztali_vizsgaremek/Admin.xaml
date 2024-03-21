@@ -9,7 +9,7 @@
          Height="700" Width="1000"
         Background="#FF9518"
         >
-    
+
     <Grid>
         <Image  Grid.Column="0" Source="C:\Users\csont\Documents\vizsgaremek\asztali_vizsgaremek\asztali_vizsgaremek\Image\heroSection.png" />
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#F2C879"  >
@@ -28,14 +28,14 @@
                 <Image  Grid.Column="0" Source="C:\Users\csont\Documents\vizsgaremek\asztali_vizsgaremek\asztali_vizsgaremek\Image\logo.png"/>
                 <Button Content="Attekintes" Grid.Column="1" Margin="5" MinWidth="80" Click="Button_Attekintes"   Foreground="White" Background="#8A2A23"  />
                 <Button Content="Menü" Grid.Column="2" Margin="5"  MinWidth="80" Click="Button_Menu"  Foreground="White" Background="#8A2A23"/>
-                
+
                 <Button Content="Felhasznalók" Grid.Column="3" Margin="5"  MinWidth="80" Click="Button_Felhasznalok"  Foreground="White" Background="#8A2A23"/>
                 <Button Content="Nyitvatartás" Grid.Column="5" Margin="5"  MinWidth="80"  Foreground="White" Background="#8A2A23" Click="Button_cegadatok" Visibility="Visible"/>
-                <Button Content="Velemények" Grid.Column="4" Margin="5"  MinWidth="80"  Foreground="White" Background="#8A2A23"  Visibility="Visible" Click="Button_Click"/>
-                
-                  <Button Content="Kijelentkezés" Grid.Column="8" Margin="5"  MinWidth="80" Background="DarkRed" Foreground="White" />
+                <Button Content="Velemények" Grid.Column="4" Margin="5"  MinWidth="80"  Foreground="White" Background="#8A2A23"  Visibility="Visible" Click="Button_Velemenyek"/>
+
+                <Button Content="Kijelentkezés" Grid.Column="8" Margin="5,5,5,0"  MinWidth="80" Background="DarkRed" Foreground="White" Height="25" VerticalAlignment="Top" Click="Logout" />
             </Grid>
-           
+
 
         </StackPanel>
         <Label Background="#FF9518" Content="Üdvözöljük!" FontSize="50" VerticalAlignment="Center"  HorizontalAlignment="Center"/>

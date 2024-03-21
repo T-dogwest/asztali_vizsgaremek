@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static asztali_vizsgaremek.MenuItem;
+
 
 namespace asztali_vizsgaremek
 {
@@ -21,6 +22,7 @@ namespace asztali_vizsgaremek
     /// </summary>
     public partial class Felhasznalok : Page
     {
+        private bool isPasswordModified = false;
         FelhasznaloService services = new FelhasznaloService();
         public Felhasznalok()
         {
@@ -40,6 +42,7 @@ namespace asztali_vizsgaremek
                 {
                     MessageBox.Show("Sikeres felvétel");
                     ClearInputFields();
+                    LoadData();
                 }
                 else
                 {
@@ -55,28 +58,53 @@ namespace asztali_vizsgaremek
 
         private void Button_Delete(object sender, RoutedEventArgs e)
         {
+            // Ellenőrizzük, hogy van-e kiválasztott elem
+            FelhasznmalokItem selected = UserTable.SelectedItem as FelhasznmalokItem;
+            if (selected == null)
+            {
+                MessageBox.Show("Válasszon ki egy elemet a törléshez!");
+                return;
+            }
 
+            // Megerősítés kérése a felhasználótól
+            MessageBoxResult result = MessageBox.Show("Biztosan törölni szeretné ezt az elemet?", "Törlés megerősítése", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                // A felhasználó megerősítette a törlést, folytatjuk a törlési folyamatot
+                try
+                {
+                    // Törlés végrehajtása a szolgáltatás révén
+                    bool deleted = services.Delete(selected);
+                    if (deleted)
+                    {
+                        MessageBox.Show("Sikeres törlés");
+                        LoadData(); // Adatok újratöltése a frissített adatokkal
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hiba történt a törlés során");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hiba történt a törlés során: " + ex.Message);
+                }
+            }
         }
 
-        private void modify_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Back(object sender, RoutedEventArgs e)
-        {
-
-        }
         private async void LoadData()
         {
             List<FelhasznmalokItem> felhasznalok = services.GetAll();
             List<FelhasznmalokItem> filteredFelhasznalok = felhasznalok.Select(item =>
                 new FelhasznmalokItem
                 {
+                    Id = item.Id,
+                    Username = item.Username,
+                    Email = item.Email,
+                    Password = item.Password,
                     First_name = item.First_name,
                     Last_name = item.Last_name,
-                    Email = item.Email,
-                    RoleType = item.RoleType,
+                    Role = item.Role,
                 }).ToList();
 
             UserTable.ItemsSource = filteredFelhasznalok;
@@ -85,11 +113,12 @@ namespace asztali_vizsgaremek
         {
             string FelName = tbFelhnev.Text.Trim();
             string Email = tbEmail.Text.Trim();
-            string Password = tbJelszo.Text.Trim();
+            string Password = tbJelszo.Password.Trim();
             string FirstName = tbkeresztnev.Text.Trim();
             string LastName = tbVezeteknev.Text.Trim();
-            
            
+
+
 
 
             if (string.IsNullOrWhiteSpace(FelName))
@@ -143,8 +172,9 @@ namespace asztali_vizsgaremek
             felh.Password=Password;
             felh.First_name=FirstName;
             felh.Last_name=LastName;
-            felh.roleType = RoleType.Admin;
            
+          
+
             return felh;
 
 
@@ -170,26 +200,11 @@ namespace asztali_vizsgaremek
         {
             tbFelhnev.Text = "";
             tbEmail.Text = "";
-            tbJelszo.Text = "";
+            tbJelszo.Password = "";
             tbkeresztnev.Text = "";
             tbVezeteknev.Text = "";
             
         }
-        private void MenuTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (UserTable.SelectedItem != null)
-            {
-                add.Visibility = Visibility.Collapsed;
-                modify.Visibility = Visibility.Visible;
-                // Itt ellenőrizheted, hogy melyik elem van kiválasztva a DataGrid-ben
-                FelhasznmalokItem selecteduserItem = (FelhasznmalokItem)UserTable.SelectedItem;
-                tbFelhnev.Text = selecteduserItem.Username;
-                tbEmail.Text = selecteduserItem.Email;
-                tbJelszo.Text=selecteduserItem.Password;
-                tbkeresztnev.Text=selecteduserItem.Password;
-                tbVezeteknev.Text = selecteduserItem.Email;
-                CreateAdminFromInputFields();
-            }
-        }
+       
     }
 }
