@@ -22,7 +22,7 @@ namespace asztali_vizsgaremek
     /// </summary>
     public partial class Felhasznalok : Page
     {
-        private bool isPasswordModified = false;
+     
         FelhasznaloService services = new FelhasznaloService();
         public Felhasznalok()
         {

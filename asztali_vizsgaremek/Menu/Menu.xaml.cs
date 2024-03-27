@@ -23,7 +23,7 @@ namespace asztali_vizsgaremek
     public partial class Menu : Page
     {
         MenuServices services = new MenuServices();
-        MenuItem menu;
+        
 
         public Menu()
         {

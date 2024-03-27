@@ -75,5 +75,9 @@ namespace asztali_vizsgaremek
                 }
             }
         }
+        private void Button_profil(object sender, RoutedEventArgs e)
+        {
+            Main.Content=new Profile();
+        }
     }
 }

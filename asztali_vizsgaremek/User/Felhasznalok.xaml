@@ -8,7 +8,7 @@
  d:DesignHeight="600" d:DesignWidth="900"
  Title="Adminok"
  Height="600" Width="1000"
- Background="White">
+ Background="#FF9518">
 
     <Grid>
         <Grid.ColumnDefinitions>

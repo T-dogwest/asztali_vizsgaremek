@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek
 {
     /// <summary>
-    /// Interaction logic for Opening.xaml
+    /// Interaction logic for Profile.xaml
     /// </summary>
-    public partial class Opening : Page
+    public partial class Profile : Page
     {
-        public Opening()
+        public Profile()
         {
             InitializeComponent();
         }

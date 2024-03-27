@@ -1,4 +1,5 @@
-﻿using System;
+﻿using asztali_vizsgaremek.Velemenyekk;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace asztali_vizsgaremek
     /// </summary>
     public partial class Velemenyek : Page
     {
+        VelemenyekServices service=new VelemenyekServices();
         public Velemenyek()
         {
             InitializeComponent();
+           // VelemenyTable.ItemsSource = service.GetAll();
         }
     }
 }
