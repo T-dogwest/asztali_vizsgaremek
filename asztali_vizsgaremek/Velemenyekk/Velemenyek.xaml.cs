@@ -21,11 +21,70 @@ namespace asztali_vizsgaremek
     /// </summary>
     public partial class Velemenyek : Page
     {
-        VelemenyekServices service=new VelemenyekServices();
+        VelemenyekServices services = new VelemenyekServices();
+        List<VelemenyekItem> velemenyekList;
+
+    
         public Velemenyek()
         {
             InitializeComponent();
-           // VelemenyTable.ItemsSource = service.GetAll();
+            RefreshData();
         }
+
+        private void RefreshData()
+        {
+            velemenyekList = services.GetAll();
+            VelemenyTable.ItemsSource = velemenyekList;
+        }
+
+        private void VelemenyTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (VelemenyTable.SelectedItem != null)
+            {
+                VelemenyekItem selectedItem = (VelemenyekItem)VelemenyTable.SelectedItem;
+                ertekelesTB.Text = selectedItem.Rate.ToString();
+                velemenyTB.Text = selectedItem.Content;
+            }
+        }
+
+        private void Button_Delete(object sender, RoutedEventArgs e)
+        {
+            if (VelemenyTable.SelectedItem != null)
+            {
+                VelemenyekItem selectedVelemeny = (VelemenyekItem)VelemenyTable.SelectedItem;
+
+                MessageBoxResult result = MessageBox.Show("Biztosan törölni szeretné ezt az elemet?",
+                                                            "Törlés megerősítése",
+                                                            MessageBoxButton.YesNo,
+                                                            MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    bool success = services.Delete(selectedVelemeny);
+                    if (success)
+                    {
+                        MessageBox.Show("A törlés sikeres volt.", "Sikeres törlés", MessageBoxButton.OK, MessageBoxImage.Information);
+                        RefreshData();
+                        ClearTextBoxes();
+                    }
+                    else
+                    {
+                        MessageBox.Show("A törlés sikertelen volt.", "Sikertelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kérem válassza ki a törlendő elemet!", "Nincs kiválasztva elem", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void ClearTextBoxes()
+        {
+            ertekelesTB.Text = string.Empty;
+            velemenyTB.Text = string.Empty;
+        }
+
+        
     }
 }

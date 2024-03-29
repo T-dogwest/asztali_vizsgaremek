@@ -14,7 +14,8 @@ namespace asztali_vizsgaremek.Velemenyekk
 
         [JsonProperty("content")]
         public string Content { get; set; }
+        [JsonProperty("username")]
+        public string Username { get; set; }
 
-        
     }
 }

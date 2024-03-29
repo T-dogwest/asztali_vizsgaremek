@@ -18,8 +18,11 @@
             <RowDefinition/>
 
         </Grid.RowDefinitions>
-
-        <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="5" Width="900"  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <StackPanel>
+            <ComboBox/>
+            
+        </StackPanel>
+        <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="5" Height="500" Width="900"  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
             <Button Margin="5"  Content="Jóváhagyás" Width="150"/>

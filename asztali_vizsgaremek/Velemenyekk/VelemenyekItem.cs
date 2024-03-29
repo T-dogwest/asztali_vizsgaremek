@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿using Azure.Identity;
+using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,24 @@ namespace asztali_vizsgaremek.Velemenyekk
         [JsonProperty("userId")]
         public int UserId { get; set; }
 
-        
+        [JsonProperty("user")]
+        public User User { get; set; }
+
+        public string UserName
+        {
+            get { return User?.Username; } // Ha a User null, akkor visszatér null-lal, egyébként a felhasználó nevével
+        }
+    }
+
+    // Felhasználó osztály
+    public class User
+    {
+        [JsonProperty("username")]
+        public string Username { get; set; }
     }
 }
+
+
+
+  
 

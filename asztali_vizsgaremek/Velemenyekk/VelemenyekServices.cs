@@ -14,20 +14,30 @@ namespace asztali_vizsgaremek.Velemenyekk
     {
         private HttpClient client = new HttpClient();
         private string url = "http://localhost:3000/Review";
+        private string url1 = "http://localhost:3000/Review/AdminRevDelete";
+
         public VelemenyekServices()
         {
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + TokenM.GetToken());
         }
         public List<VelemenyekItem> GetAll()
         {
-            string json = client.GetStringAsync(url).Result;
-            Debug.WriteLine(json);
-            return JsonConvert.DeserializeObject<List<VelemenyekItem>>(json);
+            try
+            {
+                string json = client.GetStringAsync(url).Result;
+                Debug.WriteLine(json);
+                return JsonConvert.DeserializeObject<List<VelemenyekItem>>(json);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Hiba történt a Get kérés során: {ex.Message}");
+                return null;
+            }
         }
         public bool Delete(VelemenyekItem velemeny)
         {
             int id = velemeny.Id;
-            HttpResponseMessage response = client.DeleteAsync($"{url}/{id}").Result;
+            HttpResponseMessage response = client.DeleteAsync($"{url1}/{id}").Result;
             return response.IsSuccessStatusCode;
         }
     }
