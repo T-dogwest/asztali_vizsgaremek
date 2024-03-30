@@ -34,10 +34,10 @@
         <Label Content="Jelszó: " Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
         <TextBox x:Name="felhasznaloNevtb" Grid.Column="1"  Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
-        <TextBox x:Name="firstNametb" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
+        <TextBox x:Name="firstNametb" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="250" IsEnabled="False"/>
         <TextBox x:Name="lastNametb"  Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
         <TextBox x:Name="profEmailtb"  Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
-        <PasswordBox x:Name="felhPW"  Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
+        <Button x:Name="felhPW"  Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Content="Jelszó módósítása" Height="20" VerticalAlignment="Center" Width="250" IsEnabled="False" Click="felhPW_Click"/>
         <StackPanel Grid.Column="1" Grid.Row="7" Width="100">
             <Button x:Name="Editbt" Content="Szerkesztés" Click="Button_Edit" Visibility="Visible" />
             <Button x:Name="Modify" Content="Módósítás" Visibility="Collapsed" Click="Button_Modify"/>

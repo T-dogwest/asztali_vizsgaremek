@@ -1,5 +1,4 @@
-﻿using asztali_vizsgaremek.Velemenyekk;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.Velemenyekk
 {
     /// <summary>
     /// Interaction logic for Velemenyek.xaml
@@ -24,7 +23,7 @@ namespace asztali_vizsgaremek
         VelemenyekServices services = new VelemenyekServices();
         List<VelemenyekItem> velemenyekList;
 
-    
+
         public Velemenyek()
         {
             InitializeComponent();
@@ -85,6 +84,6 @@ namespace asztali_vizsgaremek
             velemenyTB.Text = string.Empty;
         }
 
-        
+
     }
 }

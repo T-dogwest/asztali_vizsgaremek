@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static asztali_vizsgaremek.MenuItem;
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.Menu
 {
     /// <summary>
     /// Interaction logic for Menu.xaml
@@ -23,20 +23,20 @@ namespace asztali_vizsgaremek
     public partial class Menu : Page
     {
         MenuServices services = new MenuServices();
-        
+
 
         public Menu()
         {
             InitializeComponent();
             InitializeComboBox();
             MenuTable.ItemsSource = services.GetAll();
-            
-           
+
+
         }
 
         private void InitializeComboBox()
         {
-            
+
             cbTipus.ItemsSource = Enum.GetValues(typeof(MenuType));
         }
 
@@ -50,7 +50,7 @@ namespace asztali_vizsgaremek
                 if (newMenu.Id != 0)
                 {
                     MessageBox.Show("Sikeres felvétel");
-                   ClearInputFields();
+                    ClearInputFields();
                     RefreshMenuTable();
                 }
                 else
@@ -64,7 +64,7 @@ namespace asztali_vizsgaremek
             }
         }
 
-        
+
 
         private void Button_Torles(object sender, RoutedEventArgs e)
         {
@@ -72,9 +72,9 @@ namespace asztali_vizsgaremek
             {
                 try
                 {
-                
+
                     MenuItem selectedMenu = (MenuItem)MenuTable.SelectedItem;
-                    bool deleteSuccess = services.Delete(selectedMenu); 
+                    bool deleteSuccess = services.Delete(selectedMenu);
 
                     if (deleteSuccess)
                     {
@@ -97,17 +97,17 @@ namespace asztali_vizsgaremek
                 MessageBox.Show("Kérem válasszon ki egy elemet a törléshez.");
             }
         }
-     
+
         private void Button_Vissza(object sender, RoutedEventArgs e)
         {
-            
+
             add.Visibility = Visibility.Visible;
-            
+
             modify.Visibility = Visibility.Collapsed;
 
             ClearInputFields();
         }
-       
+
         private void Button_Modositas(object sender, RoutedEventArgs e)
         {
             MenuItem selected = MenuTable.SelectedItem as MenuItem;
@@ -181,7 +181,7 @@ namespace asztali_vizsgaremek
         {
             tbMenuName.Text = "";
             tbMenuPrice.Text = "";
-            cbTipus.Text =null;
+            cbTipus.Text = null;
         }
         private void MenuTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -198,10 +198,10 @@ namespace asztali_vizsgaremek
             }
         }
 
-       
+
 
 
     }
-   
+
 
 }

@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace asztali_vizsgaremek.Attekintes
+namespace asztali_vizsgaremek.Profilee
 {
     /// <summary>
-    /// Interaction logic for Attekintes.xaml
+    /// Interaction logic for ChangePass.xaml
     /// </summary>
-    public partial class Attekintes : Page
+    public partial class ChangePass : Window
     {
-        public Attekintes()
+        public ChangePass()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using static asztali_vizsgaremek.MenuItem;
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.User
 {
-   public class FelhasznmalokItem
+    public class FelhasznmalokItem
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -36,6 +36,6 @@ namespace asztali_vizsgaremek
     }
 
 
-        public enum RoleType {  Admin, User }
+    public enum RoleType { Admin, User }
 
 }

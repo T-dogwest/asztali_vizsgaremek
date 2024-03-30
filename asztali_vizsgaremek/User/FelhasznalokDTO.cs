@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.User
 {
     class FelhasznalokDTO
     {
@@ -32,7 +32,7 @@ namespace asztali_vizsgaremek
 
 
 
-    
+
 
 }
 

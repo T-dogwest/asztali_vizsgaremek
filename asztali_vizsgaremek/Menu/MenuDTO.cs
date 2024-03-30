@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static asztali_vizsgaremek.MenuItem;
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.Menu
 {
     internal class MenuDTO
     {

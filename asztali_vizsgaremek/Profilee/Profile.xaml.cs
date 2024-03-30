@@ -12,11 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using asztali_vizsgaremek.User;
 using System.Windows.Shapes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.Profilee
 {
     /// <summary>
     /// Interaction logic for Profile.xaml
@@ -59,7 +58,7 @@ namespace asztali_vizsgaremek
             lastNametb.Text = loggedInUser.Last_name;
             profEmailtb.Text = loggedInUser.Email;
         }
-        
+
 
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
@@ -111,6 +110,7 @@ namespace asztali_vizsgaremek
             firstNametb.IsEnabled = false;
             lastNametb.IsEnabled = false;
             profEmailtb.IsEnabled = false;
+            felhPW.IsEnabled = false;
 
             Editbt.Visibility = Visibility.Visible;
             Modify.Visibility = Visibility.Collapsed;
@@ -122,9 +122,15 @@ namespace asztali_vizsgaremek
             firstNametb.IsEnabled = true;
             lastNametb.IsEnabled = true;
             profEmailtb.IsEnabled = true;
+            felhPW.IsEnabled = true;
 
             Editbt.Visibility = Visibility.Collapsed;
             Modify.Visibility = Visibility.Visible;
+        }
+
+        private void felhPW_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

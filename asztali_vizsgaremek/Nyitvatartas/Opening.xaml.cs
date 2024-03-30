@@ -1,5 +1,4 @@
-﻿using asztali_vizsgaremek.Nyitvatartas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.Nyitvatartas
 {
     /// <summary>
     /// Interaction logic for Opening.xaml
     /// </summary>
     public partial class Opening : Page
     {
-        OpeningServices services=new OpeningServices();
+        OpeningServices services = new OpeningServices();
         public Opening()
         {
             InitializeComponent();
-            openinTable.ItemsSource= services.GetAll();
+            openinTable.ItemsSource = services.GetAll();
         }
         private bool ValidateTimeFormat(string time)
         {

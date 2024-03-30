@@ -1,0 +1,31 @@
+﻿<Window x:Class="asztali_vizsgaremek.ChangePass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:asztali_vizsgaremek"
+        mc:Ignorable="d"
+        Title="ChangePass" Height="200" Width="500"
+        Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Label Content="Régi jelszó: "  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Right" />
+        <Label Content="Új Jelszó: " Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
+
+        <PasswordBox x:Name="oldpw" Grid.Row="0" Grid.Column="1" Width="300" Height="20" HorizontalAlignment="Left"/>
+        <PasswordBox x:Name="newpw" Grid.Row="1" Grid.Column="1" Width="300" Height="20" HorizontalAlignment="Left"/>
+        <StackPanel  Grid.Column="1" Grid.Row="2">
+            <Button Width="200" Height="20" Content="Új jelszó létrehozása" Click="Button_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

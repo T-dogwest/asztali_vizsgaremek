@@ -15,14 +15,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.User
 {
     /// <summary>
     /// Interaction logic for Felhasznalok.xaml
     /// </summary>
     public partial class Felhasznalok : Page
     {
-     
+
         FelhasznaloService services = new FelhasznaloService();
         public Felhasznalok()
         {
@@ -116,7 +116,7 @@ namespace asztali_vizsgaremek
             string Password = tbJelszo.Password.Trim();
             string FirstName = tbkeresztnev.Text.Trim();
             string LastName = tbVezeteknev.Text.Trim();
-           
+
 
 
 
@@ -166,14 +166,14 @@ namespace asztali_vizsgaremek
                 return null;
             }
 
-           FelhasznalokDTO felh = new FelhasznalokDTO();
-            felh.Username=FelName;
-            felh.Email=Email;
-            felh.Password=Password;
-            felh.First_name=FirstName;
-            felh.Last_name=LastName;
-           
-          
+            FelhasznalokDTO felh = new FelhasznalokDTO();
+            felh.Username = FelName;
+            felh.Email = Email;
+            felh.Password = Password;
+            felh.First_name = FirstName;
+            felh.Last_name = LastName;
+
+
 
             return felh;
 
@@ -194,7 +194,7 @@ namespace asztali_vizsgaremek
                 return false;
             }
         }
-       
+
 
         private void ClearInputFields()
         {
@@ -203,8 +203,8 @@ namespace asztali_vizsgaremek
             tbJelszo.Password = "";
             tbkeresztnev.Text = "";
             tbVezeteknev.Text = "";
-            
+
         }
-       
+
     }
 }
