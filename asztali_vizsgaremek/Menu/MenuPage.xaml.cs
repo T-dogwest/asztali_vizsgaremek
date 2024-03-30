@@ -13,19 +13,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static asztali_vizsgaremek.MenuItem;
+
 
 namespace asztali_vizsgaremek.Menu
 {
     /// <summary>
     /// Interaction logic for Menu.xaml
     /// </summary>
-    public partial class Menu : Page
+    public partial class MenuPage : Page
     {
         MenuServices services = new MenuServices();
 
 
-        public Menu()
+        public MenuPage()
         {
             InitializeComponent();
             InitializeComboBox();

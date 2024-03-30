@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.Menu
 {
-    public partial class MenuItem 
+    public class MenuItem 
     {
         [JsonProperty("id")]
         public int Id { get; set; }

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace asztali_vizsgaremek.Profilee
+namespace asztali_vizsgaremek
 {
     /// <summary>
     /// Interaction logic for ChangePass.xaml

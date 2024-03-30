@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace asztali_vizsgaremek.Menu.Menu
+namespace asztali_vizsgaremek.Menu
 {
 
     internal class MenuServices

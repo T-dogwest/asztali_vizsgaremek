@@ -1,7 +1,6 @@
-﻿namespace asztali_vizsgaremek
+﻿namespace asztali_vizsgaremek.Menu
 {
-    public partial class MenuItem 
-    {
+  
         public enum MenuType { Drink, Snack }
-    }
+    
 }

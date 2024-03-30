@@ -20,11 +20,11 @@ namespace asztali_vizsgaremek.Profilee
     /// <summary>
     /// Interaction logic for Profile.xaml
     /// </summary>
-    public partial class Profile : Page
+    public partial class ProfilePage : Page
     {
         private FelhasznmalokItem loggedInUser;
 
-        public Profile()
+        public ProfilePage()
         {
             InitializeComponent();
             LoadLoggedInUserData();

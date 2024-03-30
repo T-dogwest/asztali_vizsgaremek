@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using asztali_vizsgaremek.Admin;
 
 namespace asztali_vizsgaremek
 {
@@ -56,7 +57,7 @@ namespace asztali_vizsgaremek
                       
 
                         // Admin ablak megnyitása
-                        Admin adminWindow = new Admin();
+                       AdminWindow adminWindow = new AdminWindow();
                         adminWindow.Show();
 
                         // Aktuális ablak bezárása

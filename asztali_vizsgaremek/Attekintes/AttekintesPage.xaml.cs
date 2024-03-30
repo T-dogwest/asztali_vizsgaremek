@@ -18,9 +18,9 @@ namespace asztali_vizsgaremek.Attekintes
     /// <summary>
     /// Interaction logic for Attekintes.xaml
     /// </summary>
-    public partial class Attekintes : Page
+    public partial class AttekintesPage : Page
     {
-        public Attekintes()
+        public AttekintesPage()
         {
             InitializeComponent();
         }

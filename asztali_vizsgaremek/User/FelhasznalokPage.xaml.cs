@@ -20,11 +20,11 @@ namespace asztali_vizsgaremek.User
     /// <summary>
     /// Interaction logic for Felhasznalok.xaml
     /// </summary>
-    public partial class Felhasznalok : Page
+    public partial class FelhasznalokPage : Page
     {
 
         FelhasznaloService services = new FelhasznaloService();
-        public Felhasznalok()
+        public FelhasznalokPage()
         {
             InitializeComponent();
             LoadData();

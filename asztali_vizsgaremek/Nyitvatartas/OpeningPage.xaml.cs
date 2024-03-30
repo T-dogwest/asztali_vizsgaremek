@@ -18,10 +18,10 @@ namespace asztali_vizsgaremek.Nyitvatartas
     /// <summary>
     /// Interaction logic for Opening.xaml
     /// </summary>
-    public partial class Opening : Page
+    public partial class OpeningPage : Page
     {
         OpeningServices services = new OpeningServices();
-        public Opening()
+        public OpeningPage()
         {
             InitializeComponent();
             openinTable.ItemsSource = services.GetAll();

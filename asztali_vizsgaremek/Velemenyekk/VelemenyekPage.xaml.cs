@@ -18,13 +18,13 @@ namespace asztali_vizsgaremek.Velemenyekk
     /// <summary>
     /// Interaction logic for Velemenyek.xaml
     /// </summary>
-    public partial class Velemenyek : Page
+    public partial class VelemenyekPage : Page
     {
         VelemenyekServices services = new VelemenyekServices();
         List<VelemenyekItem> velemenyekList;
 
 
-        public Velemenyek()
+        public VelemenyekPage()
         {
             InitializeComponent();
             RefreshData();

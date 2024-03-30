@@ -1,4 +1,10 @@
-﻿using System;
+﻿using asztali_vizsgaremek.Attekintes;
+using asztali_vizsgaremek.Menu;
+using asztali_vizsgaremek.Nyitvatartas;
+using asztali_vizsgaremek.Profilee;
+using asztali_vizsgaremek.User;
+using asztali_vizsgaremek.Velemenyekk;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +18,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace asztali_vizsgaremek
+namespace asztali_vizsgaremek.Admin
 {
     /// <summary>
     /// Interaction logic for Admin.xaml
     /// </summary>
-    public partial class Admin : Window
+    public partial class AdminWindow : Window
     {
    
 
-        public Admin()
+        public AdminWindow()
         {
             InitializeComponent();
 
@@ -29,32 +35,32 @@ namespace asztali_vizsgaremek
       
 
         private void Button_Attekintes(object sender, RoutedEventArgs e)
-        { 
-            Main.Content = new Attekintes();
+        {
+            Main.Content = new AttekintesPage();
         }
 
         private void Button_Menu(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Menu();
+            Main.Content = new MenuPage();
         }
 
        
 
         private void Button_Felhasznalok(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Felhasznalok();
+            Main.Content = new FelhasznalokPage();
         }
 
        
 
         private void Button_cegadatok(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Opening();
+            Main.Content = new OpeningPage();
         }
 
         private void Button_Velemenyek(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Velemenyek();
+            Main.Content = new VelemenyekPage();
         }
 
         private void Logout(object sender, RoutedEventArgs e)
@@ -81,7 +87,7 @@ namespace asztali_vizsgaremek
         }
         private void Button_profil(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Profile();
+            Main.Content = new ProfilePage();
         }
     }
 }
