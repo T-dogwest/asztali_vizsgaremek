@@ -24,7 +24,7 @@ namespace asztali_vizsgaremek.Profilee
     {
         private FelhasznmalokItem loggedInUser;
 
-        public Profile() // Ne legyen paramétere
+        public Profile()
         {
             InitializeComponent();
             LoadLoggedInUserData();

@@ -41,13 +41,13 @@ namespace asztali_vizsgaremek.User
             {
                 string body = JsonConvert.SerializeObject(user);
                 StringContent content = new StringContent(body, Encoding.UTF8, "application/json");
-                HttpResponseMessage responseMessage = client.PostAsync(url1, content).Result; // Elvégzem a POST kérést
+                HttpResponseMessage responseMessage = client.PostAsync(url1, content).Result; 
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
                     Console.WriteLine("Sikeres válasz tartalma:");
-                    Console.WriteLine(responseContent); // Kiírjuk a válasz tartalmát
+                    Console.WriteLine(responseContent);
                     return JsonConvert.DeserializeObject<FelhasznmalokItem>(responseContent);
                 }
                 else if (responseMessage.StatusCode == HttpStatusCode.Conflict)
@@ -62,7 +62,7 @@ namespace asztali_vizsgaremek.User
             }
             catch (Exception ex)
             {
-                throw ex; // A dobott kivétel továbbdobjuk
+                throw ex; 
             }
         }
 
@@ -108,7 +108,7 @@ namespace asztali_vizsgaremek.User
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
-                    // Sikeres módosítás esetén nincs teendő
+                    
                 }
                 else
                 {

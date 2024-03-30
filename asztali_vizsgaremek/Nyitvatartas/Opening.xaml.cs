@@ -30,10 +30,9 @@ namespace asztali_vizsgaremek.Nyitvatartas
         {
             if (time.ToLower() == "closed")
             {
-                return true; // Ha a "closed" szót kapjuk, akkor elfogadjuk az inputot
+                return true;
             }
 
-            // Az időtartam formátuma: "hh:mm-hh:mm"
             string[] parts = time.Split('-');
 
             if (parts.Length != 2)
@@ -87,7 +86,7 @@ namespace asztali_vizsgaremek.Nyitvatartas
                     ValidateTimeFormat(Sasturday.Text) &&
                     ValidateTimeFormat(tbSunday.Text))
                 {
-                    // Az input mezőkből át kell másolni az adatokat egy DTO objektumba
+                    
                     OpeningDTO modifiedOpening = new OpeningDTO
                     {
                         Monday = tbMonday.Text,
@@ -99,10 +98,10 @@ namespace asztali_vizsgaremek.Nyitvatartas
                         Sunday = tbSunday.Text,
                     };
 
-                    // Ellenőrizzük, hogy az adott nap zárva van-e
+                   
                     if (tbMonday.Text.ToLower() == "closed")
                     {
-                        modifiedOpening.Monday = "Closed"; // Ha zárva van, az időintervallum helyett az "Closed" szöveget használjuk
+                        modifiedOpening.Monday = "Closed"; 
                     }
                     if (tbTuesday.Text.ToLower() == "closed")
                     {
@@ -129,16 +128,16 @@ namespace asztali_vizsgaremek.Nyitvatartas
                         modifiedOpening.Sunday = "Closed";
                     }
 
-                    // Majd meghívjuk az Update metódust a kiválasztott elem azonosítójával és a módosított adatokkal
+                    
                     OpeningItem updatedItem = services.Update(selectedOpening.Id, modifiedOpening);
 
                     if (updatedItem != null)
                     {
                         MessageBox.Show("A módosítás sikeres volt!");
-                        // Frissítjük a táblát
+              
                         openinTable.ItemsSource = services.GetAll();
 
-                        // Töröljük az input mezők tartalmát
+                      
                         tbMonday.Text = "";
                         tbTuesday.Text = "";
                         tbWednesday.Text = "";

@@ -65,9 +65,9 @@ namespace asztali_vizsgaremek
             {
                 try
                 {
-                    // Töröljük a tárolt tokent
+                  
                     TokenM.DeleteToken();
-                    // Itt lehet még további logout műveleteket végezni, például a felhasználót visszairányítani a bejelentkező oldalra vagy bezárni az alkalmazást.
+                    
                     MessageBox.Show("Sikeres kijelentkezés");
                     Login loginw = new Login();
                     loginw.Show();

@@ -33,7 +33,7 @@ namespace asztali_vizsgaremek.Menu.Menu
         {
             string body = JsonConvert.SerializeObject(menu);
             StringContent content = new StringContent(body, Encoding.UTF8, "application/json");
-            HttpResponseMessage responseMessage = client.PostAsync(url, content).Result; // Elvégzem a POST kérést
+            HttpResponseMessage responseMessage = client.PostAsync(url, content).Result; 
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -42,7 +42,6 @@ namespace asztali_vizsgaremek.Menu.Menu
             }
             else
             {
-                // Ha valamilyen hiba történt, dobhatunk egy kivételt vagy visszaadhatunk null-t, attól függően, hogy hogyan akarjuk kezelni a hibát
                 throw new Exception("Az elem hozzáadása sikertelen volt.");
             }
         }
@@ -66,7 +65,6 @@ namespace asztali_vizsgaremek.Menu.Menu
             }
             else
             {
-                // Ha valamilyen hiba történt, dobhatunk egy kivételt vagy visszaadhatunk null-t, attól függően, hogy hogyan akarjuk kezelni a hibát
                 throw new Exception("A módosítás sikertelen volt.");
             }
         }

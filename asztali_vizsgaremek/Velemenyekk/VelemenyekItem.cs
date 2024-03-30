@@ -28,7 +28,7 @@ namespace asztali_vizsgaremek.Velemenyekk
 
         public string UserName
         {
-            get { return User?.Username; } // Ha a User null, akkor visszatér null-lal, egyébként a felhasználó nevével
+            get { return User?.Username; } 
         }
     }
 

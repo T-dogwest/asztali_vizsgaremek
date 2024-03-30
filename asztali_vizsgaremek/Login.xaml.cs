@@ -93,7 +93,7 @@ namespace asztali_vizsgaremek
             Token = token;
             Role = role;
 
-            // Token beállítása a TokenManager használatával
+          
             TokenM.SetToken(token);
         }
     }

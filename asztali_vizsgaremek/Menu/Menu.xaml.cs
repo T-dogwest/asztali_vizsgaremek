@@ -189,7 +189,7 @@ namespace asztali_vizsgaremek.Menu
             {
                 add.Visibility = Visibility.Collapsed;
                 modify.Visibility = Visibility.Visible;
-                // Itt ellenőrizheted, hogy melyik elem van kiválasztva a DataGrid-ben
+                
                 MenuItem selectedMenuItem = (MenuItem)MenuTable.SelectedItem;
                 tbMenuName.Text = selectedMenuItem.Name;
                 tbMenuPrice.Text = selectedMenuItem.Price.ToString();

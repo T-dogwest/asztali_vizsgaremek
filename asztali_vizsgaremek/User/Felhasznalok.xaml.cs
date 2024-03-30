@@ -58,7 +58,7 @@ namespace asztali_vizsgaremek.User
 
         private void Button_Delete(object sender, RoutedEventArgs e)
         {
-            // Ellenőrizzük, hogy van-e kiválasztott elem
+            
             FelhasznmalokItem selected = UserTable.SelectedItem as FelhasznmalokItem;
             if (selected == null)
             {
@@ -66,19 +66,19 @@ namespace asztali_vizsgaremek.User
                 return;
             }
 
-            // Megerősítés kérése a felhasználótól
+          
             MessageBoxResult result = MessageBox.Show("Biztosan törölni szeretné ezt az elemet?", "Törlés megerősítése", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                // A felhasználó megerősítette a törlést, folytatjuk a törlési folyamatot
+               
                 try
                 {
-                    // Törlés végrehajtása a szolgáltatás révén
+                 
                     bool deleted = services.Delete(selected);
                     if (deleted)
                     {
                         MessageBox.Show("Sikeres törlés");
-                        LoadData(); // Adatok újratöltése a frissített adatokkal
+                        LoadData(); 
                     }
                     else
                     {
@@ -123,45 +123,45 @@ namespace asztali_vizsgaremek.User
 
             if (string.IsNullOrWhiteSpace(FelName))
             {
-                // Hibakezelés: Felhasználónév üres
+              
                 MessageBox.Show("Felhasználónév megadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
 
-            // Validáció: Email üres-e és helyes formátumban van-e?
+        
             if (string.IsNullOrWhiteSpace(Email))
             {
-                // Hibakezelés: Email üres
+
                 MessageBox.Show("E-mail cím megadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
             else if (!IsValidEmail(Email))
             {
-                // Hibakezelés: Helytelen e-mail formátum
+               
                 MessageBox.Show("Helytelen e-mail formátum!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
 
-            // Validáció: Jelszó üres-e?
+          
             if (string.IsNullOrWhiteSpace(Password))
             {
-                // Hibakezelés: Jelszó üres
+             
                 MessageBox.Show("Jelszó megadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
 
-            // Validáció: Keresztnév üres-e?
+     
             if (string.IsNullOrWhiteSpace(FirstName))
             {
-                // Hibakezelés: Keresztnév üres
+        
                 MessageBox.Show("Keresztnév megadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
 
-            // Validáció: Vezetéknév üres-e?
+      
             if (string.IsNullOrWhiteSpace(LastName))
             {
-                // Hibakezelés: Vezetéknév üres
+                
                 MessageBox.Show("Vezetéknév megadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
@@ -181,7 +181,7 @@ namespace asztali_vizsgaremek.User
 
         }
 
-        // Segédfüggvény az e-mail formátum ellenőrzésére
+      
         private bool IsValidEmail(string email)
         {
             try

@@ -36,7 +36,7 @@ namespace asztali_vizsgaremek.Nyitvatartas
             }
             else
             {
-                // Ha valamilyen hiba történt, dobhatunk egy kivételt vagy visszaadhatunk null-t, attól függően, hogy hogyan akarjuk kezelni a hibát
+     
                 throw new Exception("A módosítás sikertelen volt.");
             }
         }
