@@ -9,7 +9,7 @@ using static asztali_vizsgaremek.MenuItem;
 
 namespace asztali_vizsgaremek
 {
-    class FelhasznmalokItem
+   public class FelhasznmalokItem
     {
         [JsonProperty("id")]
         public int Id { get; set; }

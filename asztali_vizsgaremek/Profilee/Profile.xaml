@@ -5,10 +5,43 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:asztali_vizsgaremek"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Profile">
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="Adminok"
+      Height="600" Width="1000"
+      Background="#FF9518">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Image Source="C:\Users\csont\Desktop\Vizsga2\asztali_vizsgaremek\Image\blankprofile.png" Grid.Row="1" Grid.Column="1" />
+        <Label Content="Username: " Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Content="Keresztnév: " Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Content="Vezetéknév: " Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Content="Email: " Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Content="Jelszó: " Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+        <TextBox x:Name="felhasznaloNevtb" Grid.Column="1"  Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
+        <TextBox x:Name="firstNametb" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
+        <TextBox x:Name="lastNametb"  Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
+        <TextBox x:Name="profEmailtb"  Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
+        <PasswordBox x:Name="felhPW"  Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" IsEnabled="False"/>
+        <StackPanel Grid.Column="1" Grid.Row="7" Width="100">
+            <Button x:Name="Editbt" Content="Szerkesztés" Click="Button_Edit" Visibility="Visible" />
+            <Button x:Name="Modify" Content="Módósítás" Visibility="Collapsed" Click="Button_Modify"/>
+        </StackPanel>
+       
     </Grid>
 </Page>

@@ -54,11 +54,13 @@ namespace asztali_vizsgaremek
                     {
                         MessageBox.Show("Sikeres bejelentkeztés.");
 
-                        
-                        Admin adminWindow = new Admin();
+                        FelhasznmalokItem loggedInUser = new FelhasznmalokItem(); // Itt inicializáljuk a loggedInUser objektumot a megfelelő adatokkal
+
+                        // Admin ablak megnyitása a felhasználó adatainak átadásával
+                        Admin adminWindow = new Admin(loggedInUser);
                         adminWindow.Show();
 
-                        
+                        // Aktuális ablak bezárása
                         Close();
                     }
                     else

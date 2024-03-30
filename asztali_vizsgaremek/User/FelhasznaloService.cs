@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using asztali_vizsgaremek.User;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,7 +16,10 @@ namespace asztali_vizsgaremek
         private HttpClient client = new HttpClient();
         private string url = "http://localhost:3000/user";
         private string url1 = "http://localhost:3000/user/createadmin";
+        private string url2 = "http://localhost:3000/user/me";
+        
         private string token;
+        private FelhasznmalokItem loggedInUser;
 
 
         public FelhasznaloService()
@@ -68,9 +72,58 @@ namespace asztali_vizsgaremek
             HttpResponseMessage response = client.DeleteAsync($"{url}/{id}").Result;
             return response.IsSuccessStatusCode;
         }
+        public FelhasznmalokItem GetLoggedInUserData()
+        {
+            try
+            {
+                HttpResponseMessage responseMessage = client.GetAsync(url2).Result;
 
-       
-    }
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
+                    var loggedInUser = JsonConvert.DeserializeObject<FelhasznmalokItem>(responseContent);
+                    loggedInUser.Password = null;
+                    return loggedInUser;
+                }
+                else
+                {
+                    throw new Exception($"A user/me lekérdezés sikertelen volt. Kód: {responseMessage.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+     
+            public void UpdateUser(int id, UpdateFelhasznaloDTO updateUserDto)
+            {
+                try
+                {
+                    string updateUrl = $"{url}/{id}";
+                    string body = JsonConvert.SerializeObject(updateUserDto);
+                    StringContent content = new StringContent(body, Encoding.UTF8, "application/json");
+
+                    var responseMessage = client.PatchAsync(updateUrl, content).Result;
+
+                    if (responseMessage.IsSuccessStatusCode)
+                    {
+                        // Sikeres módosítás esetén nincs teendő
+                    }
+                    else
+                    {
+                        throw new Exception($"Felhasználó frissítése sikertelen. Kód: {responseMessage.StatusCode}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+
+        }
 }
     
 
