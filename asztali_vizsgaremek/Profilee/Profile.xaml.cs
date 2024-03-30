@@ -24,13 +24,13 @@ namespace asztali_vizsgaremek
     public partial class Profile : Page
     {
         private FelhasznmalokItem loggedInUser;
-        public Profile(FelhasznmalokItem user)
+
+        public Profile() // Ne legyen paramétere
         {
             InitializeComponent();
-            loggedInUser = user;
-            FillUserData(loggedInUser); // Átadjuk a bejelentkezett felhasználó adatait a FillUserData metódusnak
             LoadLoggedInUserData();
         }
+
         public void LoadLoggedInUserData()
         {
             FelhasznaloService userService = new FelhasznaloService();
@@ -48,10 +48,9 @@ namespace asztali_vizsgaremek
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hiba történt a bejelentkezett felhasználó adatainak betöltésekor: " + ex.Message);
+                MessageBox.Show($"Hiba: {ex.Message}");
             }
         }
-
 
         private void FillUserData(FelhasznmalokItem loggedInUser)
         {
@@ -59,28 +58,20 @@ namespace asztali_vizsgaremek
             firstNametb.Text = loggedInUser.First_name;
             lastNametb.Text = loggedInUser.Last_name;
             profEmailtb.Text = loggedInUser.Email;
-            // A jelszót nem töltjük be alapértelmezésben
         }
-
-        private void Button_Edit(object sender, RoutedEventArgs e)
-        {
-            EnableEdit();
-        }
+        
 
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
-            // Ellenőrizd, hogy a felhasználó beírt-e új adatokat a felhasználói felületen
             if (!string.IsNullOrWhiteSpace(felhasznaloNevtb.Text) &&
                 !string.IsNullOrWhiteSpace(firstNametb.Text) &&
                 !string.IsNullOrWhiteSpace(lastNametb.Text) &&
                 !string.IsNullOrWhiteSpace(profEmailtb.Text))
             {
-                // Megerősítő párbeszédablak megjelenítése
                 MessageBoxResult result = MessageBox.Show("Biztosan szeretné frissíteni a felhasználó adatait?", "Megerősítés", MessageBoxButton.YesNo);
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    // UpdateUserDto létrehozása az új adatokkal
                     UpdateFelhasznaloDTO updateUserDto = new UpdateFelhasznaloDTO
                     {
                         Email = profEmailtb.Text,
@@ -89,30 +80,29 @@ namespace asztali_vizsgaremek
                         Username = felhasznaloNevtb.Text
                     };
 
-                    // Felhasználó azonosítójának lekérése (feltételezem, hogy a loggedInUser.Id tartalmazza az azonosítót)
                     int userId = loggedInUser.Id;
 
-                    // Felhasználószolgáltatás példányosítása és felhasználó frissítése
                     FelhasznaloService userService = new FelhasznaloService();
                     try
                     {
                         userService.UpdateUser(userId, updateUserDto);
-                        // Sikeres frissítés esetén üzenet megjelenítése
                         MessageBox.Show("Felhasználó adatai frissítve.");
                         DisableEdit();
                     }
                     catch (Exception ex)
                     {
-                        // Hiba esetén hibaüzenet megjelenítése
-                        MessageBox.Show("Hiba történt a felhasználó adatainak frissítésekor: " + ex.Message);
+                        MessageBox.Show($"Hiba: {ex.Message}");
                     }
                 }
             }
             else
             {
-                // Ha a felhasználó nem töltötte ki az összes mezőt, akkor erről tájékoztatjuk
                 MessageBox.Show("Kérlek tölts ki minden mezőt a frissítéshez.");
             }
+        }
+        private void Button_Edit(object sender, RoutedEventArgs e)
+        {
+            EnableEdit();
         }
 
         private void DisableEdit()
@@ -121,9 +111,7 @@ namespace asztali_vizsgaremek
             firstNametb.IsEnabled = false;
             lastNametb.IsEnabled = false;
             profEmailtb.IsEnabled = false;
-            felhPW.IsEnabled = false;
 
-            // Szerkesztés gomb megjelenítése, módosítás gomb elrejtése
             Editbt.Visibility = Visibility.Visible;
             Modify.Visibility = Visibility.Collapsed;
         }
@@ -134,13 +122,9 @@ namespace asztali_vizsgaremek
             firstNametb.IsEnabled = true;
             lastNametb.IsEnabled = true;
             profEmailtb.IsEnabled = true;
-            felhPW.IsEnabled = true;
 
-            // Módosítás gomb megjelenítése, szerkesztés gomb elrejtése
             Editbt.Visibility = Visibility.Collapsed;
             Modify.Visibility = Visibility.Visible;
         }
-
-      
     }
 }

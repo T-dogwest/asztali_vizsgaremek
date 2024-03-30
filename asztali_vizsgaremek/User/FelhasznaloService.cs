@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,7 @@ namespace asztali_vizsgaremek
         private string url2 = "http://localhost:3000/user/me";
         
         private string token;
-        private FelhasznmalokItem loggedInUser;
+       
 
 
         public FelhasznaloService()
@@ -96,34 +97,30 @@ namespace asztali_vizsgaremek
             }
         }
 
-     
-            public void UpdateUser(int id, UpdateFelhasznaloDTO updateUserDto)
+        public void UpdateUser(int id, UpdateFelhasznaloDTO updateUserDto)
+        {
+            try
             {
-                try
+                string updateUrl = $"{url}/{id}";
+                string body = JsonConvert.SerializeObject(updateUserDto);
+                StringContent content = new StringContent(body, Encoding.UTF8, "application/json");
+
+                var responseMessage = client.PatchAsync(updateUrl, content).Result;
+
+                if (responseMessage.IsSuccessStatusCode)
                 {
-                    string updateUrl = $"{url}/{id}";
-                    string body = JsonConvert.SerializeObject(updateUserDto);
-                    StringContent content = new StringContent(body, Encoding.UTF8, "application/json");
-
-                    var responseMessage = client.PatchAsync(updateUrl, content).Result;
-
-                    if (responseMessage.IsSuccessStatusCode)
-                    {
-                        // Sikeres módosítás esetén nincs teendő
-                    }
-                    else
-                    {
-                        throw new Exception($"Felhasználó frissítése sikertelen. Kód: {responseMessage.StatusCode}");
-                    }
+                    // Sikeres módosítás esetén nincs teendő
                 }
-                catch (Exception ex)
+                else
                 {
-                    throw ex;
+                    throw new Exception($"Felhasználó frissítése sikertelen. Kód: {responseMessage.StatusCode}");
                 }
             }
-
-
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+    }
 }
-    
 

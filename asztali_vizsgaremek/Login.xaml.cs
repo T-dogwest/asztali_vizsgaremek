@@ -45,19 +45,18 @@ namespace asztali_vizsgaremek
             {
                 HttpResponseMessage response = await client.PostAsync("http://localhost:3000/auth/login", content);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = await response.Content.ReadAsAsync<LoginResponse>(); 
+                if(response.IsSuccessStatusCode)
+{
+                    var responseContent = await response.Content.ReadAsAsync<LoginResponse>();
 
-                   
                     if (responseContent.Role == "Admin")
                     {
                         MessageBox.Show("Sikeres bejelentkeztés.");
 
-                        FelhasznmalokItem loggedInUser = new FelhasznmalokItem(); // Itt inicializáljuk a loggedInUser objektumot a megfelelő adatokkal
+                      
 
-                        // Admin ablak megnyitása a felhasználó adatainak átadásával
-                        Admin adminWindow = new Admin(loggedInUser);
+                        // Admin ablak megnyitása
+                        Admin adminWindow = new Admin();
                         adminWindow.Show();
 
                         // Aktuális ablak bezárása
@@ -67,7 +66,8 @@ namespace asztali_vizsgaremek
                     {
                         MessageBox.Show("Nincs jogosultságod belépni");
                     }
-                }
+                
+            }
                 else
                 {
                     MessageBox.Show("LNem sikerült bejelentkezni,ellenőrizd a felhasználó neved és a jelszavad");

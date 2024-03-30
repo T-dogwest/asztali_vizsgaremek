@@ -19,20 +19,14 @@ namespace asztali_vizsgaremek
     /// </summary>
     public partial class Admin : Window
     {
-        private FelhasznaloService felhasznaloService = new FelhasznaloService();
-        private Profile profilePage;
+   
 
-        public Admin(FelhasznmalokItem user
-            )
+        public Admin()
         {
             InitializeComponent();
 
-            LoadLoggedInUserData(); // LoggedInUserData betöltése
         }
-        public void LoadLoggedInUserData()
-        {
-            profilePage = new Profile(felhasznaloService.GetLoggedInUserData());
-        }
+      
 
         private void Button_Attekintes(object sender, RoutedEventArgs e)
         { 
@@ -87,11 +81,7 @@ namespace asztali_vizsgaremek
         }
         private void Button_profil(object sender, RoutedEventArgs e)
         {
-            FelhasznmalokItem loggedInUser = new FelhasznmalokItem(); // itt inicializáljuk a bejelentkezett felhasználó adatait
-
-            Profile profilePage = new Profile(loggedInUser); // létrehozzuk a Profile példányt és átadjuk neki a bejelentkezett felhasználó adatait
-            Main.Content = profilePage; // hozzáadjuk a fő tartalomhoz a Profile oldalt
-            profilePage.LoadLoggedInUserData();
+            Main.Content = new Profile();
         }
     }
 }
