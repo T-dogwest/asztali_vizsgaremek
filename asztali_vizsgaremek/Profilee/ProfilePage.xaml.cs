@@ -1,4 +1,5 @@
-﻿using asztali_vizsgaremek.User;
+﻿using asztali_vizsgaremek.Admin;
+using asztali_vizsgaremek.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,32 +23,36 @@ namespace asztali_vizsgaremek.Profilee
     /// </summary>
     public partial class ProfilePage : Page
     {
+        private FelhasznaloService userService = new FelhasznaloService();
         private FelhasznmalokItem loggedInUser;
 
         public ProfilePage()
         {
             InitializeComponent();
             LoadLoggedInUserData();
+            DisableEdit();
         }
 
         public void LoadLoggedInUserData()
         {
-            FelhasznaloService userService = new FelhasznaloService();
             try
             {
-                loggedInUser = userService.GetLoggedInUserData();
-                if (loggedInUser != null)
+                if (loggedInUser == null) // Ellenőrizzük, hogy az adatok még nincsenek betöltve
                 {
-                    FillUserData(loggedInUser);
-                }
-                else
-                {
-                    MessageBox.Show("Nem sikerült betölteni a bejelentkezett felhasználó adatait.");
+                    loggedInUser = userService.GetLoggedInUserData();
+                    if (loggedInUser != null)
+                    {
+                        FillUserData(loggedInUser);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nem sikerült betölteni a bejelentkezett felhasználó adatait.");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hiba: {ex.Message}");
+                MessageBox.Show($"Hiba történt a felhasználó adatainak betöltésekor: {ex.Message}");
             }
         }
 
@@ -59,46 +64,47 @@ namespace asztali_vizsgaremek.Profilee
             profEmailtb.Text = loggedInUser.Email;
         }
 
-
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(felhasznaloNevtb.Text) &&
-                !string.IsNullOrWhiteSpace(firstNametb.Text) &&
-                !string.IsNullOrWhiteSpace(lastNametb.Text) &&
-                !string.IsNullOrWhiteSpace(profEmailtb.Text))
+            try
             {
+                // Ellenőrizzük, hogy a szükséges mezők ki vannak-e töltve
+                if (string.IsNullOrWhiteSpace(felhasznaloNevtb.Text) ||
+                    string.IsNullOrWhiteSpace(firstNametb.Text) ||
+                    string.IsNullOrWhiteSpace(lastNametb.Text) ||
+                    string.IsNullOrWhiteSpace(profEmailtb.Text))
+                {
+                    MessageBox.Show("Kérlek tölts ki minden mezőt a frissítéshez.");
+                    return;
+                }
+
+                // Megkérdezzük a felhasználót, hogy valóban szeretné-e frissíteni a felhasználó adatait
                 MessageBoxResult result = MessageBox.Show("Biztosan szeretné frissíteni a felhasználó adatait?", "Megerősítés", MessageBoxButton.YesNo);
 
                 if (result == MessageBoxResult.Yes)
                 {
+                    // Elkészítjük a frissítendő felhasználó objektumot
                     UpdateFelhasznaloDTO updateUserDto = new UpdateFelhasznaloDTO
                     {
+                        Id = loggedInUser.Id,
                         Email = profEmailtb.Text,
                         FirstName = firstNametb.Text,
                         LastName = lastNametb.Text,
                         Username = felhasznaloNevtb.Text
                     };
 
-                    int userId = loggedInUser.Id;
-
-                    FelhasznaloService userService = new FelhasznaloService();
-                    try
-                    {
-                        userService.UpdateUser(userId, updateUserDto);
-                        MessageBox.Show("Felhasználó adatai frissítve.");
-                        DisableEdit();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Hiba: {ex.Message}");
-                    }
+                    // Felhasználó frissítése
+                    userService.UpdateUser(loggedInUser.Id, updateUserDto);
+                    MessageBox.Show("Felhasználó adatai frissítve.");
+                    DisableEdit();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Kérlek tölts ki minden mezőt a frissítéshez.");
+                MessageBox.Show($"Hiba történt a felhasználó adatainak frissítésekor: {ex.Message}");
             }
         }
+
         private void Button_Edit(object sender, RoutedEventArgs e)
         {
             EnableEdit();
@@ -110,7 +116,7 @@ namespace asztali_vizsgaremek.Profilee
             firstNametb.IsEnabled = false;
             lastNametb.IsEnabled = false;
             profEmailtb.IsEnabled = false;
-            felhPW.IsEnabled = false;
+            felhPW.IsEnabled = true;
 
             Editbt.Visibility = Visibility.Visible;
             Modify.Visibility = Visibility.Collapsed;
@@ -122,15 +128,26 @@ namespace asztali_vizsgaremek.Profilee
             firstNametb.IsEnabled = true;
             lastNametb.IsEnabled = true;
             profEmailtb.IsEnabled = true;
-            felhPW.IsEnabled = true;
+            felhPW.IsEnabled = false;
 
             Editbt.Visibility = Visibility.Collapsed;
             Modify.Visibility = Visibility.Visible;
         }
 
-        private void felhPW_Click(object sender, RoutedEventArgs e)
+        private void FelhPW_Click(object sender, RoutedEventArgs e)
         {
+            DisableEdit();
+            ChangePass passwin = new ChangePass(loggedInUser);
+            passwin.Closed += (s, ev) => {
+              /*  Login login = new Login();
+                login.ShowDialog();
+                var adminWindow = Application.Current.Windows.OfType<AdminWindow>().FirstOrDefault();
+                if (adminWindow != null)
+                    adminWindow.Close();
+                //zárd be az Admin ablakot*/
 
+            };
+            passwin.ShowDialog();
         }
     }
 }

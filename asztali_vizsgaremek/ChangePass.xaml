@@ -24,7 +24,7 @@
         <PasswordBox x:Name="oldpw" Grid.Row="0" Grid.Column="1" Width="300" Height="20" HorizontalAlignment="Left"/>
         <PasswordBox x:Name="newpw" Grid.Row="1" Grid.Column="1" Width="300" Height="20" HorizontalAlignment="Left"/>
         <StackPanel  Grid.Column="1" Grid.Row="2">
-            <Button Width="200" Height="20" Content="Új jelszó létrehozása" Click="Button_Click"/>
+            <Button Width="200" Height="20" Content="Új jelszó létrehozása" Click="Button_Change"/>
         </StackPanel>
         
     </Grid>

@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace asztali_vizsgaremek.User
 {
@@ -41,7 +42,7 @@ namespace asztali_vizsgaremek.User
             {
                 string body = JsonConvert.SerializeObject(user);
                 StringContent content = new StringContent(body, Encoding.UTF8, "application/json");
-                HttpResponseMessage responseMessage = client.PostAsync(url1, content).Result; 
+                HttpResponseMessage responseMessage = client.PostAsync(url1, content).Result;
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
@@ -62,7 +63,7 @@ namespace asztali_vizsgaremek.User
             }
             catch (Exception ex)
             {
-                throw ex; 
+                throw ex;
             }
         }
 
@@ -82,17 +83,20 @@ namespace asztali_vizsgaremek.User
                 {
                     string responseContent = responseMessage.Content.ReadAsStringAsync().Result;
                     var loggedInUser = JsonConvert.DeserializeObject<FelhasznmalokItem>(responseContent);
-                    loggedInUser.Password = null;
                     return loggedInUser;
                 }
                 else
                 {
-                    throw new Exception($"A user/me lekérdezés sikertelen volt. Kód: {responseMessage.StatusCode}");
+                    Console.WriteLine("A lekérdezés nem sikerült. Státuszkód: " + responseMessage.StatusCode);
+                    string errorMessage = responseMessage.Content.ReadAsStringAsync().Result;
+                    Console.WriteLine("Hibaüzenet: " + errorMessage);
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                Console.WriteLine("Hiba történt a lekérdezés során: " + ex.Message);
+                return null;
             }
         }
 
@@ -108,11 +112,35 @@ namespace asztali_vizsgaremek.User
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
-                    
+
                 }
                 else
                 {
                     throw new Exception($"Felhasználó frissítése sikertelen. Kód: {responseMessage.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void ChangePassword(int userId, ChangePasswordDTO changePasswordDto)
+        {
+            try
+            {
+                string updateUrl = $"{url}/{userId}/changepass";
+                string body = JsonConvert.SerializeObject(changePasswordDto);
+                StringContent content = new StringContent(body, Encoding.UTF8, "application/json");
+
+                var responseMessage = client.PatchAsync(updateUrl, content).Result;
+
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Jelszó sikeresen megváltoztatva!");
+                }
+                else
+                {
+                    throw new Exception($"A jelszó módosítása sikertelen. Kód: {responseMessage.StatusCode}");
                 }
             }
             catch (Exception ex)

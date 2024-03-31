@@ -9,6 +9,8 @@ namespace asztali_vizsgaremek.User
 {
     public class UpdateFelhasznaloDTO
     {
+        [JsonProperty("id")] // Az adatbázisban azonosítóként használt név
+        public int Id { get; set; }
         [JsonProperty("username")]
         public string Username { get; set; }
 
