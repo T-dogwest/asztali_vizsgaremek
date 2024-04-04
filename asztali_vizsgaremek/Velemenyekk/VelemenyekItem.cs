@@ -32,7 +32,7 @@ namespace asztali_vizsgaremek.Velemenyekk
         }
     }
 
-    // Felhasználó osztály
+   
     public class User
     {
         [JsonProperty("username")]

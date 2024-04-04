@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +20,88 @@ namespace asztali_vizsgaremek.Attekintes
     /// Interaction logic for Attekintes.xaml
     /// </summary>
     public partial class AttekintesPage : Page
-    {
+    {   AttekintesService service=new AttekintesService();
+        private List<AttekintesItem> allItems;
         public AttekintesPage()
         {
             InitializeComponent();
+            InitializeComboBox();
+            LoadData();
         }
+        private void LoadData()
+        {
+            try
+            {
+                allItems = service.GetAll();
+                
+                if (allItems != null)
+                {
+                    AttekintesDG.ItemsSource = allItems;
+                }
+                else
+                {
+                    MessageBox.Show("Az adatok betöltése nem sikerült: A kapott adatok null értéket adnak vissza.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hiba történt az adatok betöltése közben: {ex.Message}");
+            }
+        }
+        private void FilterDataGrid(ReservationState selectedState)
+        {
+            if (allItems != null)
+            {
+                ICollectionView view = CollectionViewSource.GetDefaultView(allItems);
+                view.Filter = item =>
+                {
+                    AttekintesItem attekintesItem = item as AttekintesItem;
+                    return attekintesItem.State == selectedState;
+                };
+
+                if (view.IsEmpty)
+                {
+                    // Ha a szűrt lista üres, ürítsd ki a DataGrid-et
+                    AttekintesDG.ItemsSource = null;
+                }
+                else
+                {
+                    // Ellenkező esetben frissítsd a DataGrid-et a szűrt elemekkel
+                    AttekintesDG.ItemsSource = view;
+                }
+            }
+            else
+            {
+                // Ha az allItems null, jelezd ezt vagy kezeld le a hibát
+                MessageBox.Show("Az allItems változó null értéket tartalmaz.");
+            }
+        }
+
+        private void InitializeComboBox()
+        {
+            stateComboBox.ItemsSource = Enum.GetValues(typeof(ReservationState));
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (stateComboBox.SelectedItem != null)
+            {
+                ReservationState selectedState = (ReservationState)stateComboBox.SelectedItem;
+                FilterDataGrid(selectedState);
+            }
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       
     }
 }

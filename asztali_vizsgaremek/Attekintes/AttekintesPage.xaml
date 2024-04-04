@@ -19,14 +19,24 @@
 
         </Grid.RowDefinitions>
         <StackPanel>
-            <ComboBox/>
+            <ComboBox SelectionChanged="ComboBox_SelectionChanged" x:Name="stateComboBox"/>
             
         </StackPanel>
-        <DataGrid Grid.Row="0"  x:Name="employeeTable" Margin="5" Height="500" Width="900"  HorizontalAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid Grid.Row="0"  x:Name="AttekintesDG" Margin="5" Height="500" Width="900"  HorizontalAlignment="Center" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Felhasználónév" Binding="{Binding UserName}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding UserEmail}" />
+                <DataGridTextColumn Header="Időpont" Binding="{Binding StartTime}" />
+                <DataGridTextColumn Header="Állapot" Binding="{Binding State}" />
+                <DataGridTextColumn Header="Bérlés ideje" Binding="{Binding ReservationTime}" />
+                <DataGridTextColumn Header="Összeg" Binding="{Binding TotalAmount}" />
+                <DataGridTextColumn Header="Bicikli típusa" Binding="{Binding BicycleType}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
-            <Button Margin="5"  Content="Jóváhagyás" Width="150"/>
-            <Button Margin="5" Content="Töröl" Width="150" />
+            <Button Margin="5"  Content="Jóváhagyás" Width="150" Click="Button_Click"/>
+            <Button Margin="5" Content="Töröl" Width="150" Click="Button_Click_1" />
         </StackPanel>
        
 
