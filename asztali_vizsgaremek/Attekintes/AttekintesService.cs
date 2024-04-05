@@ -17,17 +17,19 @@ namespace asztali_vizsgaremek
     {
         private string token;
         private HttpClient client = new HttpClient();
-        private string url = "http://localhost:3000/reservation/allRes";
+        private string url = "http://localhost:3000/reservation";
+        private string url1 = "http://localhost:3000/basket";
         public AttekintesService()
         {
             token = TokenM.GetToken();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+           
         }
         public List<AttekintesItem> GetAll()
         {
             try
             {
-                HttpResponseMessage response = client.GetAsync(url).Result;
+                HttpResponseMessage response = client.GetAsync($"{url}/allRes").Result;
                 if (response.IsSuccessStatusCode)
                 {
                     string json = response.Content.ReadAsStringAsync().Result;
@@ -45,6 +47,27 @@ namespace asztali_vizsgaremek
                 MessageBox.Show("Error: " + ex.Message);
                 return null;
             }
+        }
+       
+        public void Update(int id, UpdateStateDto dto)
+        {
+            try
+            {
+                string jsonContent = JsonConvert.SerializeObject(dto);
+                StringContent content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = client.PatchAsync($"{url}/{id}/state", content).Result;
+                if (!response.IsSuccessStatusCode)
+                {
+                    string errorMessage = response.Content.ReadAsStringAsync().Result;
+                    MessageBox.Show($"Update failed. Error message: {errorMessage}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
         }
     }
 

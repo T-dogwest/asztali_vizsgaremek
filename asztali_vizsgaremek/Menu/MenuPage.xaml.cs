@@ -100,7 +100,7 @@ namespace asztali_vizsgaremek.Menu
 
         private void Button_Vissza(object sender, RoutedEventArgs e)
         {
-
+            MenuTable.SelectedItem= null;
             add.Visibility = Visibility.Visible;
 
             modify.Visibility = Visibility.Collapsed;

@@ -31,12 +31,26 @@
                 <DataGridTextColumn Header="Bérlés ideje" Binding="{Binding ReservationTime}" />
                 <DataGridTextColumn Header="Összeg" Binding="{Binding TotalAmount}" />
                 <DataGridTextColumn Header="Bicikli típusa" Binding="{Binding BicycleType}" />
+               
+
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Basket" Width="30" Height="30" >
+                                <Button.Background>
+                                    <ImageBrush ImageSource="C:\Users\csont\Desktop\vizsga3\asztali_vizsgaremek\Image\basket.png"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="40">
-            <Button Margin="5"  Content="Jóváhagyás" Width="150" Click="Button_Click"/>
-            <Button Margin="5" Content="Töröl" Width="150" Click="Button_Click_1" />
+            <Button Margin="5"  Content="Jóváhagyás" Width="150" Click="Button_Done"/>
+            <Button Margin="5" Content="Töröl" Width="150" Click="Button_Cancelled" />
         </StackPanel>
        
 

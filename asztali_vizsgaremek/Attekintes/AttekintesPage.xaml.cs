@@ -92,16 +92,70 @@ namespace asztali_vizsgaremek.Attekintes
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Done(object sender, RoutedEventArgs e)
         {
-
+            if (AttekintesDG.SelectedItem != null)
+            {
+                try
+                {
+                    AttekintesItem selectedItem = (AttekintesItem)AttekintesDG.SelectedItem;
+                    int id = selectedItem.Id;
+                    UpdateStateDto dto = new UpdateStateDto { State = ReservationState.Done };
+                    service.Update(id, dto);
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Válassz egy elemet elöbb.");
+            }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Cancelled(object sender, RoutedEventArgs e)
         {
-
+            if (AttekintesDG.SelectedItem != null)
+            {
+                try
+                {
+                    AttekintesItem selectedItem = (AttekintesItem)AttekintesDG.SelectedItem;
+                    int id = selectedItem.Id;
+                    UpdateStateDto dto = new UpdateStateDto { State = ReservationState.Cancelled };
+                    service.Update(id, dto);
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Válassz egy elemet elöbb.");
+            }
         }
 
-       
+        private void Button_Basket(object sender, RoutedEventArgs e)
+        {
+            if (AttekintesDG.SelectedItem != null)
+            {
+                AttekintesItem selected = AttekintesDG.SelectedItem as AttekintesItem;
+                RendelesWindow rendeles = new RendelesWindow(selected);
+              
+                rendeles.Closed += (_, _) =>
+                {
+                    LoadData();
+                };
+                rendeles.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Válassz ki egy elemet a listából, mielőtt megnyomnád a Kosár gombot.");
+            }
+        }
+
     }
 }

@@ -41,8 +41,7 @@ namespace asztali_vizsgaremek.Attekintes
         [JsonProperty("bicycle")]
         public Bicycle Bicycle { get; set; }
 
-        [JsonProperty("basket")]
-        public List<Menu> Basket { get; set; }
+       
 
 
         public string UserName
@@ -63,18 +62,33 @@ namespace asztali_vizsgaremek.Attekintes
 
     public class User
     {
+        [JsonProperty("id")]
+        public int Id { get; set; }
         [JsonProperty("username")]
         public string Username { get; set; }
         [JsonProperty("email")]
         public string Email { get; set; }
+        [JsonProperty("basket")]
+        public List<BasketItem> Basket { get; set; }
     }
-    public class Menu
+    public class BasketItem
+    {
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        [JsonProperty("userId")]
+        public int UserId { get; set; }
+
+        [JsonProperty("deleted")]
+        public bool Deleted { get; set; }
+
+        [JsonProperty("menu")]
+        public List<MenuAttekintes> Menu { get; set; }
+    }
+    public class MenuAttekintes
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("type")]
-        public MenuType Type { get; set; }
+        public string NameKosar { get; set; }
 
         [JsonProperty("price")]
         public int Price { get; set; }

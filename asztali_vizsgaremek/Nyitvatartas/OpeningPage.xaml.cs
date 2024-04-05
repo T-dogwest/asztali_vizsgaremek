@@ -36,20 +36,20 @@ namespace asztali_vizsgaremek.Nyitvatartas
             string[] parts = time.Split('-');
 
             if (parts.Length != 2)
-                return false;
+            { return false; }
 
             foreach (string part in parts)
             {
                 string[] timeParts = part.Split(':');
 
                 if (timeParts.Length != 2)
-                    return false;
+                { return false; }
 
                 if (!int.TryParse(timeParts[0], out int hour) || !int.TryParse(timeParts[1], out int minute))
-                    return false;
+                { return false; }
 
-                if (hour < 0 || hour > 23 || minute < 0 || minute > 59)
-                    return false;
+                if (hour < 0 || hour > 23 || minute < 0 || minute > 59|| timeParts[1].Length !=2)
+                {   return false; }
             }
 
             return true;
