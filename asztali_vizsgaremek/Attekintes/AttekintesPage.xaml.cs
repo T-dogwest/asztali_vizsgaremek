@@ -94,24 +94,32 @@ namespace asztali_vizsgaremek.Attekintes
 
         private void Button_Done(object sender, RoutedEventArgs e)
         {
-            if (AttekintesDG.SelectedItem != null)
+            if (AttekintesDG.SelectedItem != null )
             {
-                try
+                AttekintesItem selectedItem = (AttekintesItem)AttekintesDG.SelectedItem;
+
+                if (selectedItem.State != ReservationState.Cancelled)
                 {
-                    AttekintesItem selectedItem = (AttekintesItem)AttekintesDG.SelectedItem;
-                    int id = selectedItem.Id;
-                    UpdateStateDto dto = new UpdateStateDto { State = ReservationState.Done };
-                    service.Update(id, dto);
-                    LoadData();
+                    try
+                    {
+                        int id = selectedItem.Id;
+                        UpdateStateDto dto = new UpdateStateDto { State = ReservationState.Done };
+                        service.Update(id, dto);
+                        LoadData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("A kiválasztott foglalás már 'Cancelled' állapotban van, ezért nem lehet 'Done' állapotba állítani.");
                 }
             }
             else
             {
-                MessageBox.Show("Válassz egy elemet elöbb.");
+                MessageBox.Show("Válassz egy elemet előbb.");
             }
         }
 
