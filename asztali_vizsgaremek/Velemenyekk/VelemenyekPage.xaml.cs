@@ -62,19 +62,19 @@ namespace asztali_vizsgaremek.Velemenyekk
                     bool success = services.Delete(selectedVelemeny);
                     if (success)
                     {
-                        MessageBox.Show("A törlés sikeres volt.", "Sikeres törlés", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("A törlés sikeres volt.", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                         RefreshData();
                         ClearTextBoxes();
                     }
                     else
                     {
-                        MessageBox.Show("A törlés sikertelen volt.", "Sikertelen törlés", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("A törlés sikertelen volt.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Kérem válassza ki a törlendő elemet!", "Nincs kiválasztva elem", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Kérem válassza ki a törlendő elemet!", "Közlés", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

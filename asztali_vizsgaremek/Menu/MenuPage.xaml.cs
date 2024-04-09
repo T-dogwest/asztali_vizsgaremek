@@ -49,13 +49,13 @@ namespace asztali_vizsgaremek.Menu
                 MenuItem newMenu = services.Add(menu);
                 if (newMenu.Id != 0)
                 {
-                    MessageBox.Show("Sikeres felvétel");
+                    MessageBox.Show("Sikeres felvétel", "közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                     ClearInputFields();
                     RefreshMenuTable();
                 }
                 else
                 {
-                    MessageBox.Show("Hiba történt a felvétel során: ");
+                    MessageBox.Show("Hiba történt a felvétel során: ", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception ex)
@@ -79,12 +79,12 @@ namespace asztali_vizsgaremek.Menu
                     if (deleteSuccess)
                     {
                         RefreshMenuTable();
-                        MessageBox.Show("Elem sikeresen törölve.");
+                        MessageBox.Show("Elem sikeresen törölve.", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                         ClearInputFields();
                     }
                     else
                     {
-                        MessageBox.Show("A törlés nem sikerült.");
+                        MessageBox.Show("A törlés nem sikerült.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 catch (Exception ex)
@@ -94,7 +94,7 @@ namespace asztali_vizsgaremek.Menu
             }
             else
             {
-                MessageBox.Show("Kérem válasszon ki egy elemet a törléshez.");
+                MessageBox.Show("Kérem válasszon ki egy elemet a törléshez.", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -113,7 +113,7 @@ namespace asztali_vizsgaremek.Menu
             MenuItem selected = MenuTable.SelectedItem as MenuItem;
             if (selected == null)
             {
-                MessageBox.Show("Módosításhoz előbb válasszon ki elemet!");
+                MessageBox.Show("Módosításhoz előbb válasszon ki elemet!", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             try
@@ -122,7 +122,7 @@ namespace asztali_vizsgaremek.Menu
                 MenuItem update = services.Update(selected.Id, menu);
                 if (update != null)
                 {
-                    MessageBox.Show("Sikeres módosítás");
+                    MessageBox.Show("Sikeres módosítás", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                     RefreshMenuTable();
                     ClearInputFields();
                     add.Visibility = Visibility.Visible;

@@ -12,7 +12,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="550"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions >
         <Grid.RowDefinitions>
@@ -21,17 +21,7 @@
 
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="0"  SelectionChanged="openinTable_SelectionChanged" IsReadOnly="True"  x:Name="openinTable" Margin="10" Height="50" Width="500" HorizontalAlignment="Center" AutoGenerateColumns="False" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Monday" Binding="{Binding Monday}" />
-                <DataGridTextColumn Header="Tuesday" Binding="{Binding Tuesday}" />
-                <DataGridTextColumn Header="Wednesday" Binding="{Binding Wednesday}" />
-                <DataGridTextColumn Header="Thursday" Binding="{Binding Thursday}" />
-                <DataGridTextColumn Header="Friday" Binding="{Binding Friday}" />
-                <DataGridTextColumn Header="Sasturday" Binding="{Binding Sasturday}" />
-                <DataGridTextColumn Header="Sunday" Binding="{Binding Sunday}" />
-            </DataGrid.Columns>
-        </DataGrid>
+      
 
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -70,7 +60,7 @@
             <TextBox Grid.Row="6" Margin="5" Grid.Column="1" x:Name="tbSunday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
 
-            <StackPanel Grid.Row="8" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="30" Margin="80,0,0,0" Width="150">
+            <StackPanel Grid.Row="8" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Height="30"  Width="150">
                 <Button  Content="Módosít" Width="150" Click="Button_Modify" />
                 
 

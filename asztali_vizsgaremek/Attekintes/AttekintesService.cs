@@ -38,7 +38,7 @@ namespace asztali_vizsgaremek
                 }
                 else
                 {
-                    MessageBox.Show("nono");
+                    MessageBox.Show("Nem sikeres a lekérés");
                     return null;
                 }
             }

@@ -24,8 +24,26 @@ namespace asztali_vizsgaremek.Nyitvatartas
         public OpeningPage()
         {
             InitializeComponent();
-            openinTable.ItemsSource = services.GetAll();
+            LoadData();
         }
+
+        private void LoadData()
+        {
+            var openings = services.GetAll();
+            if (openings.Count > 0)
+            {
+                // Az első elem a lista első eleme lesz
+                var opening = openings[0];
+                tbMonday.Text = opening.Monday;
+                tbTuesday.Text = opening.Tuesday;
+                tbWednesday.Text = opening.Wednesday;
+                tbThursday.Text = opening.Thursday;
+                tbFriday.Text = opening.Friday;
+                Sasturday.Text = opening.Sasturday;
+                tbSunday.Text = opening.Sunday;
+            }
+        }
+
         private bool ValidateTimeFormat(string time)
         {
             if (time.ToLower() == "closed")
@@ -55,106 +73,49 @@ namespace asztali_vizsgaremek.Nyitvatartas
             return true;
         }
 
-        private void openinTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (openinTable.SelectedItem != null)
-            {
-                OpeningItem selectedOpening = (OpeningItem)openinTable.SelectedItem;
-                // Betöltjük az adatokat az input mezőkbe
-                tbMonday.Text = selectedOpening.Monday;
-                tbTuesday.Text = selectedOpening.Tuesday;
-                tbWednesday.Text = selectedOpening.Wednesday;
-                tbThursday.Text = selectedOpening.Thursday;
-                tbFriday.Text = selectedOpening.Friday;
-                Sasturday.Text = selectedOpening.Sasturday;
-                tbSunday.Text = selectedOpening.Sunday;
-            }
-        }
+        
 
 
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
-            if (openinTable.SelectedItem != null)
+
+            if (ValidateTimeFormat(tbMonday.Text) &&
+               ValidateTimeFormat(tbTuesday.Text) &&
+               ValidateTimeFormat(tbWednesday.Text) &&
+               ValidateTimeFormat(tbThursday.Text) &&
+               ValidateTimeFormat(tbFriday.Text) &&
+               ValidateTimeFormat(Sasturday.Text) &&
+               ValidateTimeFormat(tbSunday.Text))
             {
-                OpeningItem selectedOpening = (OpeningItem)openinTable.SelectedItem;
-
-                if (ValidateTimeFormat(tbMonday.Text) &&
-                    ValidateTimeFormat(tbTuesday.Text) &&
-                    ValidateTimeFormat(tbWednesday.Text) &&
-                    ValidateTimeFormat(tbThursday.Text) &&
-                    ValidateTimeFormat(tbFriday.Text) &&
-                    ValidateTimeFormat(Sasturday.Text) &&
-                    ValidateTimeFormat(tbSunday.Text))
+                OpeningDTO modifiedOpening = new OpeningDTO
                 {
-                    
-                    OpeningDTO modifiedOpening = new OpeningDTO
-                    {
-                        Monday = tbMonday.Text,
-                        Tuesday = tbTuesday.Text,
-                        Wednesday = tbWednesday.Text,
-                        Thursday = tbThursday.Text,
-                        Friday = tbFriday.Text,
-                        Sasturday = Sasturday.Text,
-                        Sunday = tbSunday.Text,
-                    };
+                    Monday = tbMonday.Text.ToLower() == "closed" ? "Closed" : tbMonday.Text,
+                    Tuesday = tbTuesday.Text.ToLower() == "closed" ? "Closed" : tbTuesday.Text,
+                    Wednesday = tbWednesday.Text.ToLower() == "closed" ? "Closed" : tbWednesday.Text,
+                    Thursday = tbThursday.Text.ToLower() == "closed" ? "Closed" : tbThursday.Text,
+                    Friday = tbFriday.Text.ToLower() == "closed" ? "Closed" : tbFriday.Text,
+                    Sasturday = Sasturday.Text.ToLower() == "closed" ? "Closed" : Sasturday.Text,
+                    Sunday = tbSunday.Text.ToLower() == "closed" ? "Closed" : tbSunday.Text,
+                };
 
-                   
-                    if (tbMonday.Text.ToLower() == "closed")
-                    {
-                        modifiedOpening.Monday = "Closed"; 
-                    }
-                    if (tbTuesday.Text.ToLower() == "closed")
-                    {
-                        modifiedOpening.Tuesday = "Closed";
-                    }
-                    if (tbWednesday.Text.ToLower() == "closed")
-                    {
-                        modifiedOpening.Wednesday = "Closed";
-                    }
-                    if (tbThursday.Text.ToLower() == "closed")
-                    {
-                        modifiedOpening.Thursday = "Closed";
-                    }
-                    if (tbFriday.Text.ToLower() == "closed")
-                    {
-                        modifiedOpening.Friday = "Closed";
-                    }
-                    if (Sasturday.Text.ToLower() == "closed")
-                    {
-                        modifiedOpening.Sasturday = "Closed";
-                    }
-                    if (tbSunday.Text.ToLower() == "closed")
-                    {
-                        modifiedOpening.Sunday = "Closed";
-                    }
+                OpeningItem selectedOpening = services.GetAll().FirstOrDefault(); // Csak az első elemet módosítjuk
 
-                    
-                    OpeningItem updatedItem = services.Update(selectedOpening.Id, modifiedOpening);
+                OpeningItem updatedItem = services.Update(selectedOpening.Id, modifiedOpening);
 
-                    if (updatedItem != null)
-                    {
-                        MessageBox.Show("A módosítás sikeres volt!");
-              
-                        openinTable.ItemsSource = services.GetAll();
+                if (updatedItem != null)
+                {
+                    MessageBox.Show("A módosítás sikeres volt!", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                      
-                        tbMonday.Text = "";
-                        tbTuesday.Text = "";
-                        tbWednesday.Text = "";
-                        tbThursday.Text = "";
-                        tbFriday.Text = "";
-                        Sasturday.Text = "";
-                        tbSunday.Text = "";
-                    }
-                    else
-                    {
-                        MessageBox.Show("A módosítás sikertelen volt!");
-                    }
+                 
                 }
                 else
                 {
-                    MessageBox.Show("Az időtartamok formátuma helytelen!");
+                    MessageBox.Show("A módosítás sikertelen volt!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Az időtartamok formátuma helytelen!", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

@@ -36,16 +36,16 @@ namespace asztali_vizsgaremek.Attekintes
                 
                 if (allItems != null)
                 {
-                    AttekintesDG.ItemsSource = allItems;
+                    AttekintesDG.ItemsSource = allItems; 
                 }
                 else
                 {
-                    MessageBox.Show("Az adatok betöltése nem sikerült: A kapott adatok null értéket adnak vissza.");
+                    MessageBox.Show("Az adatok betöltése nem sikerült: A kapott adatok null értéket adnak vissza.", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hiba történt az adatok betöltése közben: {ex.Message}");
+                MessageBox.Show($"Hiba történt az adatok betöltése közben: {ex.Message}", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         private void FilterDataGrid(ReservationState selectedState)
@@ -73,7 +73,7 @@ namespace asztali_vizsgaremek.Attekintes
             else
             {
                 // Ha az allItems null, jelezd ezt vagy kezeld le a hibát
-                MessageBox.Show("Az allItems változó null értéket tartalmaz.");
+                MessageBox.Show("Az allItems változó null értéket tartalmaz.", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -106,6 +106,8 @@ namespace asztali_vizsgaremek.Attekintes
                         UpdateStateDto dto = new UpdateStateDto { State = ReservationState.Done };
                         service.Update(id, dto);
                         LoadData();
+                        ReservationState selectedState = (ReservationState)stateComboBox.SelectedItem;
+                        FilterDataGrid(selectedState);
                     }
                     catch (Exception ex)
                     {
@@ -114,13 +116,14 @@ namespace asztali_vizsgaremek.Attekintes
                 }
                 else
                 {
-                    MessageBox.Show("A kiválasztott foglalás már 'Cancelled' állapotban van, ezért nem lehet 'Done' állapotba állítani.");
+                    MessageBox.Show("A kiválasztott foglalás már 'Cancelled' állapotban van, ezért nem lehet 'Done' állapotba állítani.", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Válassz egy elemet előbb.");
+                MessageBox.Show("Válassz egy elemet előbb.", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+
         }
 
         private void Button_Cancelled(object sender, RoutedEventArgs e)
@@ -134,6 +137,9 @@ namespace asztali_vizsgaremek.Attekintes
                     UpdateStateDto dto = new UpdateStateDto { State = ReservationState.Cancelled };
                     service.Update(id, dto);
                     LoadData();
+
+                    ReservationState selectedState = (ReservationState)stateComboBox.SelectedItem;
+                    FilterDataGrid(selectedState);
                 }
                 catch (Exception ex)
                 {
@@ -142,7 +148,7 @@ namespace asztali_vizsgaremek.Attekintes
             }
             else
             {
-                MessageBox.Show("Válassz egy elemet elöbb.");
+                MessageBox.Show("Válassz egy elemet elöbb.", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -161,7 +167,7 @@ namespace asztali_vizsgaremek.Attekintes
             }
             else
             {
-                MessageBox.Show("Válassz ki egy elemet a listából, mielőtt megnyomnád a Kosár gombot.");
+                MessageBox.Show("Válassz ki egy elemet a listából, mielőtt megnyomnád a Kosár gombot.", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

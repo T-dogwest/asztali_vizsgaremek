@@ -37,10 +37,10 @@ namespace asztali_vizsgaremek
         {
             if (selected != null && selected.UserData != null && selected.UserData.Basket != null)
             {
-                // Clear the existing content of BasketContainer
+                
                 BasketContainer.Children.Clear();
 
-                // Find the basket related to the selected reservation
+           
                 var selectedBasket = selected.UserData.Basket.FirstOrDefault(basket => basket.Id == selected.Id);
 
                 if (selectedBasket != null)
@@ -48,21 +48,21 @@ namespace asztali_vizsgaremek
                     var basketLabel = new Label();
                  
 
-                    // Add menu items to the label
+                  
                     foreach (var menu in selectedBasket.Menu)
                     {
                         basketLabel.Content += $"\nMenu Name: {menu.NameKosar}, Price: {menu.Price}";
                     }
 
-                    // Add some spacing
+                
                     basketLabel.Content += "\n";
 
-                    // Add the label to BasketContainer
+                  
                     BasketContainer.Children.Add(basketLabel);
                 }
                 else
                 {
-                    // Ha a kiválasztott foglaláshoz nem tartozik kosár, jeleníts meg egy üzenetet
+                  
                     var noBasketLabel = new Label();
                     noBasketLabel.Content = "Nincs elérhető kosár az adott foglaláshoz.";
                     BasketContainer.Children.Add(noBasketLabel);

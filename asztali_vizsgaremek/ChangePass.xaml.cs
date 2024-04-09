@@ -40,13 +40,13 @@ namespace asztali_vizsgaremek
             {
                 if (string.IsNullOrWhiteSpace(oldpw.Password) || string.IsNullOrWhiteSpace(newpw.Password))
                 {
-                    MessageBox.Show("Kérjük, töltse ki mindkét jelszómezőt.");
+                    MessageBox.Show("Kérjük, töltse ki mindkét jelszómezőt.", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
 
                 if (loggedInUser == null)
                 {
-                    MessageBox.Show("Nincs bejelentkezett felhasználó.");
+                    MessageBox.Show("Nincs bejelentkezett felhasználó.", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
@@ -59,7 +59,7 @@ namespace asztali_vizsgaremek
                 int userId = loggedInUser.Id;
 
                 service.ChangePassword(userId, changePasswordDto);
-                MessageBox.Show("Jelszó sikeresen megváltoztatva!");
+                MessageBox.Show("Jelszó sikeresen megváltoztatva!", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 // Bezárjuk a ChangePass ablakot
                 Close();

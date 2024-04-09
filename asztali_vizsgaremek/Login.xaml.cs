@@ -35,7 +35,7 @@ namespace asztali_vizsgaremek
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Add meg a jelszavad és a felhasználó nevedet is");
+                MessageBox.Show("Add meg a jelszavad és a felhasználó nevedet is", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
@@ -52,7 +52,7 @@ namespace asztali_vizsgaremek
 
                     if (responseContent.Role == "Admin")
                     {
-                        MessageBox.Show("Sikeres bejelentkeztés.");
+                        MessageBox.Show("Sikeres bejelentkeztés.", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
 
                       
 
@@ -65,13 +65,13 @@ namespace asztali_vizsgaremek
                     }
                     else
                     {
-                        MessageBox.Show("Nincs jogosultságod belépni");
+                        MessageBox.Show("Nincs jogosultságod belépni", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 
             }
                 else
                 {
-                    MessageBox.Show("LNem sikerült bejelentkezni,ellenőrizd a felhasználó neved és a jelszavad");
+                    MessageBox.Show("Nem sikerült bejelentkezni,ellenőrizd a felhasználó neved és a jelszavad", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             catch (Exception ex)

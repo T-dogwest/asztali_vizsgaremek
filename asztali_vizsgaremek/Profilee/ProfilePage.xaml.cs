@@ -46,7 +46,7 @@ namespace asztali_vizsgaremek.Profilee
                     }
                     else
                     {
-                        MessageBox.Show("Nem sikerült betölteni a bejelentkezett felhasználó adatait.");
+                        MessageBox.Show("Nem sikerült betölteni a bejelentkezett felhasználó adatait.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -74,12 +74,12 @@ namespace asztali_vizsgaremek.Profilee
                     string.IsNullOrWhiteSpace(lastNametb.Text) ||
                     string.IsNullOrWhiteSpace(profEmailtb.Text))
                 {
-                    MessageBox.Show("Kérlek tölts ki minden mezőt a frissítéshez.");
+                    MessageBox.Show("Kérlek tölts ki minden mezőt a frissítéshez.", "Figyekmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
                 // Megkérdezzük a felhasználót, hogy valóban szeretné-e frissíteni a felhasználó adatait
-                MessageBoxResult result = MessageBox.Show("Biztosan szeretné frissíteni a felhasználó adatait?", "Megerősítés", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show("Biztosan szeretné frissíteni a felhasználó adatait?", "Megerősítés", MessageBoxButton.YesNo,MessageBoxImage.Question);
 
                 if (result == MessageBoxResult.Yes)
                 {
@@ -95,7 +95,7 @@ namespace asztali_vizsgaremek.Profilee
 
                     // Felhasználó frissítése
                     userService.UpdateUser(loggedInUser.Id, updateUserDto);
-                    MessageBox.Show("Felhasználó adatai frissítve.");
+                    MessageBox.Show("Felhasználó adatai frissítve.", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                     DisableEdit();
                 }
             }

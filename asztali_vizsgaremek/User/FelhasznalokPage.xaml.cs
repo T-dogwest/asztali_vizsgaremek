@@ -40,13 +40,13 @@ namespace asztali_vizsgaremek.User
                 FelhasznmalokItem newadmin = services.Add(admin);
                 if (newadmin.Id != 0)
                 {
-                    MessageBox.Show("Sikeres felvétel");
+                    MessageBox.Show("Sikeres felvétel", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                     ClearInputFields();
                     LoadData();
                 }
                 else
                 {
-                    MessageBox.Show("Hiba történt a felvétel során");
+                    MessageBox.Show("Hiba történt a felvétel során", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             catch (Exception ex)
@@ -62,7 +62,7 @@ namespace asztali_vizsgaremek.User
             FelhasznmalokItem selected = UserTable.SelectedItem as FelhasznmalokItem;
             if (selected == null)
             {
-                MessageBox.Show("Válasszon ki egy elemet a törléshez!");
+                MessageBox.Show("Válasszon ki egy elemet a törléshez!", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
@@ -77,12 +77,12 @@ namespace asztali_vizsgaremek.User
                     bool deleted = services.Delete(selected);
                     if (deleted)
                     {
-                        MessageBox.Show("Sikeres törlés");
+                        MessageBox.Show("Sikeres törlés", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
                         LoadData(); 
                     }
                     else
                     {
-                        MessageBox.Show("Hiba történt a törlés során");
+                        MessageBox.Show("Hiba történt a törlés során", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 catch (Exception ex)
