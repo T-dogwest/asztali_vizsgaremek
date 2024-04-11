@@ -1,0 +1,73 @@
+\doxysection{asztali\+\_\+vizsgaremek.\+Attekintes\+Service Class Reference}
+\hypertarget{classasztali__vizsgaremek_1_1_attekintes_service}{}\label{classasztali__vizsgaremek_1_1_attekintes_service}\index{asztali\_vizsgaremek.AttekintesService@{asztali\_vizsgaremek.AttekintesService}}
+
+
+A foglalásokkal kapcsolatos szolgáltatásokat nyújtó osztály.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_service_a6d7eead4bedc62f03f3bacdd2a3fe028}\label{classasztali__vizsgaremek_1_1_attekintes_service_a6d7eead4bedc62f03f3bacdd2a3fe028} 
+{\bfseries Attekintes\+Service} ()
+\begin{DoxyCompactList}\small\item\em Az osztály konstruktora, inicializálja a Http\+Client-\/et és a token-\/t. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_item}{Attekintes\+Item}} $>$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_service_a8b41a4c735b515473966a57ab8da7a7d}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Összes foglalást lekéri a szerverről. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_service_a23247e4256ec4fec2c7cb096f74615cf}{Update}} (int id, \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_update_state_dto}{Update\+State\+Dto}} dto)
+\begin{DoxyCompactList}\small\item\em Frissíti a megadott foglalás állapotát a szerveren. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_service_ab8f07dd129a73f4e75dd4cb6a0ca3cee}\label{classasztali__vizsgaremek_1_1_attekintes_service_ab8f07dd129a73f4e75dd4cb6a0ca3cee} 
+string {\bfseries token}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_service_aa97334e25245dea2091362a954527726}\label{classasztali__vizsgaremek_1_1_attekintes_service_aa97334e25245dea2091362a954527726} 
+Http\+Client {\bfseries client} = new Http\+Client()
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_service_a33e7fb7cda6a0e4adb6a6d25dff550d8}\label{classasztali__vizsgaremek_1_1_attekintes_service_a33e7fb7cda6a0e4adb6a6d25dff550d8} 
+string {\bfseries url} = "{}http\+://localhost\+:3000/reservation"{}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_service_ab07b6953e9b2ac5e4bf1884e85400080}\label{classasztali__vizsgaremek_1_1_attekintes_service_ab07b6953e9b2ac5e4bf1884e85400080} 
+string {\bfseries url1} = "{}http\+://localhost\+:3000/basket"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A foglalásokkal kapcsolatos szolgáltatásokat nyújtó osztály. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_service_a8b41a4c735b515473966a57ab8da7a7d}\label{classasztali__vizsgaremek_1_1_attekintes_service_a8b41a4c735b515473966a57ab8da7a7d} 
+\index{asztali\_vizsgaremek.AttekintesService@{asztali\_vizsgaremek.AttekintesService}!GetAll@{GetAll}}
+\index{GetAll@{GetAll}!asztali\_vizsgaremek.AttekintesService@{asztali\_vizsgaremek.AttekintesService}}
+\doxysubsubsection{\texorpdfstring{GetAll()}{GetAll()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_item}{Attekintes\+Item}} $>$ asztali\+\_\+vizsgaremek.\+Attekintes\+Service.\+Get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Összes foglalást lekéri a szerverről. 
+
+\begin{DoxyReturn}{Returns}
+A foglalások listája.
+\end{DoxyReturn}
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_service_a23247e4256ec4fec2c7cb096f74615cf}\label{classasztali__vizsgaremek_1_1_attekintes_service_a23247e4256ec4fec2c7cb096f74615cf} 
+\index{asztali\_vizsgaremek.AttekintesService@{asztali\_vizsgaremek.AttekintesService}!Update@{Update}}
+\index{Update@{Update}!asztali\_vizsgaremek.AttekintesService@{asztali\_vizsgaremek.AttekintesService}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void asztali\+\_\+vizsgaremek.\+Attekintes\+Service.\+Update (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_update_state_dto}{Update\+State\+Dto}}}]{dto }\end{DoxyParamCaption})}
+
+
+
+Frissíti a megadott foglalás állapotát a szerveren. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & A foglalás azonosítója.\\
+\hline
+{\em dto} & Az állapotfrissítés DTO objektuma.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/csont/\+Desktop/vizsga3/asztali\+\_\+vizsgaremek/\+Attekintes/Attekintes\+Service.\+cs\end{DoxyCompactItemize}

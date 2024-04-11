@@ -1,0 +1,173 @@
+\doxysection{asztali\+\_\+vizsgaremek.\+Attekintes.\+Attekintes\+Page Class Reference}
+\hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page}{}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page}\index{asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}}
+
+
+Az Attekintes\+Page osztály az áttekintő oldalt reprezentálja, ahol a foglalásokat megjelenítik és kezelik.  
+
+
+
+
+Inherits System.\+Windows.\+Controls.\+Page, System.\+Windows.\+Controls.\+Page, System.\+Windows.\+Markup.\+IComponent\+Connector, System.\+Windows.\+Markup.\+IStyle\+Connector, System.\+Windows.\+Controls.\+Page, System.\+Windows.\+Markup.\+IComponent\+Connector, and System.\+Windows.\+Markup.\+IStyle\+Connector.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a52eb93db37853f20e8639c6f0b09559a}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a52eb93db37853f20e8639c6f0b09559a} 
+{\bfseries Attekintes\+Page} ()
+\begin{DoxyCompactList}\small\item\em Az Attekintes\+Page osztály konstruktora, inicializálja az oldalt és betölti az adatokat. \end{DoxyCompactList}\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a3f0a848f102237c62c7a0b6bbd88ff70}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a3f0a848f102237c62c7a0b6bbd88ff70} 
+void {\bfseries Initialize\+Component} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component. \end{DoxyCompactList}\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a3f0a848f102237c62c7a0b6bbd88ff70}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a3f0a848f102237c62c7a0b6bbd88ff70} 
+void {\bfseries Initialize\+Component} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a0b644d2e6e7f4dd4d2bd82720d8bd973}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a0b644d2e6e7f4dd4d2bd82720d8bd973} 
+System.\+Windows.\+Controls.\+Combo\+Box {\bfseries state\+Combo\+Box}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a1f30950159dc71a572d382316c00c9f4}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a1f30950159dc71a572d382316c00c9f4} 
+System.\+Windows.\+Controls.\+Data\+Grid {\bfseries Attekintes\+DG}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_aa1e98f2f8aacb3c5dafb8035492a6849}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_aa1e98f2f8aacb3c5dafb8035492a6849} 
+void {\bfseries Load\+Data} ()
+\begin{DoxyCompactList}\small\item\em Betölti az adatokat az adatforrásból és megjeleníti azokat a Data\+Grid-\/ben. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a862933116804fe58babf103399b385fc}{Filter\+Data\+Grid}} (Reservation\+State selected\+State)
+\begin{DoxyCompactList}\small\item\em Szűri a Data\+Grid-\/et a kiválasztott foglalásállapot alapján. \end{DoxyCompactList}\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a7aa8e7f63a247746ab28784a625224ac}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a7aa8e7f63a247746ab28784a625224ac} 
+void {\bfseries Initialize\+Combo\+Box} ()
+\begin{DoxyCompactList}\small\item\em Inicializálja a Combo\+Box-\/ot a foglalásállapotokkal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a0197bbf916a51d8ff02c441365eafa1c}{Combo\+Box\+\_\+\+Selection\+Changed}} (object sender, Selection\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em A Combo\+Box kiválasztott elemének megváltozásakor meghívódó eseménykezelő. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_ad7239007b03988eb7a671e8cda12cd9c}{Button\+\_\+\+Done}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em A "{}\+Done"{} gombra kattintáskor meghívódó eseménykezelő. Állapotátállítja a kiválasztott foglalást "{}\+Done"{} állapotra. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a418fce0c1ad6c2877f5a4f35cc0ba024}{Button\+\_\+\+Cancelled}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em A "{}\+Cancelled"{} gombra kattintáskor meghívódó eseménykezelő. Állapotátállítja a kiválasztott foglalást "{}\+Cancelled"{} állapotra. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_aa553097e639a82294895b8b7c2f2db0e}{Button\+\_\+\+Basket}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em A "{}\+Basket"{} gombra kattintáskor meghívódó eseménykezelő. Megnyitja a kiválasztott elem kosarát tartalmazó ablakot. \end{DoxyCompactList}\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a9dc4e89939df8aaa0b9907be39bebac6}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a9dc4e89939df8aaa0b9907be39bebac6} 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. {\bfseries Connect} (int connection\+Id, object target)
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a910e86bdb88cbfcf38d5c3a23ac9472b}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a910e86bdb88cbfcf38d5c3a23ac9472b} 
+void System.\+Windows.\+Markup.\+IStyle\+Connector. {\bfseries Connect} (int connection\+Id, object target)
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a9dc4e89939df8aaa0b9907be39bebac6}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a9dc4e89939df8aaa0b9907be39bebac6} 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. {\bfseries Connect} (int connection\+Id, object target)
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a910e86bdb88cbfcf38d5c3a23ac9472b}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a910e86bdb88cbfcf38d5c3a23ac9472b} 
+void System.\+Windows.\+Markup.\+IStyle\+Connector. {\bfseries Connect} (int connection\+Id, object target)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_aa9c9eb0e0cbf9ec84000709ac6740fe4}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_aa9c9eb0e0cbf9ec84000709ac6740fe4} 
+\mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_service}{Attekintes\+Service}} {\bfseries service} =new \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_service}{Attekintes\+Service}}()
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a4cffcb18d753b273b35eb43432ac69ca}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a4cffcb18d753b273b35eb43432ac69ca} 
+List$<$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_item}{Attekintes\+Item}} $>$ {\bfseries all\+Items}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_aa5d71128257d4c337faae5191e2efb0c}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_aa5d71128257d4c337faae5191e2efb0c} 
+bool {\bfseries \+\_\+content\+Loaded}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Az Attekintes\+Page osztály az áttekintő oldalt reprezentálja, ahol a foglalásokat megjelenítik és kezelik. 
+
+Attekintes\+Page. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_aa553097e639a82294895b8b7c2f2db0e}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_aa553097e639a82294895b8b7c2f2db0e} 
+\index{asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}!Button\_Basket@{Button\_Basket}}
+\index{Button\_Basket@{Button\_Basket}!asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}}
+\doxysubsubsection{\texorpdfstring{Button\_Basket()}{Button\_Basket()}}
+{\footnotesize\ttfamily void asztali\+\_\+vizsgaremek.\+Attekintes.\+Attekintes\+Page.\+Button\+\_\+\+Basket (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A "{}\+Basket"{} gombra kattintáskor meghívódó eseménykezelő. Megnyitja a kiválasztott elem kosarát tartalmazó ablakot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Az eseményt kiváltó objektum.\\
+\hline
+{\em e} & Az esemény argumentumai.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a418fce0c1ad6c2877f5a4f35cc0ba024}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a418fce0c1ad6c2877f5a4f35cc0ba024} 
+\index{asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}!Button\_Cancelled@{Button\_Cancelled}}
+\index{Button\_Cancelled@{Button\_Cancelled}!asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}}
+\doxysubsubsection{\texorpdfstring{Button\_Cancelled()}{Button\_Cancelled()}}
+{\footnotesize\ttfamily void asztali\+\_\+vizsgaremek.\+Attekintes.\+Attekintes\+Page.\+Button\+\_\+\+Cancelled (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A "{}\+Cancelled"{} gombra kattintáskor meghívódó eseménykezelő. Állapotátállítja a kiválasztott foglalást "{}\+Cancelled"{} állapotra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Az eseményt kiváltó objektum.\\
+\hline
+{\em e} & Az esemény argumentumai.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_ad7239007b03988eb7a671e8cda12cd9c}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_ad7239007b03988eb7a671e8cda12cd9c} 
+\index{asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}!Button\_Done@{Button\_Done}}
+\index{Button\_Done@{Button\_Done}!asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}}
+\doxysubsubsection{\texorpdfstring{Button\_Done()}{Button\_Done()}}
+{\footnotesize\ttfamily void asztali\+\_\+vizsgaremek.\+Attekintes.\+Attekintes\+Page.\+Button\+\_\+\+Done (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A "{}\+Done"{} gombra kattintáskor meghívódó eseménykezelő. Állapotátállítja a kiválasztott foglalást "{}\+Done"{} állapotra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Az eseményt kiváltó objektum.\\
+\hline
+{\em e} & Az esemény argumentumai.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a0197bbf916a51d8ff02c441365eafa1c}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a0197bbf916a51d8ff02c441365eafa1c} 
+\index{asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}!ComboBox\_SelectionChanged@{ComboBox\_SelectionChanged}}
+\index{ComboBox\_SelectionChanged@{ComboBox\_SelectionChanged}!asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}}
+\doxysubsubsection{\texorpdfstring{ComboBox\_SelectionChanged()}{ComboBox\_SelectionChanged()}}
+{\footnotesize\ttfamily void asztali\+\_\+vizsgaremek.\+Attekintes.\+Attekintes\+Page.\+Combo\+Box\+\_\+\+Selection\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Selection\+Changed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A Combo\+Box kiválasztott elemének megváltozásakor meghívódó eseménykezelő. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Az eseményt kiváltó objektum.\\
+\hline
+{\em e} & Az esemény argumentumai.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a862933116804fe58babf103399b385fc}\label{classasztali__vizsgaremek_1_1_attekintes_1_1_attekintes_page_a862933116804fe58babf103399b385fc} 
+\index{asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}!FilterDataGrid@{FilterDataGrid}}
+\index{FilterDataGrid@{FilterDataGrid}!asztali\_vizsgaremek.Attekintes.AttekintesPage@{asztali\_vizsgaremek.Attekintes.AttekintesPage}}
+\doxysubsubsection{\texorpdfstring{FilterDataGrid()}{FilterDataGrid()}}
+{\footnotesize\ttfamily void asztali\+\_\+vizsgaremek.\+Attekintes.\+Attekintes\+Page.\+Filter\+Data\+Grid (\begin{DoxyParamCaption}\item[{Reservation\+State}]{selected\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Szűri a Data\+Grid-\/et a kiválasztott foglalásállapot alapján. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+State} & A kiválasztott foglalásállapot.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/csont/\+Desktop/vizsga3/asztali\+\_\+vizsgaremek/\+Attekintes/Attekintes\+Page.\+xaml.\+cs\item 
+C\+:/\+Users/csont/\+Desktop/vizsga3/asztali\+\_\+vizsgaremek/obj/\+Debug/net8.\+0-\/windows/\+Attekintes/Attekintes\+Page.\+g.\+cs\item 
+C\+:/\+Users/csont/\+Desktop/vizsga3/asztali\+\_\+vizsgaremek/obj/\+Debug/net8.\+0-\/windows/\+Attekintes/Attekintes\+Page.\+g.\+i.\+cs\end{DoxyCompactItemize}
