@@ -14,9 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace asztali_vizsgaremek.Profilee
+
+namespace asztali_vizsgaremek.Profile
 {
     /// <summary>
     /// A felhasználói profil oldal logikáját tartalmazó osztály.
@@ -72,6 +72,8 @@ namespace asztali_vizsgaremek.Profilee
         }
         /// <summary>
         /// Módosítás gomb eseménykezelője.
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         /// </summary>
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
@@ -115,6 +117,8 @@ namespace asztali_vizsgaremek.Profilee
         }
         /// <summary>
         /// Szerkesztés gomb eseménykezelője.
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         /// </summary>
         private void Button_Edit(object sender, RoutedEventArgs e)
         {
@@ -151,6 +155,8 @@ namespace asztali_vizsgaremek.Profilee
         /// <summary>
         /// Jelszóváltoztatás gomb eseménykezelője.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void FelhPW_Click(object sender, RoutedEventArgs e)
         {
             DisableEdit();

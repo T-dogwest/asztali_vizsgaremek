@@ -1,5 +1,5 @@
 ﻿using asztali_vizsgaremek.Admin;
-using asztali_vizsgaremek.Profilee;
+using asztali_vizsgaremek.Profile;
 using asztali_vizsgaremek.User;
 using Microsoft.Identity.Client.NativeInterop;
 using System;
@@ -41,6 +41,8 @@ namespace asztali_vizsgaremek
         /// <summary>
         /// A jelszó megváltoztatását kezelő eseménykezelő.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Change(object sender, RoutedEventArgs e)
         {
             try

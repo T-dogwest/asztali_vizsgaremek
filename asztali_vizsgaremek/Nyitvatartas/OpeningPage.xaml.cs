@@ -85,6 +85,8 @@ namespace asztali_vizsgaremek.Nyitvatartas
         /// <summary>
         /// Az üzlet nyitvatartási adatainak módosítása.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
 

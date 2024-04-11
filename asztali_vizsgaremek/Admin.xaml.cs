@@ -1,9 +1,9 @@
 ﻿using asztali_vizsgaremek.Attekintes;
 using asztali_vizsgaremek.Menu;
 using asztali_vizsgaremek.Nyitvatartas;
-using asztali_vizsgaremek.Profilee;
+using asztali_vizsgaremek.Profile;
 using asztali_vizsgaremek.User;
-using asztali_vizsgaremek.Velemenyekk;
+using asztali_vizsgaremek.Velemenyek;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +38,8 @@ namespace asztali_vizsgaremek.Admin
         /// <summary>
         /// Az AttekintesPage megnyitását végző eseménykezelő.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Attekintes(object sender, RoutedEventArgs e)
         {
             Main.Content = new AttekintesPage();
@@ -45,6 +47,8 @@ namespace asztali_vizsgaremek.Admin
         /// <summary>
         /// A MenuPage megnyitását végző eseménykezelő.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Menu(object sender, RoutedEventArgs e)
         {
             Main.Content = new MenuPage();
@@ -54,6 +58,8 @@ namespace asztali_vizsgaremek.Admin
         /// <summary>
         /// A FelhasznalokPage megnyitását végző eseménykezelő.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Felhasznalok(object sender, RoutedEventArgs e)
         {
             Main.Content = new FelhasznalokPage();
@@ -62,6 +68,8 @@ namespace asztali_vizsgaremek.Admin
         /// <summary>
         /// Az OpeningPage megnyitását végző eseménykezelő.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Opening(object sender, RoutedEventArgs e)
         {
             Main.Content = new OpeningPage();
@@ -69,6 +77,8 @@ namespace asztali_vizsgaremek.Admin
         /// <summary>
         /// A VelemenyekPage megnyitását végző eseménykezelő.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Velemenyek(object sender, RoutedEventArgs e)
         {
             Main.Content = new VelemenyekPage();
@@ -76,6 +86,8 @@ namespace asztali_vizsgaremek.Admin
         /// <summary>
         /// A felhasználó kijelentkezését végző eseménykezelő.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Logout(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Biztos ki szeretne jelentkezni?", "Kijelentkezés", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -101,6 +113,8 @@ namespace asztali_vizsgaremek.Admin
         /// <summary>
         /// A ProfilePage megnyitását végző eseménykezelő.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_profil(object sender, RoutedEventArgs e)
         {
             Main.Content = new ProfilePage();

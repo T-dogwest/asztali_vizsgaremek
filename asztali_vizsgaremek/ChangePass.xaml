@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:asztali_vizsgaremek"
         mc:Ignorable="d"
         Title="ChangePass" Height="200" Width="500"
-        Background="White">
+        Background="#FF9518">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>

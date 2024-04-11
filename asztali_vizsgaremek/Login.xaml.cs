@@ -31,6 +31,8 @@ namespace asztali_vizsgaremek
         /// <summary>
         /// A bejelentkezés gomb eseménykezelője.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string username = tbFelhnev.Text;

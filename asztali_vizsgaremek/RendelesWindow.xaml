@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:asztali_vizsgaremek"
         mc:Ignorable="d"
-        Title="RendelesWindow" Height="600" Width="500">
+        Title="RendelesWindow" Height="600" Width="500"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>

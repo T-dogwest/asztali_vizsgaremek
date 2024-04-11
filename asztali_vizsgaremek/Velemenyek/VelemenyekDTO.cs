@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace asztali_vizsgaremek.Velemenyekk
+namespace asztali_vizsgaremek.Velemenyek
 { /// <summary>
   /// A vélemények adatátvitelére használt adattranszfer objektum.
   /// </summary>

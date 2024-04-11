@@ -48,6 +48,8 @@ namespace asztali_vizsgaremek.Menu
         /// Az "Hozzáadás" gomb eseménykezelője.
         /// Létrehozza az új menüelemet a felhasználói bemenetek alapján, majd hozzáadja a menühöz.
         /// </summary>
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Add(object sender, RoutedEventArgs e)
         {
 

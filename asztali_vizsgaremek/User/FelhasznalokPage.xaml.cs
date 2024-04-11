@@ -146,7 +146,7 @@ namespace asztali_vizsgaremek.User
                 MessageBox.Show("E-mail cím megadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
-            else if (!IsValidEmail(Email))
+            if (!IsValidEmail(Email))
             {
                
                 MessageBox.Show("Helytelen e-mail formátum!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);

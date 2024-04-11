@@ -66,6 +66,8 @@ namespace asztali_vizsgaremek
         /// <summary>
         /// A rendelésablak bezárása.
         /// </summary>
+        ///   <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Close(object sender, RoutedEventArgs e)
         {
             Close();

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace asztali_vizsgaremek.Velemenyekk
+namespace asztali_vizsgaremek.Velemenyek
 {
     /// <summary>
     /// A vélemények megjelenítéséért és kezeléséért felelős felületi elemeket tartalmazó osztály.
@@ -58,6 +58,8 @@ namespace asztali_vizsgaremek.Velemenyekk
         /// <summary>
         /// Az elem törlésének gombjának kattintásának eseménykezelője.
         /// Törli a kiválasztott véleményt a táblázatból és a szerverről.
+        ///  <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         /// </summary>
         private void Button_Delete(object sender, RoutedEventArgs e)
         {
