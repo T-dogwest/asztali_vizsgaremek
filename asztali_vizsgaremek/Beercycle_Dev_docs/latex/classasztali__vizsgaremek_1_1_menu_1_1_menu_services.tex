@@ -1,0 +1,110 @@
+\doxysection{asztali\+\_\+vizsgaremek.\+Menu.\+Menu\+Services Class Reference}
+\hypertarget{classasztali__vizsgaremek_1_1_menu_1_1_menu_services}{}\label{classasztali__vizsgaremek_1_1_menu_1_1_menu_services}\index{asztali\_vizsgaremek.Menu.MenuServices@{asztali\_vizsgaremek.Menu.MenuServices}}
+
+
+A menu kezeléséért felelős szolgáltatásosztály.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_ab4ad9b9df61924706804cc67c58fe4e5}\label{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_ab4ad9b9df61924706804cc67c58fe4e5} 
+{\bfseries Menu\+Services} ()
+\begin{DoxyCompactList}\small\item\em Az osztály konstruktora, beállítja az alapértelmezett kérések fejlécét a token alapján. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_item}{Menu\+Item}} $>$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a5a5dda8b4f92584c797b34400770c713}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Az összes étlap elem lekérdezése. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_item}{Menu\+Item}} \mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a83331184e00bd600754d925d622ced2e}{Add}} (\mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_d_t_o}{Menu\+DTO}} menu)
+\begin{DoxyCompactList}\small\item\em Új étlap elem hozzáadása. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a225730dc08362bbcaf4d000b802aae7c}{Delete}} (\mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_item}{Menu\+Item}} menu)
+\begin{DoxyCompactList}\small\item\em Étlap elem törlése. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_item}{Menu\+Item}} \mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_ad8ad391c63e04dacbe57b4e9a3e262f2}{Update}} (int id, \mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_d_t_o}{Menu\+DTO}} menu)
+\begin{DoxyCompactList}\small\item\em Étlap elem frissítése. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a70ad8fdc7d0c3cf203e06e9d5bd326fa}\label{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a70ad8fdc7d0c3cf203e06e9d5bd326fa} 
+Http\+Client {\bfseries client} = new Http\+Client()
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a194833c1e786a8ded76c3b15ee3bf030}\label{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a194833c1e786a8ded76c3b15ee3bf030} 
+string {\bfseries url} = "{}http\+://localhost\+:3000/menu"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A menu kezeléséért felelős szolgáltatásosztály. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a83331184e00bd600754d925d622ced2e}\label{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a83331184e00bd600754d925d622ced2e} 
+\index{asztali\_vizsgaremek.Menu.MenuServices@{asztali\_vizsgaremek.Menu.MenuServices}!Add@{Add}}
+\index{Add@{Add}!asztali\_vizsgaremek.Menu.MenuServices@{asztali\_vizsgaremek.Menu.MenuServices}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_item}{Menu\+Item}} asztali\+\_\+vizsgaremek.\+Menu.\+Menu\+Services.\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_d_t_o}{Menu\+DTO}}}]{menu }\end{DoxyParamCaption})}
+
+
+
+Új étlap elem hozzáadása. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & Az új étlap elem adatai.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Az újonnan hozzáadott étlap elem.
+\end{DoxyReturn}
+\Hypertarget{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a225730dc08362bbcaf4d000b802aae7c}\label{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a225730dc08362bbcaf4d000b802aae7c} 
+\index{asztali\_vizsgaremek.Menu.MenuServices@{asztali\_vizsgaremek.Menu.MenuServices}!Delete@{Delete}}
+\index{Delete@{Delete}!asztali\_vizsgaremek.Menu.MenuServices@{asztali\_vizsgaremek.Menu.MenuServices}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily bool asztali\+\_\+vizsgaremek.\+Menu.\+Menu\+Services.\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_item}{Menu\+Item}}}]{menu }\end{DoxyParamCaption})}
+
+
+
+Étlap elem törlése. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & Az étlap elem, amelyet törölni kell.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, ha a törlés sikeres volt, különben false.
+\end{DoxyReturn}
+\Hypertarget{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a5a5dda8b4f92584c797b34400770c713}\label{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_a5a5dda8b4f92584c797b34400770c713} 
+\index{asztali\_vizsgaremek.Menu.MenuServices@{asztali\_vizsgaremek.Menu.MenuServices}!GetAll@{GetAll}}
+\index{GetAll@{GetAll}!asztali\_vizsgaremek.Menu.MenuServices@{asztali\_vizsgaremek.Menu.MenuServices}}
+\doxysubsubsection{\texorpdfstring{GetAll()}{GetAll()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_item}{Menu\+Item}} $>$ asztali\+\_\+vizsgaremek.\+Menu.\+Menu\+Services.\+Get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Az összes étlap elem lekérdezése. 
+
+\begin{DoxyReturn}{Returns}
+Az összes étlap elem listája.
+\end{DoxyReturn}
+\Hypertarget{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_ad8ad391c63e04dacbe57b4e9a3e262f2}\label{classasztali__vizsgaremek_1_1_menu_1_1_menu_services_ad8ad391c63e04dacbe57b4e9a3e262f2} 
+\index{asztali\_vizsgaremek.Menu.MenuServices@{asztali\_vizsgaremek.Menu.MenuServices}!Update@{Update}}
+\index{Update@{Update}!asztali\_vizsgaremek.Menu.MenuServices@{asztali\_vizsgaremek.Menu.MenuServices}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_item}{Menu\+Item}} asztali\+\_\+vizsgaremek.\+Menu.\+Menu\+Services.\+Update (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{classasztali__vizsgaremek_1_1_menu_1_1_menu_d_t_o}{Menu\+DTO}}}]{menu }\end{DoxyParamCaption})}
+
+
+
+Étlap elem frissítése. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Az étlap elem azonosítója, amelyet frissíteni kell.\\
+\hline
+{\em menu} & Az új étlap elem adatai.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A frissített étlap elem.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/csont/\+Desktop/vizsga3/asztali\+\_\+vizsgaremek/\+Menu/Menu\+Services.\+cs\end{DoxyCompactItemize}

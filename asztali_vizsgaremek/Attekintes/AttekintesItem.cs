@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace asztali_vizsgaremek.Attekintes
-{/// <summary>
-/// Egy osztály, amely egy foglalás áttekintő elemét reprezentálja.
-/// </summary>
+{   /// <summary>
+    /// Egy osztály, amely egy foglalás áttekintő elemét reprezentálja.
+    /// </summary>
     public class AttekintesItem
     {
         /// <summary>

@@ -1,0 +1,150 @@
+\doxysection{asztali\+\_\+vizsgaremek.\+User.\+Felhasznalo\+Service Class Reference}
+\hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service}{}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service}\index{asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}}
+
+
+Felhasználók kezeléséért felelős szolgáltatásosztály.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a02b633cc36e41bd113732ee2f1d2d035}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a02b633cc36e41bd113732ee2f1d2d035} 
+{\bfseries Felhasznalo\+Service} ()
+\begin{DoxyCompactList}\small\item\em Felhasználó szolgáltatás konstruktora. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznmalok_item}{Felhasznmalok\+Item}} $>$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_af4e2e9ecbfe189c919b5683bcb8ee1c8}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Az összes felhasználó lekérdezése. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznmalok_item}{Felhasznmalok\+Item}} \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a63629351b47b70351a76712f23f0a1aa}{Add}} (\mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznalok_d_t_o}{Felhasznalok\+DTO}} user)
+\begin{DoxyCompactList}\small\item\em Új felhasználó hozzáadása. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a032be2add0cea9bcd08b068c5afd7525}{Delete}} (\mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznmalok_item}{Felhasznmalok\+Item}} user)
+\begin{DoxyCompactList}\small\item\em Felhasználó törlése. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznmalok_item}{Felhasznmalok\+Item}} \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a3724d2764d5f77c2bda9f3ab808c3814}{Get\+Logged\+In\+User\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Bejelentkezett felhasználó adatainak lekérdezése. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a0e781477db9817d67484f8b1cb8dccb4}{Update\+User}} (int id, \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_update_felhasznalo_d_t_o}{Update\+Felhasznalo\+DTO}} update\+User\+Dto)
+\begin{DoxyCompactList}\small\item\em Felhasználó adatainak frissítése. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_aac216ab26e1af461c77cc525b9499183}{Change\+Password}} (int user\+Id, \mbox{\hyperlink{classasztali__vizsgaremek_1_1_change_password_d_t_o}{Change\+Password\+DTO}} change\+Password\+Dto)
+\begin{DoxyCompactList}\small\item\em Felhasználó jelszavának megváltoztatása. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a2ae821e9a14ffa90286e3527402ee9a5}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a2ae821e9a14ffa90286e3527402ee9a5} 
+Http\+Client {\bfseries client} = new Http\+Client()
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a9db38f77e31d8be829936dd530914ced}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a9db38f77e31d8be829936dd530914ced} 
+string {\bfseries url} = "{}http\+://localhost\+:3000/user"{}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_ab54d92bf26cf55c3bd92cca7280a22f0}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_ab54d92bf26cf55c3bd92cca7280a22f0} 
+string {\bfseries url1} = "{}http\+://localhost\+:3000/user/createadmin"{}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_aa8bdefb073970c9cc22fe7acfac1f6c8}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_aa8bdefb073970c9cc22fe7acfac1f6c8} 
+string {\bfseries url2} = "{}http\+://localhost\+:3000/user/me"{}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a9b00d83f7a3ad97bd2102f395b1f51e3}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a9b00d83f7a3ad97bd2102f395b1f51e3} 
+string {\bfseries token}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Felhasználók kezeléséért felelős szolgáltatásosztály. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a63629351b47b70351a76712f23f0a1aa}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a63629351b47b70351a76712f23f0a1aa} 
+\index{asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}!Add@{Add}}
+\index{Add@{Add}!asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznmalok_item}{Felhasznmalok\+Item}} asztali\+\_\+vizsgaremek.\+User.\+Felhasznalo\+Service.\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznalok_d_t_o}{Felhasznalok\+DTO}}}]{user }\end{DoxyParamCaption})}
+
+
+
+Új felhasználó hozzáadása. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Az új felhasználó adatai.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A hozzáadott felhasználó adatai.
+\end{DoxyReturn}
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_aac216ab26e1af461c77cc525b9499183}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_aac216ab26e1af461c77cc525b9499183} 
+\index{asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}!ChangePassword@{ChangePassword}}
+\index{ChangePassword@{ChangePassword}!asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}}
+\doxysubsubsection{\texorpdfstring{ChangePassword()}{ChangePassword()}}
+{\footnotesize\ttfamily void asztali\+\_\+vizsgaremek.\+User.\+Felhasznalo\+Service.\+Change\+Password (\begin{DoxyParamCaption}\item[{int}]{user\+Id,  }\item[{\mbox{\hyperlink{classasztali__vizsgaremek_1_1_change_password_d_t_o}{Change\+Password\+DTO}}}]{change\+Password\+Dto }\end{DoxyParamCaption})}
+
+
+
+Felhasználó jelszavának megváltoztatása. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & A felhasználó azonosítója.\\
+\hline
+{\em change\+Password\+Dto} & Az új jelszó adatok.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a032be2add0cea9bcd08b068c5afd7525}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a032be2add0cea9bcd08b068c5afd7525} 
+\index{asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}!Delete@{Delete}}
+\index{Delete@{Delete}!asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily bool asztali\+\_\+vizsgaremek.\+User.\+Felhasznalo\+Service.\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznmalok_item}{Felhasznmalok\+Item}}}]{user }\end{DoxyParamCaption})}
+
+
+
+Felhasználó törlése. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & A törlendő felhasználó adatai.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, ha a törlés sikeres, egyébként false.
+\end{DoxyReturn}
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_af4e2e9ecbfe189c919b5683bcb8ee1c8}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_af4e2e9ecbfe189c919b5683bcb8ee1c8} 
+\index{asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}!GetAll@{GetAll}}
+\index{GetAll@{GetAll}!asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}}
+\doxysubsubsection{\texorpdfstring{GetAll()}{GetAll()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznmalok_item}{Felhasznmalok\+Item}} $>$ asztali\+\_\+vizsgaremek.\+User.\+Felhasznalo\+Service.\+Get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Az összes felhasználó lekérdezése. 
+
+\begin{DoxyReturn}{Returns}
+A felhasználók listája.
+\end{DoxyReturn}
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a3724d2764d5f77c2bda9f3ab808c3814}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a3724d2764d5f77c2bda9f3ab808c3814} 
+\index{asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}!GetLoggedInUserData@{GetLoggedInUserData}}
+\index{GetLoggedInUserData@{GetLoggedInUserData}!asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}}
+\doxysubsubsection{\texorpdfstring{GetLoggedInUserData()}{GetLoggedInUserData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_felhasznmalok_item}{Felhasznmalok\+Item}} asztali\+\_\+vizsgaremek.\+User.\+Felhasznalo\+Service.\+Get\+Logged\+In\+User\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Bejelentkezett felhasználó adatainak lekérdezése. 
+
+\begin{DoxyReturn}{Returns}
+A bejelentkezett felhasználó adatai.
+\end{DoxyReturn}
+\Hypertarget{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a0e781477db9817d67484f8b1cb8dccb4}\label{classasztali__vizsgaremek_1_1_user_1_1_felhasznalo_service_a0e781477db9817d67484f8b1cb8dccb4} 
+\index{asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}!UpdateUser@{UpdateUser}}
+\index{UpdateUser@{UpdateUser}!asztali\_vizsgaremek.User.FelhasznaloService@{asztali\_vizsgaremek.User.FelhasznaloService}}
+\doxysubsubsection{\texorpdfstring{UpdateUser()}{UpdateUser()}}
+{\footnotesize\ttfamily void asztali\+\_\+vizsgaremek.\+User.\+Felhasznalo\+Service.\+Update\+User (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{classasztali__vizsgaremek_1_1_user_1_1_update_felhasznalo_d_t_o}{Update\+Felhasznalo\+DTO}}}]{update\+User\+Dto }\end{DoxyParamCaption})}
+
+
+
+Felhasználó adatainak frissítése. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & A frissítendő felhasználó azonosítója.\\
+\hline
+{\em update\+User\+Dto} & Az új felhasználói adatok.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/csont/\+Desktop/vizsga3/asztali\+\_\+vizsgaremek/\+User/Felhasznalo\+Service.\+cs\end{DoxyCompactItemize}

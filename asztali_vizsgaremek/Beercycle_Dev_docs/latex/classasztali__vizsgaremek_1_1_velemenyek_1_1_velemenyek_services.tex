@@ -1,0 +1,71 @@
+\doxysection{asztali\+\_\+vizsgaremek.\+Velemenyek.\+Velemenyek\+Services Class Reference}
+\hypertarget{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services}{}\label{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services}\index{asztali\_vizsgaremek.Velemenyek.VelemenyekServices@{asztali\_vizsgaremek.Velemenyek.VelemenyekServices}}
+
+
+A vélemények kezeléséért felelős szolgáltatásosztály.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a243eb66e5221b13c6dbba179f3108134}\label{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a243eb66e5221b13c6dbba179f3108134} 
+{\bfseries Velemenyek\+Services} ()
+\begin{DoxyCompactList}\small\item\em A Velemenyek\+Services osztály konstruktora. Beállítja az alapértelmezett HTTP kérések fejlécét az autentikációs tokennel. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_item}{Velemenyek\+Item}} $>$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a2920f6242a607487fa7716390dc73729}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Az összes vélemény lekérdezését végzi a szerverről. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a2c6be24070eff2a41fd2bcc23eb7272d}{Delete}} (\mbox{\hyperlink{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_item}{Velemenyek\+Item}} velemeny)
+\begin{DoxyCompactList}\small\item\em Törli a megadott véleményt a szerverről. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_adc3fd456e3c3f61f33c7c8d340a4efd6}\label{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_adc3fd456e3c3f61f33c7c8d340a4efd6} 
+Http\+Client {\bfseries client} = new Http\+Client()
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a7baf8efa45496bd68c1e76013c96614d}\label{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a7baf8efa45496bd68c1e76013c96614d} 
+string {\bfseries url} = "{}http\+://localhost\+:3000/Review"{}
+\item 
+\Hypertarget{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_acc103fbfe1af5046b20068ea9a3deccc}\label{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_acc103fbfe1af5046b20068ea9a3deccc} 
+string {\bfseries url1} = "{}http\+://localhost\+:3000/Review/Admin\+Rev\+Delete"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A vélemények kezeléséért felelős szolgáltatásosztály. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a2c6be24070eff2a41fd2bcc23eb7272d}\label{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a2c6be24070eff2a41fd2bcc23eb7272d} 
+\index{asztali\_vizsgaremek.Velemenyek.VelemenyekServices@{asztali\_vizsgaremek.Velemenyek.VelemenyekServices}!Delete@{Delete}}
+\index{Delete@{Delete}!asztali\_vizsgaremek.Velemenyek.VelemenyekServices@{asztali\_vizsgaremek.Velemenyek.VelemenyekServices}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily bool asztali\+\_\+vizsgaremek.\+Velemenyek.\+Velemenyek\+Services.\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_item}{Velemenyek\+Item}}}]{velemeny }\end{DoxyParamCaption})}
+
+
+
+Törli a megadott véleményt a szerverről. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em velemeny} & A törlendő vélemény.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Igaz, ha a törlés sikeres, egyébként hamis.
+\end{DoxyReturn}
+\Hypertarget{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a2920f6242a607487fa7716390dc73729}\label{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_services_a2920f6242a607487fa7716390dc73729} 
+\index{asztali\_vizsgaremek.Velemenyek.VelemenyekServices@{asztali\_vizsgaremek.Velemenyek.VelemenyekServices}!GetAll@{GetAll}}
+\index{GetAll@{GetAll}!asztali\_vizsgaremek.Velemenyek.VelemenyekServices@{asztali\_vizsgaremek.Velemenyek.VelemenyekServices}}
+\doxysubsubsection{\texorpdfstring{GetAll()}{GetAll()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{classasztali__vizsgaremek_1_1_velemenyek_1_1_velemenyek_item}{Velemenyek\+Item}} $>$ asztali\+\_\+vizsgaremek.\+Velemenyek.\+Velemenyek\+Services.\+Get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Az összes vélemény lekérdezését végzi a szerverről. 
+
+\begin{DoxyReturn}{Returns}
+A lekért vélemények listája.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/csont/\+Desktop/vizsga3/asztali\+\_\+vizsgaremek/\+Velemenyek/Velemenyek\+Services.\+cs\end{DoxyCompactItemize}
