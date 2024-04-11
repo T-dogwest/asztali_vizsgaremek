@@ -15,19 +15,22 @@ using System.IO;
 using asztali_vizsgaremek.Admin;
 
 namespace asztali_vizsgaremek
-{
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+{/// <summary>
+ /// A bejelentkezési ablak osztálya.
+ /// </summary>
     public partial class Login : Window
     {
-
+        /// <summary>
+        /// A Login osztály konstruktora.
+        /// </summary>
         public Login()
         {
 
             InitializeComponent();
         }
-
+        /// <summary>
+        /// A bejelentkezés gomb eseménykezelője.
+        /// </summary>
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string username = tbFelhnev.Text;
@@ -84,10 +87,23 @@ namespace asztali_vizsgaremek
             }
         }
     }
+    /// <summary>
+    /// A bejelentkezési válasz osztálya.
+    /// </summary>
     public class LoginResponse
-    {
+    { /// <summary>
+      /// Az autentikációs token.
+      /// </summary>
         public string Token { get; set; }
+        /// <summary>
+        /// A felhasználó szerepköre.
+        /// </summary>
         public string Role { get; set; }
+        /// <summary>
+        /// A LoginResponse osztály konstruktora.
+        /// </summary>
+        /// <param name="token">Az autentikációs token.</param>
+        /// <param name="role">A felhasználó szerepköre.</param>
 
         public LoginResponse(string token, string role)
         {

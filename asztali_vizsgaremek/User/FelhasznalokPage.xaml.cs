@@ -18,20 +18,25 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek.User
 {
     /// <summary>
-    /// Interaction logic for Felhasznalok.xaml
+    /// A felhasználók kezelését végző felület logikáját tartalmazó osztály.
     /// </summary>
     public partial class FelhasznalokPage : Page
     {
 
         FelhasznaloService services = new FelhasznaloService();
+        /// <summary>
+        /// A FelhasznalokPage osztály konstruktora.
+        /// </summary>
         public FelhasznalokPage()
         {
             InitializeComponent();
             LoadData();
-
-
         }
-
+        /// <summary>
+        /// Az új felhasználó hozzáadását végző gomb eseménykezelője.
+        /// </summary>
+        /// <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Add(object sender, RoutedEventArgs e)
         {
             try
@@ -55,7 +60,11 @@ namespace asztali_vizsgaremek.User
             }
         }
 
-
+        /// <summary>
+        /// A kijelölt felhasználó törlését végző gomb eseménykezelője.
+        /// </summary>
+        /// <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Delete(object sender, RoutedEventArgs e)
         {
             
@@ -91,7 +100,9 @@ namespace asztali_vizsgaremek.User
                 }
             }
         }
-
+        /// <summary>
+        /// Az adatok betöltését végző metódus.
+        /// </summary>
         private async void LoadData()
         {
             List<FelhasznmalokItem> felhasznalok = services.GetAll();
@@ -109,6 +120,10 @@ namespace asztali_vizsgaremek.User
 
             UserTable.ItemsSource = filteredFelhasznalok;
         }
+        /// <summary>
+        /// Az input mezőkből új adminisztrátort létrehozó metódus.
+        /// </summary>
+        /// <returns>Az új adminisztrátor adatait tartalmazó objektum.</returns>
         private FelhasznalokDTO CreateAdminFromInputFields()
         {
             string FelName = tbFelhnev.Text.Trim();
@@ -116,10 +131,6 @@ namespace asztali_vizsgaremek.User
             string Password = tbJelszo.Password.Trim();
             string FirstName = tbkeresztnev.Text.Trim();
             string LastName = tbVezeteknev.Text.Trim();
-
-
-
-
 
             if (string.IsNullOrWhiteSpace(FelName))
             {
@@ -143,10 +154,10 @@ namespace asztali_vizsgaremek.User
             }
 
           
-            if (string.IsNullOrWhiteSpace(Password))
+            if (string.IsNullOrWhiteSpace(Password) || Password.Length < 6 || !Password.Any(char.IsDigit))
             {
              
-                MessageBox.Show("Jelszó megadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("A jelszónak legalább 6 karakter hosszúnak kell lennie, és tartalmaznia kell legalább egy számot!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
 
@@ -173,15 +184,14 @@ namespace asztali_vizsgaremek.User
             felh.First_name = FirstName;
             felh.Last_name = LastName;
 
-
-
             return felh;
-
-
-
         }
 
-      
+        /// <summary>
+        /// Ellenőrzi, hogy az email cím helyes formátumú-e.
+        /// </summary>
+        /// <param name="email">Az ellenőrizendő email cím.</param>
+        /// <returns>True, ha a megadott email cím helyes formátumú, különben False.</returns>
         private bool IsValidEmail(string email)
         {
             try
@@ -195,7 +205,9 @@ namespace asztali_vizsgaremek.User
             }
         }
 
-
+        /// <summary>
+        /// Kitörli az input mezők tartalmát.
+        /// </summary>
         private void ClearInputFields()
         {
             tbFelhnev.Text = "";

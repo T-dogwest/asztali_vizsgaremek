@@ -32,7 +32,7 @@
                 <Button Content="Menü" Grid.Column="2" Margin="5"  MinWidth="80" Click="Button_Menu"  Foreground="White" Background="#8A2A23"/>
 
                 <Button Content="Felhasznalók" Grid.Column="3" Margin="5"  MinWidth="80" Click="Button_Felhasznalok"  Foreground="White" Background="#8A2A23"/>
-                <Button Content="Nyitvatartás" Grid.Column="5" Margin="5"  MinWidth="80"  Foreground="White" Background="#8A2A23" Click="Button_cegadatok" Visibility="Visible"/>
+                <Button Content="Nyitvatartás" Grid.Column="5" Margin="5"  MinWidth="80"  Foreground="White" Background="#8A2A23" Click="Button_Opening" Visibility="Visible"/>
                 <Button Content="Velemények" Grid.Column="4" Margin="5"  MinWidth="80"  Foreground="White" Background="#8A2A23"  Visibility="Visible" Click="Button_Velemenyek"/>
 
                 <Button Content="Kijelentkezés" Grid.Column="8" Margin="5,5,5,0"  MinWidth="80" Background="DarkRed" Foreground="White" Height="25" VerticalAlignment="Top" Click="Logout" />

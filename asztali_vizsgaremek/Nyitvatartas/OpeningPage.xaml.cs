@@ -16,17 +16,23 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek.Nyitvatartas
 {
     /// <summary>
-    /// Interaction logic for Opening.xaml
+    /// Az üzlet nyitvatartását megjelenítő és módosító felület logikáját tartalmazó osztály.
     /// </summary>
     public partial class OpeningPage : Page
     {
         OpeningServices services = new OpeningServices();
+
+        /// <summary>
+        /// Az OpeningPage osztály konstruktora.
+        /// </summary>
         public OpeningPage()
         {
             InitializeComponent();
             LoadData();
         }
-
+        /// <summary>
+        /// Az üzlet nyitvatartási adatainak betöltése és megjelenítése az UI-ban.
+        /// </summary>
         private void LoadData()
         {
             var openings = services.GetAll();
@@ -43,7 +49,11 @@ namespace asztali_vizsgaremek.Nyitvatartas
                 tbSunday.Text = opening.Sunday;
             }
         }
-
+        /// <summary>
+        /// Ellenőrzi az időformátum helyességét.
+        /// </summary>
+        /// <param name="time">Az ellenőrizendő idő</param>
+        /// <returns>True, ha az időformátum helyes, egyébként false</returns>
         private bool ValidateTimeFormat(string time)
         {
             if (time.ToLower() == "closed")
@@ -72,10 +82,9 @@ namespace asztali_vizsgaremek.Nyitvatartas
 
             return true;
         }
-
-        
-
-
+        /// <summary>
+        /// Az üzlet nyitvatartási adatainak módosítása.
+        /// </summary>
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
 

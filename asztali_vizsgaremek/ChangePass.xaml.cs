@@ -19,21 +19,28 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek
 {
     /// <summary>
-    /// Interaction logic for ChangePass.xaml
+    /// Az ablak, amely lehetővé teszi a felhasználó jelszavának megváltoztatását.
     /// </summary>
     public partial class ChangePass : Window
     {
 
         private FelhasznmalokItem loggedInUser;
         FelhasznaloService service = new FelhasznaloService();
-        
+
+        /// <summary>
+        /// ChangePass ablak létrehozása a megadott felhasználóval.
+        /// </summary>
+        /// <param name="user">A bejelentkezett felhasználó adatai.</param>
+
         public ChangePass(FelhasznmalokItem user)
         {
             InitializeComponent();
             loggedInUser = user;
         }
 
-
+        /// <summary>
+        /// A jelszó megváltoztatását kezelő eseménykezelő.
+        /// </summary>
         private void Button_Change(object sender, RoutedEventArgs e)
         {
             try
@@ -76,14 +83,18 @@ namespace asztali_vizsgaremek
                 MessageBox.Show($"Hiba történt a jelszó megváltoztatása során: {ex.Message}");
             }
         }
-
+        /// <summary>
+        /// Az Admin ablak bezárását végző metódus.
+        /// </summary>
         private void CloseAdminWindow()
         {
              //Admin ablak bezárása
             var adminWindow = Application.Current.Windows.OfType<AdminWindow>().FirstOrDefault();
             if (adminWindow != null)
                 adminWindow.Close();
-        }
+        }  /// <summary>
+           /// A bejelentkező ablak megnyitását végző metódus.
+           /// </summary>
         private void OpenLoginWindow()
         {
             // Login ablak megnyitása

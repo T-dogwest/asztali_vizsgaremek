@@ -16,26 +16,35 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek.Velemenyekk
 {
     /// <summary>
-    /// Interaction logic for Velemenyek.xaml
+    /// A vélemények megjelenítéséért és kezeléséért felelős felületi elemeket tartalmazó osztály.
     /// </summary>
     public partial class VelemenyekPage : Page
     {
         VelemenyekServices services = new VelemenyekServices();
         List<VelemenyekItem> velemenyekList;
 
-
+        /// <summary>
+        /// A VelemenyekPage osztály konstruktora.
+        /// Frissíti az adatokat az oldal megjelenítésekor.
+        /// </summary>
         public VelemenyekPage()
         {
             InitializeComponent();
             RefreshData();
         }
-
+        /// <summary>
+        /// Az adatok frissítését végző metódus.
+        /// Lekéri az összes véleményt a szerverről és betölti azokat a táblázatba.
+        /// </summary>
         private void RefreshData()
         {
             velemenyekList = services.GetAll();
             VelemenyTable.ItemsSource = velemenyekList;
         }
-
+        /// <summary>
+        /// A vélemények táblázatának kiválasztásának eseménykezelője.
+        /// Betölti az adott kiválasztott vélemény részleteit a megfelelő szövegmezőkbe.
+        /// </summary>
         private void VelemenyTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (VelemenyTable.SelectedItem != null)
@@ -46,6 +55,10 @@ namespace asztali_vizsgaremek.Velemenyekk
             }
         }
 
+        /// <summary>
+        /// Az elem törlésének gombjának kattintásának eseménykezelője.
+        /// Törli a kiválasztott véleményt a táblázatból és a szerverről.
+        /// </summary>
         private void Button_Delete(object sender, RoutedEventArgs e)
         {
             if (VelemenyTable.SelectedItem != null)
@@ -77,7 +90,9 @@ namespace asztali_vizsgaremek.Velemenyekk
                 MessageBox.Show("Kérem válassza ki a törlendő elemet!", "Közlés", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-
+        /// <summary>
+        /// A szövegmezők kiürítését végző metódus.
+        /// </summary>
         private void ClearTextBoxes()
         {
             ertekelesTB.Text = string.Empty;

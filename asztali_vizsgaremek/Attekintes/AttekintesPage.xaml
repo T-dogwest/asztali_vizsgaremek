@@ -29,8 +29,9 @@
                 <DataGridTextColumn Header="Időpont" Binding="{Binding StartTime}" />
                 <DataGridTextColumn Header="Állapot" Binding="{Binding State}" />
                 <DataGridTextColumn Header="Bérlés ideje" Binding="{Binding ReservationTime}" />
-                <DataGridTextColumn Header="Összeg" Binding="{Binding TotalAmount}" />
                 <DataGridTextColumn Header="Bicikli típusa" Binding="{Binding BicycleType}" />
+                <DataGridTextColumn Header="Összeg" Binding="{Binding TotalAmount}" />
+               
                
 
                 <DataGridTemplateColumn >

@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 using System.Windows;
 
 namespace asztali_vizsgaremek.User
-{
+{/// <summary>
+ /// Felhasználók kezeléséért felelős szolgáltatásosztály
+ /// </summary>
     class FelhasznaloService
     {
 
@@ -22,20 +24,29 @@ namespace asztali_vizsgaremek.User
         private string token;
 
 
-
+        /// <summary>
+        /// Felhasználó szolgáltatás konstruktora.
+        /// </summary>
         public FelhasznaloService()
         {
             token = TokenM.GetToken();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
         }
-
+        /// <summary>
+        /// Az összes felhasználó lekérdezése.
+        /// </summary>
+        /// <returns>A felhasználók listája.</returns>
         public List<FelhasznmalokItem> GetAll()
         {
             string json = client.GetStringAsync(url).Result;
             Debug.WriteLine(json);
             return JsonConvert.DeserializeObject<List<FelhasznmalokItem>>(json);
         }
-
+        /// <summary>
+        /// Új felhasználó hozzáadása.
+        /// </summary>
+        /// <param name="user">Az új felhasználó adatai.</param>
+        /// <returns>A hozzáadott felhasználó adatai.</returns>
         public FelhasznmalokItem Add(FelhasznalokDTO user)
         {
             try
@@ -66,13 +77,21 @@ namespace asztali_vizsgaremek.User
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Felhasználó törlése.
+        /// </summary>
+        /// <param name="user">A törlendő felhasználó adatai.</param>
+        /// <returns>True, ha a törlés sikeres, egyébként false.</returns>
         public bool Delete(FelhasznmalokItem user)
         {
             int id = user.Id;
             HttpResponseMessage response = client.DeleteAsync($"{url}/{id}").Result;
             return response.IsSuccessStatusCode;
         }
+        /// <summary>
+        /// Bejelentkezett felhasználó adatainak lekérdezése.
+        /// </summary>
+        /// <returns>A bejelentkezett felhasználó adatai.</returns>
         public FelhasznmalokItem GetLoggedInUserData()
         {
             try
@@ -99,7 +118,11 @@ namespace asztali_vizsgaremek.User
                 return null;
             }
         }
-
+        /// <summary>
+        /// Felhasználó adatainak frissítése.
+        /// </summary>
+        /// <param name="id">A frissítendő felhasználó azonosítója.</param>
+        /// <param name="updateUserDto">Az új felhasználói adatok.</param>
         public void UpdateUser(int id, UpdateFelhasznaloDTO updateUserDto)
         {
             try
@@ -124,6 +147,11 @@ namespace asztali_vizsgaremek.User
                 throw ex;
             }
         }
+        /// <summary>
+        /// Felhasználó jelszavának megváltoztatása.
+        /// </summary>
+        /// <param name="userId">A felhasználó azonosítója.</param>
+        /// <param name="changePasswordDto">Az új jelszó adatok.</param>
         public void ChangePassword(int userId, ChangePasswordDTO changePasswordDto)
         {
             try

@@ -24,7 +24,10 @@ namespace asztali_vizsgaremek.Menu
     {
         MenuServices services = new MenuServices();
 
-
+        /// <summary>
+        /// A MenuPage osztály konstruktora.
+        /// Inicializálja a felhasználói felületet és betölti az összes elemet a menüből.
+        /// </summary>
         public MenuPage()
         {
             InitializeComponent();
@@ -33,14 +36,19 @@ namespace asztali_vizsgaremek.Menu
 
 
         }
-
+        /// <summary>
+        /// Inicializálja a típusok legördülő listáját a menü oldalon.
+        /// </summary>
         private void InitializeComboBox()
         {
 
             cbTipus.ItemsSource = Enum.GetValues(typeof(MenuType));
         }
-
-        private void Button_MenuHozzaad(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Az "Hozzáadás" gomb eseménykezelője.
+        /// Létrehozza az új menüelemet a felhasználói bemenetek alapján, majd hozzáadja a menühöz.
+        /// </summary>
+        private void Button_Add(object sender, RoutedEventArgs e)
         {
 
             try
@@ -63,10 +71,11 @@ namespace asztali_vizsgaremek.Menu
                 MessageBox.Show(ex.Message);
             }
         }
-
-
-
-        private void Button_Torles(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Az "Törlés" gomb eseménykezelője.
+        /// Az kiválasztott elem törlése a menüből.
+        /// </summary>
+        private void Button_Delete(object sender, RoutedEventArgs e)
         {
             if (MenuTable.SelectedItem != null)
             {
@@ -97,8 +106,11 @@ namespace asztali_vizsgaremek.Menu
                 MessageBox.Show("Kérem válasszon ki egy elemet a törléshez.", "Közlés", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-
-        private void Button_Vissza(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// A "Vissza" gomb eseménykezelője.
+        /// Törli a kijelölt elemet és törli a beviteli mezőket.
+        /// </summary>
+        private void Button_Back(object sender, RoutedEventArgs e)
         {
             MenuTable.SelectedItem= null;
             add.Visibility = Visibility.Visible;
@@ -107,8 +119,11 @@ namespace asztali_vizsgaremek.Menu
 
             ClearInputFields();
         }
-
-        private void Button_Modositas(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// A "Módosítás" gomb eseménykezelője.
+        /// Módosítja a kijelölt elemet a beviteli mezők értékeivel.
+        /// </summary>
+        private void Button_Modify(object sender, RoutedEventArgs e)
         {
             MenuItem selected = MenuTable.SelectedItem as MenuItem;
             if (selected == null)
@@ -137,6 +152,10 @@ namespace asztali_vizsgaremek.Menu
             }
 
         }
+        /// <summary>
+        /// Az input mezőkből létrehozza a menüt.
+        /// </summary>
+        /// <returns>A létrehozott menü objektum.</returns>
         private MenuDTO CreateMenuFromInputFields()
         {
             string Name = tbMenuName.Text.Trim();
@@ -171,18 +190,27 @@ namespace asztali_vizsgaremek.Menu
             menu.Price = priceValue;
             menu.ItemType = Type.Value;
             return menu;
-        }
+        } 
+        /// <summary>
+          /// Frissíti a menü táblázatot az aktuális menüelemekkel.
+          /// </summary>
         private void RefreshMenuTable()
         {
             MenuTable.ItemsSource = services.GetAll();
         }
-
+        /// <summary>
+        /// Törli a beviteli mezők tartalmát.
+        /// </summary>
         private void ClearInputFields()
         {
             tbMenuName.Text = "";
             tbMenuPrice.Text = "";
             cbTipus.Text = null;
         }
+        /// <summary>
+        /// A menü táblázat kijelölésének eseménykezelője.
+        /// Betölti a kiválasztott menüelem adatait a beviteli mezőkbe a módosításhoz.
+        /// </summary>
         private void MenuTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (MenuTable.SelectedItem != null)
@@ -197,11 +225,5 @@ namespace asztali_vizsgaremek.Menu
                 CreateMenuFromInputFields();
             }
         }
-
-
-
-
     }
-
-
 }

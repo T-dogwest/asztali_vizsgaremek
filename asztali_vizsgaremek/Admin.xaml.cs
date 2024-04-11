@@ -21,48 +21,61 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek.Admin
 {
     /// <summary>
-    /// Interaction logic for Admin.xaml
+    /// Az Admin felhasználói felület ablaka.
     /// </summary>
     public partial class AdminWindow : Window
     {
-   
 
+        /// <summary>
+        /// Admin ablak létrehozása.
+        /// </summary>
         public AdminWindow()
         {
             InitializeComponent();
 
         }
-      
 
+        /// <summary>
+        /// Az AttekintesPage megnyitását végző eseménykezelő.
+        /// </summary>
         private void Button_Attekintes(object sender, RoutedEventArgs e)
         {
             Main.Content = new AttekintesPage();
         }
-
+        /// <summary>
+        /// A MenuPage megnyitását végző eseménykezelő.
+        /// </summary>
         private void Button_Menu(object sender, RoutedEventArgs e)
         {
             Main.Content = new MenuPage();
         }
 
-       
 
+        /// <summary>
+        /// A FelhasznalokPage megnyitását végző eseménykezelő.
+        /// </summary>
         private void Button_Felhasznalok(object sender, RoutedEventArgs e)
         {
             Main.Content = new FelhasznalokPage();
         }
 
-       
-
-        private void Button_cegadatok(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Az OpeningPage megnyitását végző eseménykezelő.
+        /// </summary>
+        private void Button_Opening(object sender, RoutedEventArgs e)
         {
             Main.Content = new OpeningPage();
         }
-
+        /// <summary>
+        /// A VelemenyekPage megnyitását végző eseménykezelő.
+        /// </summary>
         private void Button_Velemenyek(object sender, RoutedEventArgs e)
         {
             Main.Content = new VelemenyekPage();
         }
-
+        /// <summary>
+        /// A felhasználó kijelentkezését végző eseménykezelő.
+        /// </summary>
         private void Logout(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Biztos ki szeretne jelentkezni?", "Kijelentkezés", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -85,6 +98,9 @@ namespace asztali_vizsgaremek.Admin
                 }
             }
         }
+        /// <summary>
+        /// A ProfilePage megnyitását végző eseménykezelő.
+        /// </summary>
         private void Button_profil(object sender, RoutedEventArgs e)
         {
             Main.Content = new ProfilePage();

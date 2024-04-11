@@ -19,25 +19,29 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 namespace asztali_vizsgaremek.Profilee
 {
     /// <summary>
-    /// Interaction logic for Profile.xaml
+    /// A felhasználói profil oldal logikáját tartalmazó osztály.
     /// </summary>
     public partial class ProfilePage : Page
     {
         private FelhasznaloService userService = new FelhasznaloService();
         private FelhasznmalokItem loggedInUser;
-
+        /// <summary>
+        /// A ProfilePage osztály konstruktora.
+        /// </summary>
         public ProfilePage()
         {
             InitializeComponent();
             LoadLoggedInUserData();
             DisableEdit();
         }
-
+        /// <summary>
+        /// Bejelentkezett felhasználó adatainak betöltése.
+        /// </summary>
         public void LoadLoggedInUserData()
         {
             try
             {
-                if (loggedInUser == null) // Ellenőrizzük, hogy az adatok még nincsenek betöltve
+                if (loggedInUser == null) 
                 {
                     loggedInUser = userService.GetLoggedInUserData();
                     if (loggedInUser != null)
@@ -55,7 +59,10 @@ namespace asztali_vizsgaremek.Profilee
                 MessageBox.Show($"Hiba történt a felhasználó adatainak betöltésekor: {ex.Message}");
             }
         }
-
+        /// <summary>
+        /// A bejelentkezett felhasználó adatainak kitöltése a megfelelő mezőkbe.
+        /// </summary>
+        /// <param name="loggedInUser">Bejelentkezett felhasználó adatai</param>
         private void FillUserData(FelhasznmalokItem loggedInUser)
         {
             felhasznaloNevtb.Text = loggedInUser.Username;
@@ -63,7 +70,9 @@ namespace asztali_vizsgaremek.Profilee
             lastNametb.Text = loggedInUser.Last_name;
             profEmailtb.Text = loggedInUser.Email;
         }
-
+        /// <summary>
+        /// Módosítás gomb eseménykezelője.
+        /// </summary>
         private void Button_Modify(object sender, RoutedEventArgs e)
         {
             try
@@ -104,12 +113,16 @@ namespace asztali_vizsgaremek.Profilee
                 MessageBox.Show($"Hiba történt a felhasználó adatainak frissítésekor: {ex.Message}");
             }
         }
-
+        /// <summary>
+        /// Szerkesztés gomb eseménykezelője.
+        /// </summary>
         private void Button_Edit(object sender, RoutedEventArgs e)
         {
             EnableEdit();
         }
-
+        /// <summary>
+        /// Szerkesztés tiltása.
+        /// </summary>
         private void DisableEdit()
         {
             felhasznaloNevtb.IsEnabled = false;
@@ -121,7 +134,9 @@ namespace asztali_vizsgaremek.Profilee
             Editbt.Visibility = Visibility.Visible;
             Modify.Visibility = Visibility.Collapsed;
         }
-
+        /// <summary>
+        /// Szerkesztés engedélyezése.
+        /// </summary>
         private void EnableEdit()
         {
             felhasznaloNevtb.IsEnabled = true;
@@ -133,18 +148,15 @@ namespace asztali_vizsgaremek.Profilee
             Editbt.Visibility = Visibility.Collapsed;
             Modify.Visibility = Visibility.Visible;
         }
-
+        /// <summary>
+        /// Jelszóváltoztatás gomb eseménykezelője.
+        /// </summary>
         private void FelhPW_Click(object sender, RoutedEventArgs e)
         {
             DisableEdit();
             ChangePass passwin = new ChangePass(loggedInUser);
             passwin.Closed += (s, ev) => {
-              /*  Login login = new Login();
-                login.ShowDialog();
-                var adminWindow = Application.Current.Windows.OfType<AdminWindow>().FirstOrDefault();
-                if (adminWindow != null)
-                    adminWindow.Close();
-                //zárd be az Admin ablakot*/
+             
 
             };
             passwin.ShowDialog();

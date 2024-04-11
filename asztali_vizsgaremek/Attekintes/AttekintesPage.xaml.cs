@@ -17,17 +17,23 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek.Attekintes
 {
     /// <summary>
-    /// Interaction logic for Attekintes.xaml
+    /// Az AttekintesPage osztály az áttekintő oldalt reprezentálja, ahol a foglalásokat megjelenítik és kezelik.
     /// </summary>
     public partial class AttekintesPage : Page
     {   AttekintesService service=new AttekintesService();
         private List<AttekintesItem> allItems;
+        /// <summary>
+        /// Az AttekintesPage osztály konstruktora, inicializálja az oldalt és betölti az adatokat.
+        /// </summary>
         public AttekintesPage()
         {
             InitializeComponent();
             InitializeComboBox();
             LoadData();
         }
+        /// <summary>
+        /// Betölti az adatokat az adatforrásból és megjeleníti azokat a DataGrid-ben.
+        /// </summary>
         private void LoadData()
         {
             try
@@ -48,6 +54,10 @@ namespace asztali_vizsgaremek.Attekintes
                 MessageBox.Show($"Hiba történt az adatok betöltése közben: {ex.Message}", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+        /// <summary>
+        /// Szűri a DataGrid-et a kiválasztott foglalásállapot alapján.
+        /// </summary>
+        /// <param name="selectedState">A kiválasztott foglalásállapot.</param>
         private void FilterDataGrid(ReservationState selectedState)
         {
             if (allItems != null)
@@ -61,27 +71,34 @@ namespace asztali_vizsgaremek.Attekintes
 
                 if (view.IsEmpty)
                 {
-                    // Ha a szűrt lista üres, ürítsd ki a DataGrid-et
+                  
                     AttekintesDG.ItemsSource = null;
                 }
                 else
                 {
-                    // Ellenkező esetben frissítsd a DataGrid-et a szűrt elemekkel
+                   
                     AttekintesDG.ItemsSource = view;
                 }
             }
             else
             {
-                // Ha az allItems null, jelezd ezt vagy kezeld le a hibát
+                
                 MessageBox.Show("Az allItems változó null értéket tartalmaz.", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-
+        /// <summary>
+        /// Inicializálja a ComboBox-ot a foglalásállapotokkal.
+        /// </summary>
         private void InitializeComboBox()
         {
             stateComboBox.ItemsSource = Enum.GetValues(typeof(ReservationState));
-        }
 
+        }
+        /// <summary>
+        /// A ComboBox kiválasztott elemének megváltozásakor meghívódó eseménykezelő.
+        /// </summary>
+        /// <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (stateComboBox.SelectedItem != null)
@@ -91,7 +108,12 @@ namespace asztali_vizsgaremek.Attekintes
             }
         }
 
-
+        /// <summary>
+        /// A "Done" gombra kattintáskor meghívódó eseménykezelő.
+        /// Állapotátállítja a kiválasztott foglalást "Done" állapotra.
+        /// </summary>
+        /// <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Done(object sender, RoutedEventArgs e)
         {
             if (AttekintesDG.SelectedItem != null )
@@ -106,8 +128,10 @@ namespace asztali_vizsgaremek.Attekintes
                         UpdateStateDto dto = new UpdateStateDto { State = ReservationState.Done };
                         service.Update(id, dto);
                         LoadData();
-                        ReservationState selectedState = (ReservationState)stateComboBox.SelectedItem;
+                        
+                         ReservationState selectedState = (ReservationState)stateComboBox.SelectedItem;
                         FilterDataGrid(selectedState);
+                       
                     }
                     catch (Exception ex)
                     {
@@ -125,7 +149,12 @@ namespace asztali_vizsgaremek.Attekintes
             }
 
         }
-
+        /// <summary>
+        /// A "Cancelled" gombra kattintáskor meghívódó eseménykezelő.
+        /// Állapotátállítja a kiválasztott foglalást "Cancelled" állapotra.
+        /// </summary>
+        /// <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Cancelled(object sender, RoutedEventArgs e)
         {
             if (AttekintesDG.SelectedItem != null)
@@ -151,7 +180,12 @@ namespace asztali_vizsgaremek.Attekintes
                 MessageBox.Show("Válassz egy elemet elöbb.", "Figyelmeztetés", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-
+        /// <summary>
+        /// A "Basket" gombra kattintáskor meghívódó eseménykezelő.
+        /// Megnyitja a kiválasztott elem kosarát tartalmazó ablakot.
+        /// </summary>
+        /// <param name="sender">Az eseményt kiváltó objektum.</param>
+        /// <param name="e">Az esemény argumentumai.</param>
         private void Button_Basket(object sender, RoutedEventArgs e)
         {
             if (AttekintesDG.SelectedItem != null)

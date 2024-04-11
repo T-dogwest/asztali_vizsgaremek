@@ -16,60 +16,56 @@ using System.Windows.Shapes;
 namespace asztali_vizsgaremek
 {
     /// <summary>
-    /// Interaction logic for RendelesWindow.xaml
+    /// A RendelesWindow.xaml logikája
     /// </summary>
     public partial class RendelesWindow : Window
     {
         AttekintesItem selected ;
-        
+       
+        /// <summary>
+        /// A RendelesWindow osztály konstruktora.
+        /// </summary>
+        /// <param name="selectedItem">Az a kiválasztott tétel, amelyhez a rendelésablak tartozik.</param>
+
         public RendelesWindow(AttekintesItem selectedItem)
         {
             
             InitializeComponent();
             selected = selectedItem;
-           
             Loadbasket();
 
            
         }
-
+        /// <summary>
+        /// Betölti a kosár tartalmát a megfelelő foglaláshoz.
+        /// </summary>
         private void Loadbasket()
         {
-            if (selected != null && selected.UserData != null && selected.UserData.Basket != null)
+            if (selected != null && selected.Basket != null && selected.Basket.Menu != null && selected.Basket.Menu != null && selected.Basket.Menu.Count > 0)
             {
-                
                 BasketContainer.Children.Clear();
 
-           
-                var selectedBasket = selected.UserData.Basket.FirstOrDefault(basket => basket.Id == selected.Id);
+                var basketLabel = new Label();
 
-                if (selectedBasket != null)
+                foreach (var menu in selected.Basket.Menu)
                 {
-                    var basketLabel = new Label();
-                 
-
-                  
-                    foreach (var menu in selectedBasket.Menu)
-                    {
-                        basketLabel.Content += $"\nMenu Name: {menu.NameKosar}, Price: {menu.Price}";
-                    }
-
-                
-                    basketLabel.Content += "\n";
-
-                  
-                    BasketContainer.Children.Add(basketLabel);
+                    basketLabel.Content += $"\nTermék neve: {menu.NameKosar}\nÁr: {menu.Price}ft\n";
                 }
-                else
-                {
-                  
-                    var noBasketLabel = new Label();
-                    noBasketLabel.Content = "Nincs elérhető kosár az adott foglaláshoz.";
-                    BasketContainer.Children.Add(noBasketLabel);
-                }
+
+                basketLabel.Content += "\n";
+
+                BasketContainer.Children.Add(basketLabel);
+            }
+            else
+            {
+                var noBasketLabel = new Label();
+                noBasketLabel.Content = "Nincs elérhető kosár az adott foglaláshoz.";
+                BasketContainer.Children.Add(noBasketLabel);
             }
         }
-
+        /// <summary>
+        /// A rendelésablak bezárása.
+        /// </summary>
         private void Button_Close(object sender, RoutedEventArgs e)
         {
             Close();

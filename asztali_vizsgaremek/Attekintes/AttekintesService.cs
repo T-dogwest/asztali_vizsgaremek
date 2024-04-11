@@ -12,19 +12,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace asztali_vizsgaremek
-{
+{ /// <summary>
+  /// A foglalásokkal kapcsolatos szolgáltatásokat nyújtó osztály.
+  /// </summary>
     class AttekintesService
     {
         private string token;
         private HttpClient client = new HttpClient();
         private string url = "http://localhost:3000/reservation";
         private string url1 = "http://localhost:3000/basket";
+        /// <summary>
+        /// Az osztály konstruktora, inicializálja a HttpClient-et és a token-t.
+        /// </summary>
         public AttekintesService()
         {
             token = TokenM.GetToken();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
            
         }
+        /// <summary>
+        /// Összes foglalást lekéri a szerverről.
+        /// </summary>
+        /// <returns>A foglalások listája.</returns>
         public List<AttekintesItem> GetAll()
         {
             try
@@ -48,7 +57,11 @@ namespace asztali_vizsgaremek
                 return null;
             }
         }
-       
+        /// <summary>
+        /// Frissíti a megadott foglalás állapotát a szerveren.
+        /// </summary>
+        /// <param name="id">A foglalás azonosítója.</param>
+        /// <param name="dto">Az állapotfrissítés DTO objektuma.</param>
         public void Update(int id, UpdateStateDto dto)
         {
             try
