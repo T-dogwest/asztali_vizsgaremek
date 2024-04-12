@@ -133,14 +133,11 @@ namespace asztali_vizsgaremek.User
 
                 var responseMessage = client.PatchAsync(updateUrl, content).Result;
 
-                if (responseMessage.IsSuccessStatusCode)
-                {
-
-                }
-                else
+                if (!responseMessage.IsSuccessStatusCode)
                 {
                     throw new Exception($"Felhasználó frissítése sikertelen. Kód: {responseMessage.StatusCode}");
                 }
+                
             }
             catch (Exception ex)
             {
