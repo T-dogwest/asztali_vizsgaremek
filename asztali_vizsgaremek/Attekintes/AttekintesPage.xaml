@@ -39,7 +39,7 @@
                         <DataTemplate>
                             <Button Click="Button_Basket" Width="30" Height="30" >
                                 <Button.Background>
-                                    <ImageBrush ImageSource="\Image\basket.png"/>
+                                    <ImageBrush ImageSource="/Attekintes/basket.png"/>
                                 </Button.Background>
                             </Button>
                         </DataTemplate>

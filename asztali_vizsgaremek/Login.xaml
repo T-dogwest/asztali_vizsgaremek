@@ -24,7 +24,7 @@
             <ColumnDefinition Width="180" />
             <ColumnDefinition Width="200"  />
         </Grid.ColumnDefinitions>
-        <Image Source="\Image\BeerCycleText.png" Width="202" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.ColumnSpan="3" />
+        <Image Source="/BeerCycleText.png" Width="202" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.ColumnSpan="3" />
         
         <TextBox Grid.Row="1" Grid.Column="1" x:Name="tbFelhnev" HorizontalAlignment="center" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"  />
         <PasswordBox Grid.Row="2" Grid.Column="1" x:Name="tbJelszo" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" />
