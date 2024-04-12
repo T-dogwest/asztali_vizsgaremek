@@ -26,7 +26,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Image Source="C:\Users\csont\Desktop\Vizsga2\asztali_vizsgaremek\Image\blankprofile.png" Grid.Row="1" Grid.Column="1" />
+        <Image Source="\Image\blankprofile.png" Grid.Row="1" Grid.Column="1" />
         <Label Content="Username: " Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <Label Content="Keresztnév: " Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <Label Content="Vezetéknév: " Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center"/>
