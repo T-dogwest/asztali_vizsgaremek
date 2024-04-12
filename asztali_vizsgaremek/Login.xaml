@@ -33,8 +33,6 @@
         <Label Grid.Row="2" Content="Jelszó: " HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
         <Button Grid.Row="3" x:Name="btnLogin" Grid.Column="1" Width="150" Content="Bejelentkezés" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="#8A2A23" Foreground="white" Click="btnLogin_Click"  />
-        <TextBlock  Grid.Row="4"  Grid.Column="1" Grid.ColumnSpan="2" Margin="15,0,185,0" Grid.RowSpan="2"  >
-        <Hyperlink  NavigateUri="https://petrik.hu/"  x:Name="Repassword" >Elfelejtettem a jelszót!</Hyperlink>
-        </TextBlock>
+       
     </Grid>
 </Window>
