@@ -88,6 +88,8 @@ namespace asztali_vizsgaremek
                 client.Dispose();
             }
         }
+
+ 
     }
     /// <summary>
     /// A bejelentkezési válasz osztálya.
