@@ -39,8 +39,8 @@ namespace asztali_vizsgaremek.Nyitvatartas
         /// <summary>
         /// Az üzlet nyitvatartása szombaton.
         /// </summary>
-        [JsonProperty("sasturday")]
-        public string Sasturday { get; set; }
+        [JsonProperty("saturday")]
+        public string Saturday { get; set; }
         /// <summary>
         /// Az üzlet nyitvatartása vasárnap.
         /// </summary>

@@ -45,7 +45,7 @@ namespace asztali_vizsgaremek.Nyitvatartas
                 tbWednesday.Text = opening.Wednesday;
                 tbThursday.Text = opening.Thursday;
                 tbFriday.Text = opening.Friday;
-                Sasturday.Text = opening.Sasturday;
+                Sasturday.Text = opening.Saturday;
                 tbSunday.Text = opening.Sunday;
             }
         }
@@ -105,7 +105,7 @@ namespace asztali_vizsgaremek.Nyitvatartas
                     Wednesday = tbWednesday.Text.ToLower() == "closed" ? "Closed" : tbWednesday.Text,
                     Thursday = tbThursday.Text.ToLower() == "closed" ? "Closed" : tbThursday.Text,
                     Friday = tbFriday.Text.ToLower() == "closed" ? "Closed" : tbFriday.Text,
-                    Sasturday = Sasturday.Text.ToLower() == "closed" ? "Closed" : Sasturday.Text,
+                    Saturday = Sasturday.Text.ToLower() == "closed" ? "Closed" : Sasturday.Text,
                     Sunday = tbSunday.Text.ToLower() == "closed" ? "Closed" : tbSunday.Text,
                 };
 
