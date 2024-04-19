@@ -45,7 +45,7 @@ namespace asztali_vizsgaremek.Nyitvatartas
                 tbWednesday.Text = opening.Wednesday;
                 tbThursday.Text = opening.Thursday;
                 tbFriday.Text = opening.Friday;
-                Sasturday.Text = opening.Saturday;
+                tbSaturday.Text = opening.Saturday;
                 tbSunday.Text = opening.Sunday;
             }
         }
@@ -95,7 +95,7 @@ namespace asztali_vizsgaremek.Nyitvatartas
                ValidateTimeFormat(tbWednesday.Text) &&
                ValidateTimeFormat(tbThursday.Text) &&
                ValidateTimeFormat(tbFriday.Text) &&
-               ValidateTimeFormat(Sasturday.Text) &&
+               ValidateTimeFormat(tbSaturday.Text) &&
                ValidateTimeFormat(tbSunday.Text))
             {
                 OpeningDTO modifiedOpening = new OpeningDTO
@@ -105,7 +105,7 @@ namespace asztali_vizsgaremek.Nyitvatartas
                     Wednesday = tbWednesday.Text.ToLower() == "closed" ? "Closed" : tbWednesday.Text,
                     Thursday = tbThursday.Text.ToLower() == "closed" ? "Closed" : tbThursday.Text,
                     Friday = tbFriday.Text.ToLower() == "closed" ? "Closed" : tbFriday.Text,
-                    Saturday = Sasturday.Text.ToLower() == "closed" ? "Closed" : Sasturday.Text,
+                    Saturday = tbSaturday.Text.ToLower() == "closed" ? "Closed" : tbSaturday.Text,
                     Sunday = tbSunday.Text.ToLower() == "closed" ? "Closed" : tbSunday.Text,
                 };
 

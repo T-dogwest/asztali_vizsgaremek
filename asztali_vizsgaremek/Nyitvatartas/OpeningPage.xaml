@@ -54,7 +54,7 @@
             <TextBox Grid.Row="4" Margin="5" Grid.Column="1" x:Name="tbFriday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
             <Label Content="Szombat: " Grid.Row="5" Grid.Column="0"/>
-            <TextBox Grid.Row="5" Margin="5" Grid.Column="1" x:Name="Sasturday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
+            <TextBox Grid.Row="5" Margin="5" Grid.Column="1" x:Name="tbSaturday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>
 
             <Label Content="Vasárnap: " Grid.Row="6" Grid.Column="0"/>
             <TextBox Grid.Row="6" Margin="5" Grid.Column="1" x:Name="tbSunday" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="top" Width="150"/>

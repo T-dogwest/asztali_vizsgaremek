@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_5CE74F0E21814496AA0F9F751EE9B45B"
+        "MsmKey" = "8:_7B468D4D5DBF43979D8C22C40CDE5518"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7B468D4D5DBF43979D8C22C40CDE5518"
+        "MsmKey" = "8:_E4A2A4D7D96D4741808E326FD28FFE42"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -59,6 +67,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -76,13 +92,23 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_5BE51C5DE2154E2381C82BCCA63B7EE4"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5CE74F0E21814496AA0F9F751EE9B45B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E4A2A4D7D96D4741808E326FD28FFE42"
             {
-            "SourcePath" = "8:..\\..\\..\\Downloads\\logo.ico"
+            "SourcePath" = "8:..\\..\\logo.ico"
             "TargetName" = "8:logo.ico"
             "Tag" = "8:"
             "Folder" = "8:_DB12C69D1EC348F8B38676A0231E9FD4"
@@ -288,7 +314,7 @@
             "Target" = "8:_7B468D4D5DBF43979D8C22C40CDE5518"
             "Folder" = "8:_16942BA53EF04A018F3CE45199F93A88"
             "WorkingFolder" = "8:_DB12C69D1EC348F8B38676A0231E9FD4"
-            "Icon" = "8:_5CE74F0E21814496AA0F9F751EE9B45B"
+            "Icon" = "8:_E4A2A4D7D96D4741808E326FD28FFE42"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A321A5EE7DEE4090BFF96242610C2596"
@@ -302,7 +328,7 @@
             "Target" = "8:_7B468D4D5DBF43979D8C22C40CDE5518"
             "Folder" = "8:_489EFBC652964E818CCFC72E4830AA55"
             "WorkingFolder" = "8:_DB12C69D1EC348F8B38676A0231E9FD4"
-            "Icon" = "8:_5CE74F0E21814496AA0F9F751EE9B45B"
+            "Icon" = "8:_E4A2A4D7D96D4741808E326FD28FFE42"
             "Feature" = "8:"
             }
         }
@@ -706,7 +732,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7B468D4D5DBF43979D8C22C40CDE5518"
             {
-            "SourcePath" = "8:..\\asztali_vizsgaremek\\obj\\Debug\\net8.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\asztali_vizsgaremek\\obj\\Release\\net8.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_DB12C69D1EC348F8B38676A0231E9FD4"
